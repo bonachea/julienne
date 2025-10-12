@@ -1,0 +1,1095 @@
+<!-- -*- mode: jinja2 -*- -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="A Fortran 2023 correctness-checking framework supporting expressive idioms for writing assertions and tests">
+    <meta name="author" content="Berkeley Lab" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>julienne_file_m &ndash; Julienne</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!-- Font Awesome -->
+    <link href="../css/fontawesome.min.css" rel="stylesheet">
+    <link href="../css/brands.min.css" rel="stylesheet">
+    <link href="../css/regular.min.css" rel="stylesheet">
+    <link href="../css/solid.min.css" rel="stylesheet">
+    <link href="../css/v4-font-face.min.css" rel="stylesheet">
+    <link href="../css/v4-shims.min.css" rel="stylesheet">
+    <!-- MathJax -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: { equationNumbers: { autoNumber: "AMS" } }
+      });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async
+            integrity="sha256-DViIOMYdwlM/axqoGDPeUyf0urLoHMN4QACBKyB58Uw=" crossorigin="anonymous"></script>
+    <!-- Other scripts and stylesheets -->
+    <link href="../css/local.css" rel="stylesheet">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <script src="../js/svg-pan-zoom.min.js"></script>
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="container-fluid mb-sm-4 mb-xl-2">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="../index.html">Julienne </a>
+          <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
+                  aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon">
+          </button>
+
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="../lists/files.html">Source Files</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/modules.html">Modules</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/procedures.html">Procedures</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/absint.html">Abstract Interfaces</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/types.html">Derived Types</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/programs.html">Programs</a>
+                </li>
+            </ul>
+              <div class="d-flex align-items-end flex-grow-1">
+                <form action="../search.html" role="search" class="ms-auto">
+                  <input type="text" class="form-control" aria-label="Search" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+                </form>
+              </div>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+    </div>
+
+    <div class="container">
+  <div class="row">
+    <h1>julienne_file_m
+      <small>Module</small>
+      
+    </h1>
+      <div class="container p-2 mb-4 bg-light border rounded-3">
+    <div class="row align-items-center justify-content-between" id="info-bar">
+      <div class="col">
+        <ul class="list-inline" style="margin-bottom:0px;display:inline">
+
+            <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
+              <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
+                 title=" 2.0% of total for modules and submodules.">51 statements</a>
+            </li>
+
+            <li class="list-inline-item" id="source-file">
+              <i class="fa fa-code"></i>
+              <a href="../src/julienne_file_m.f90"> Source File</a>
+            </li>
+        </ul>
+      </div>
+      <div class="col">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-end mb-0">
+                <li class="breadcrumb-item"><a href='../sourcefile/julienne_file_m.f90.html'>julienne_file_m.f90</a></li>
+            <li class="breadcrumb-item active" aria-current="page">julienne_file_m</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <script>
+    // Enable Bootstrap tooltips
+    (function () {
+      const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+      const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+    })();
+  </script>
+
+  </div>
+
+  <div class="row">
+    <div class="col-md-3">
+        <div id="sidebar">
+      <h3>Contents</h3>
+  
+  
+  
+  
+  
+  
+  
+  
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#inters-0"
+         aria-expanded="false" aria-controls="inters-0">
+         <h4 class="card-header bg-primary text-white">Interfaces</h4>
+      </a>
+      <div id="inters-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../module/julienne_file_m.html#interface-file_t">file_t</a>
+            <a class="list-group-item" href="../module/julienne_file_m.html#interface-lines">lines</a>
+            <a class="list-group-item" href="../module/julienne_file_m.html#interface-write_to_character_file_name">write_to_character_file_name</a>
+            <a class="list-group-item" href="../module/julienne_file_m.html#interface-write_to_output_unit">write_to_output_unit</a>
+            <a class="list-group-item" href="../module/julienne_file_m.html#interface-write_to_string_file_name">write_to_string_file_name</a>
+        </div>
+      </div>
+    </div>
+
+  
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#types-0"
+         aria-expanded="false" aria-controls="types-0">
+         <h4 class="card-header bg-primary text-white">Derived Types</h4>
+      </a>
+      <div id="types-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../module/julienne_file_m.html#type-file_t">file_t</a>
+        </div>
+      </div>
+    </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+  </div>
+
+    </div>
+
+    <div class="col-md-9" id='text'>
+      <p>A representation of a file as an object</p>
+<br>          <div class="card mb-4">
+      <h3 class="card-header card-title bg-light">Uses</h3>
+      <div class="card-body">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <ul class="list-inline">
+                  <li class="list-inline-item"><a href='julienne_string_m.html'>julienne_string_m</a></li>
+              </ul>
+            </li>
+            <li class="list-group-item">
+              <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: module~~julienne_file_m~~UsesGraph Pages: 1 -->
+<svg id="modulejulienne_file_mUsesGraph" width="363pt" height="32pt"
+ viewBox="0.00 0.00 363.00 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="module~~julienne_file_m~~UsesGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
+<title>module~~julienne_file_m~~UsesGraph</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 359,-28 359,4 -4,4"/>
+<!-- module~julienne_file_m -->
+<g id="module~~julienne_file_m~~UsesGraph_node1" class="node">
+<title>module~julienne_file_m</title>
+<polygon fill="none" stroke="black" points="355,-24 262,-24 262,0 355,0 355,-24"/>
+<text text-anchor="middle" x="308.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">julienne_file_m</text>
+</g>
+<!-- module~julienne_string_m -->
+<g id="module~~julienne_file_m~~UsesGraph_node2" class="node">
+<title>module~julienne_string_m</title>
+<g id="a_module~~julienne_file_m~~UsesGraph_node2"><a xlink:href="../module/julienne_string_m.html" xlink:title="julienne_string_m">
+<polygon fill="#337ab7" stroke="#337ab7" points="226,-24 120,-24 120,0 226,0 226,-24"/>
+<text text-anchor="middle" x="173" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">julienne_string_m</text>
+</a>
+</g>
+</g>
+<!-- module~julienne_file_m&#45;&gt;module~julienne_string_m -->
+<g id="module~~julienne_file_m~~UsesGraph_edge1" class="edge">
+<title>module~julienne_file_m&#45;&gt;module~julienne_string_m</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M261.93,-12C253.68,-12 244.94,-12 236.31,-12"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="236.25,-8.5 226.25,-12 236.25,-15.5 236.25,-8.5"/>
+</g>
+<!-- iso_c_binding -->
+<g id="module~~julienne_file_m~~UsesGraph_node3" class="node">
+<title>iso_c_binding</title>
+<g id="a_module~~julienne_file_m~~UsesGraph_node3"><a xlink:href="http://fortranwiki.org/fortran/show/iso_c_binding" xlink:title="iso_c_binding">
+<polygon fill="#337ab7" stroke="#337ab7" points="84,-24 0,-24 0,0 84,0 84,-24"/>
+<text text-anchor="middle" x="42" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">iso_c_binding</text>
+</a>
+</g>
+</g>
+<!-- module~julienne_string_m&#45;&gt;iso_c_binding -->
+<g id="module~~julienne_file_m~~UsesGraph_edge2" class="edge">
+<title>module~julienne_string_m&#45;&gt;iso_c_binding</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M119.9,-12C111.45,-12 102.7,-12 94.27,-12"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="94.19,-8.5 84.19,-12 94.19,-15.5 94.19,-8.5"/>
+</g>
+</g>
+</svg>
+</div>          <div>
+            <a type="button" class="graph-help" data-bs-toggle="modal" href="#UsesGraph-help-text">Help</a>
+          </div>
+          <div class="modal fade" id="UsesGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="518pt" height="32pt"
+ viewBox="0.00 0.00 517.50 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 513.5,-28 513.5,4 -4,4"/>
+<!-- Module -->
+<g id="node1" class="node">
+<title>Module</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="54,-24 0,-24 0,0 54,0 54,-24"/>
+<text text-anchor="middle" x="27" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Module</text>
+</g>
+<!-- Submodule -->
+<g id="node2" class="node">
+<title>Submodule</title>
+<polygon fill="#5bc0de" stroke="#5bc0de" points="145.5,-24 72.5,-24 72.5,0 145.5,0 145.5,-24"/>
+<text text-anchor="middle" x="109" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Submodule</text>
+</g>
+<!-- Subroutine -->
+<g id="node3" class="node">
+<title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="234,-24 164,-24 164,0 234,0 234,-24"/>
+<text text-anchor="middle" x="199" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node4" class="node">
+<title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="310,-24 252,-24 252,0 310,0 310,-24"/>
+<text text-anchor="middle" x="281" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Program -->
+<g id="node5" class="node">
+<title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="386,-24 328,-24 328,0 386,0 386,-24"/>
+<text text-anchor="middle" x="357" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node6" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="509.5,-24 404.5,-24 404.5,0 509.5,0 509.5,-24"/>
+<text text-anchor="middle" x="457" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+<p>Solid arrows point from a submodule to the (sub)module which it is
+descended from. Dashed arrows point from a module or program unit to 
+modules which it uses.
+</p>
+ Where possible, edges connecting nodes are
+given different colours to make them easier to distinguish in
+large graphs.</div>
+            </div>
+          </div>
+        </div>
+            </li>
+        </ul>
+      </div>
+    </div>
+
+          <div class="card">
+      <h3 class="card-header card-title bg-light">Used by</h3>
+      <div class="card-body">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <ul class="list-inline">
+                <li class="list-inline-item"><h5>Descendants:</h5></li>
+                  <li class="list-inline-item"><a href='julienne_file_s.html'>julienne_file_s</a></li>
+              </ul>
+            </li>
+            <li class="list-group-item">
+              <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: module~~julienne_file_m~~UsedByGraph Pages: 1 -->
+<svg id="modulejulienne_file_mUsedByGraph" width="613pt" height="209pt"
+ viewBox="0.00 0.00 613.00 209.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="module~~julienne_file_m~~UsedByGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 205)">
+<title>module~~julienne_file_m~~UsedByGraph</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-205 609,-205 609,4 -4,4"/>
+<!-- module~julienne_file_m -->
+<g id="module~~julienne_file_m~~UsedByGraph_node1" class="node">
+<title>module~julienne_file_m</title>
+<polygon fill="none" stroke="black" points="93,-159 0,-159 0,-135 93,-135 93,-159"/>
+<text text-anchor="middle" x="46.5" y="-144.6" font-family="Helvetica,sans-Serif" font-size="10.50">julienne_file_m</text>
+</g>
+<!-- module~julienne_file_s -->
+<g id="module~~julienne_file_m~~UsedByGraph_node2" class="node">
+<title>module~julienne_file_s</title>
+<g id="a_module~~julienne_file_m~~UsedByGraph_node2"><a xlink:href="../module/julienne_file_s.html" xlink:title="julienne_file_s">
+<polygon fill="#5bc0de" stroke="#5bc0de" points="236.5,-201 148.5,-201 148.5,-177 236.5,-177 236.5,-201"/>
+<text text-anchor="middle" x="192.5" y="-186.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">julienne_file_s</text>
+</a>
+</g>
+</g>
+<!-- module~julienne_file_s&#45;&gt;module~julienne_file_m -->
+<g id="module~~julienne_file_m~~UsedByGraph_edge3" class="edge">
+<title>module~julienne_file_s&#45;&gt;module~julienne_file_m</title>
+<path fill="none" stroke="#ff0000" d="M150.24,-176.96C134.12,-172.26 115.47,-166.82 98.52,-161.88"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="99.35,-158.48 88.77,-159.04 97.39,-165.2 99.35,-158.48"/>
+</g>
+<!-- module~julienne_m -->
+<g id="module~~julienne_file_m~~UsedByGraph_node3" class="node">
+<title>module~julienne_m</title>
+<g id="a_module~~julienne_file_m~~UsedByGraph_node3"><a xlink:href="../module/julienne_m.html" xlink:title="julienne_m">
+<polygon fill="#337ab7" stroke="#337ab7" points="363,-119 292,-119 292,-95 363,-95 363,-119"/>
+<text text-anchor="middle" x="327.5" y="-104.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">julienne_m</text>
+</a>
+</g>
+</g>
+<!-- module~julienne_m&#45;&gt;module~julienne_file_m -->
+<g id="module~~julienne_file_m~~UsedByGraph_edge1" class="edge">
+<title>module~julienne_m&#45;&gt;module~julienne_file_m</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M291.67,-108.7C252.04,-111.02 185.49,-116.07 129,-126 119.18,-127.73 108.8,-130.03 98.86,-132.47"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="97.94,-129.09 89.11,-134.94 99.66,-135.88 97.94,-129.09"/>
+</g>
+<!-- module~julienne_test_suite_m -->
+<g id="module~~julienne_file_m~~UsedByGraph_node4" class="node">
+<title>module~julienne_test_suite_m</title>
+<g id="a_module~~julienne_file_m~~UsedByGraph_node4"><a xlink:href="../module/julienne_test_suite_m.html" xlink:title="julienne_test_suite_m">
+<polygon fill="#337ab7" stroke="#337ab7" points="256,-159 129,-159 129,-135 256,-135 256,-159"/>
+<text text-anchor="middle" x="192.5" y="-144.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">julienne_test_suite_m</text>
+</a>
+</g>
+</g>
+<!-- module~julienne_m&#45;&gt;module~julienne_test_suite_m -->
+<g id="module~~julienne_file_m~~UsedByGraph_edge9" class="edge">
+<title>module~julienne_m&#45;&gt;module~julienne_test_suite_m</title>
+<path fill="none" stroke="#0000ff" stroke-dasharray="5,2" d="M291.9,-117.41C277.12,-121.85 259.57,-127.13 243.42,-131.99"/>
+<polygon fill="#0000ff" stroke="#0000ff" points="242.15,-128.71 233.58,-134.95 244.16,-135.42 242.15,-128.71"/>
+</g>
+<!-- module~julienne_test_suite_m&#45;&gt;module~julienne_file_m -->
+<g id="module~~julienne_file_m~~UsedByGraph_edge2" class="edge">
+<title>module~julienne_test_suite_m&#45;&gt;module~julienne_file_m</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M128.76,-147C120.24,-147 111.56,-147 103.18,-147"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="103.15,-143.5 93.15,-147 103.15,-150.5 103.15,-143.5"/>
+</g>
+<!-- module~julienne_test_suite_s -->
+<g id="module~~julienne_file_m~~UsedByGraph_node5" class="node">
+<title>module~julienne_test_suite_s</title>
+<g id="a_module~~julienne_file_m~~UsedByGraph_node5"><a xlink:href="../module/julienne_test_suite_s.html" xlink:title="julienne_test_suite_s">
+<polygon fill="#5bc0de" stroke="#5bc0de" points="562.5,-192 441.5,-192 441.5,-168 562.5,-168 562.5,-192"/>
+<text text-anchor="middle" x="502" y="-177.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">julienne_test_suite_s</text>
+</a>
+</g>
+</g>
+<!-- module~julienne_test_suite_s&#45;&gt;module~julienne_m -->
+<g id="module~~julienne_file_m~~UsedByGraph_edge4" class="edge">
+<title>module~julienne_test_suite_s&#45;&gt;module~julienne_m</title>
+<path fill="none" stroke="#00ff00" stroke-dasharray="5,2" d="M441.39,-172.22C427.13,-169.15 412.21,-164.89 399,-159 380.59,-150.8 362.35,-137.15 349.04,-125.9"/>
+<polygon fill="#00ff00" stroke="#00ff00" points="351.27,-123.2 341.43,-119.27 346.67,-128.48 351.27,-123.2"/>
+</g>
+<!-- module~julienne_test_suite_s&#45;&gt;module~julienne_test_suite_m -->
+<g id="module~~julienne_file_m~~UsedByGraph_edge10" class="edge">
+<title>module~julienne_test_suite_s&#45;&gt;module~julienne_test_suite_m</title>
+<path fill="none" stroke="#0000ff" d="M441.35,-173.6C391.3,-168.23 319.65,-160.54 266.24,-154.81"/>
+<polygon fill="#0000ff" stroke="#0000ff" points="266.47,-151.31 256.16,-153.72 265.73,-158.27 266.47,-151.31"/>
+</g>
+<!-- program~assertions -->
+<g id="module~~julienne_file_m~~UsedByGraph_node6" class="node">
+<title>program~assertions</title>
+<g id="a_module~~julienne_file_m~~UsedByGraph_node6"><a xlink:href="../program/assertions.html" xlink:title="assertions">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="535.5,-150 468.5,-150 468.5,-126 535.5,-126 535.5,-150"/>
+<text text-anchor="middle" x="502" y="-135.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">assertions</text>
+</a>
+</g>
+</g>
+<!-- program~assertions&#45;&gt;module~julienne_m -->
+<g id="module~~julienne_file_m~~UsedByGraph_edge5" class="edge">
+<title>program~assertions&#45;&gt;module~julienne_m</title>
+<path fill="none" stroke="#00ff00" stroke-dasharray="5,2" d="M468.15,-132.1C441.22,-127.26 402.83,-120.36 373.12,-115.02"/>
+<polygon fill="#00ff00" stroke="#00ff00" points="373.46,-111.52 363,-113.2 372.23,-118.41 373.46,-111.52"/>
+</g>
+<!-- program~check_for_command_line_argument -->
+<g id="module~~julienne_file_m~~UsedByGraph_node7" class="node">
+<title>program~check_for_command_line_argument</title>
+<g id="a_module~~julienne_file_m~~UsedByGraph_node7"><a xlink:href="../program/check_for_command_line_argument.html" xlink:title="check_for_command_line_argument">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="605,-108 399,-108 399,-84 605,-84 605,-108"/>
+<text text-anchor="middle" x="502" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">check_for_command_line_argument</text>
+</a>
+</g>
+</g>
+<!-- program~check_for_command_line_argument&#45;&gt;module~julienne_m -->
+<g id="module~~julienne_file_m~~UsedByGraph_edge6" class="edge">
+<title>program~check_for_command_line_argument&#45;&gt;module~julienne_m</title>
+<path fill="none" stroke="#00ff00" stroke-dasharray="5,2" d="M398.66,-102.53C389.89,-103.09 381.34,-103.63 373.4,-104.14"/>
+<polygon fill="#00ff00" stroke="#00ff00" points="373.11,-100.65 363.36,-104.78 373.56,-107.63 373.11,-100.65"/>
+</g>
+<!-- program~get_command_line_flag_value -->
+<g id="module~~julienne_file_m~~UsedByGraph_node8" class="node">
+<title>program~get_command_line_flag_value</title>
+<g id="a_module~~julienne_file_m~~UsedByGraph_node8"><a xlink:href="../program/get_command_line_flag_value.html" xlink:title="get_command_line_flag_value">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="589,-66 415,-66 415,-42 589,-42 589,-66"/>
+<text text-anchor="middle" x="502" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">get_command_line_flag_value</text>
+</a>
+</g>
+</g>
+<!-- program~get_command_line_flag_value&#45;&gt;module~julienne_m -->
+<g id="module~~julienne_file_m~~UsedByGraph_edge7" class="edge">
+<title>program~get_command_line_flag_value&#45;&gt;module~julienne_m</title>
+<path fill="none" stroke="#00ff00" stroke-dasharray="5,2" d="M431.87,-66.05C420.77,-68.61 409.49,-71.59 399,-75 386.09,-79.2 372.39,-85.07 360.54,-90.63"/>
+<polygon fill="#00ff00" stroke="#00ff00" points="358.97,-87.5 351.48,-94.99 362.01,-93.81 358.97,-87.5"/>
+</g>
+<!-- program~scaffold -->
+<g id="module~~julienne_file_m~~UsedByGraph_node9" class="node">
+<title>program~scaffold</title>
+<g id="a_module~~julienne_file_m~~UsedByGraph_node9"><a xlink:href="../program/scaffold.html" xlink:title="scaffold">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="529.5,-24 474.5,-24 474.5,0 529.5,0 529.5,-24"/>
+<text text-anchor="middle" x="502" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">scaffold</text>
+</a>
+</g>
+</g>
+<!-- program~scaffold&#45;&gt;module~julienne_m -->
+<g id="module~~julienne_file_m~~UsedByGraph_edge8" class="edge">
+<title>program~scaffold&#45;&gt;module~julienne_m</title>
+<path fill="none" stroke="#00ff00" stroke-dasharray="5,2" d="M474.35,-13.13C452.84,-15.03 422.4,-20.02 399,-33 375.48,-46.04 355.09,-69.58 342.38,-86.62"/>
+<polygon fill="#00ff00" stroke="#00ff00" points="339.46,-84.68 336.45,-94.84 345.14,-88.78 339.46,-84.68"/>
+</g>
+</g>
+</svg>
+</div>          <div>
+            <a type="button" class="graph-help" data-bs-toggle="modal" href="#UsedByGraph-help-text">Help</a>
+          </div>
+          <div class="modal fade" id="UsedByGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="518pt" height="32pt"
+ viewBox="0.00 0.00 517.50 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 513.5,-28 513.5,4 -4,4"/>
+<!-- Module -->
+<g id="node1" class="node">
+<title>Module</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="54,-24 0,-24 0,0 54,0 54,-24"/>
+<text text-anchor="middle" x="27" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Module</text>
+</g>
+<!-- Submodule -->
+<g id="node2" class="node">
+<title>Submodule</title>
+<polygon fill="#5bc0de" stroke="#5bc0de" points="145.5,-24 72.5,-24 72.5,0 145.5,0 145.5,-24"/>
+<text text-anchor="middle" x="109" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Submodule</text>
+</g>
+<!-- Subroutine -->
+<g id="node3" class="node">
+<title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="234,-24 164,-24 164,0 234,0 234,-24"/>
+<text text-anchor="middle" x="199" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node4" class="node">
+<title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="310,-24 252,-24 252,0 310,0 310,-24"/>
+<text text-anchor="middle" x="281" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Program -->
+<g id="node5" class="node">
+<title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="386,-24 328,-24 328,0 386,0 386,-24"/>
+<text text-anchor="middle" x="357" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node6" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="509.5,-24 404.5,-24 404.5,0 509.5,0 509.5,-24"/>
+<text text-anchor="middle" x="457" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+<p>Solid arrows point from a submodule to the (sub)module which it is
+descended from. Dashed arrows point from a module or program unit to 
+modules which it uses.
+</p>
+ Where possible, edges connecting nodes are
+given different colours to make them easier to distinguish in
+large graphs.</div>
+            </div>
+          </div>
+        </div>
+            </li>
+        </ul>
+      </div>
+    </div>
+
+      <br>
+
+
+
+
+        <section>
+          <h2>Interfaces</h2>
+              <div class="card">
+    <div class="card-header bg-light codesum">
+      <span class="anchor" id="interface-file_t"></span>
+      <h3>public        interface <a href='../interface/file_t.html'>file_t</a> 
+      </h3>
+    </div>
+    <ul class="list-group">
+          <li class="list-group-item">
+                <h3>
+    private module function from_file_with_character_name(file_name) result(file_object)  
+    <a href="../proc/from_file_with_character_name.html"><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
+
+    </h3>
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-file_name~3"></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>file_name</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>type(<a href='../type/file_t.html'>file_t</a>)</small>
+    </h4>
+    
+
+          </li>
+          <li class="list-group-item">
+                <h3>
+    private module function from_file_with_string_name(file_name) result(file_object)  
+    <a href="../proc/from_file_with_string_name.html"><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
+
+    </h3>
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-file_name~2"></span>
+              type(<a href='../type/string_t.html'>string_t</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>file_name</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>type(<a href='../type/file_t.html'>file_t</a>)</small>
+    </h4>
+    
+
+          </li>
+          <li class="list-group-item">
+                <h3>
+    private pure module function from_lines(lines) result(file_object)  
+    <a href="../proc/from_lines.html"><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
+
+    </h3>
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lines~3"></span>
+              type(<a href='../type/string_t.html'>string_t</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>lines</strong>(:)</td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>type(<a href='../type/file_t.html'>file_t</a>)</small>
+    </h4>
+    
+
+          </li>
+    </ul>
+  </div>
+
+              <div class="card">
+    <div class="card-header bg-light codesum">
+      <span class="anchor" id="interface-lines"></span>
+      <h3>        interface
+      </h3>
+    </div>
+    <ul class="list-group">
+        <li class="list-group-item">
+              <h3>
+    private pure module function lines(self) result(my_lines)  
+    <a href="../proc/lines.html"><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
+
+    </h3>
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-self~48"></span>
+              class(<a href='../type/file_t.html'>file_t</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>self</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>type(<a href='../type/string_t.html'>string_t</a>), allocatable, (:)</small>
+    </h4>
+    
+
+        </li>
+    </ul>
+  </div>
+
+              <div class="card">
+    <div class="card-header bg-light codesum">
+      <span class="anchor" id="interface-write_to_character_file_name"></span>
+      <h3>        interface
+      </h3>
+    </div>
+    <ul class="list-group">
+        <li class="list-group-item">
+              <h3>
+    private impure elemental module subroutine write_to_character_file_name(self, file_name)  
+    <a href="../proc/write_to_character_file_name.html"><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
+
+    </h3>
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-self~51"></span>
+              class(<a href='../type/file_t.html'>file_t</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>self</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-file_name~5"></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>file_name</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+        </li>
+    </ul>
+  </div>
+
+              <div class="card">
+    <div class="card-header bg-light codesum">
+      <span class="anchor" id="interface-write_to_output_unit"></span>
+      <h3>        interface
+      </h3>
+    </div>
+    <ul class="list-group">
+        <li class="list-group-item">
+              <h3>
+    private module subroutine write_to_output_unit(self)  
+    <a href="../proc/write_to_output_unit.html"><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
+
+    </h3>
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-self~49"></span>
+              class(<a href='../type/file_t.html'>file_t</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>self</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+        </li>
+    </ul>
+  </div>
+
+              <div class="card">
+    <div class="card-header bg-light codesum">
+      <span class="anchor" id="interface-write_to_string_file_name"></span>
+      <h3>        interface
+      </h3>
+    </div>
+    <ul class="list-group">
+        <li class="list-group-item">
+              <h3>
+    private impure elemental module subroutine write_to_string_file_name(self, file_name)  
+    <a href="../proc/write_to_string_file_name.html"><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
+
+    </h3>
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-self~50"></span>
+              class(<a href='../type/file_t.html'>file_t</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>self</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-file_name~4"></span>
+              type(<a href='../type/string_t.html'>string_t</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>file_name</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+        </li>
+    </ul>
+  </div>
+
+        </section>
+        <br>
+
+
+        <section>
+          <h2>Derived Types</h2>
+              <div class="card">
+    <div class="card-header codesum">
+      <span class="anchor" id="type-file_t"></span>
+      <h3>
+        type, public&nbsp;::&nbsp;
+        <a href='../type/file_t.html'>file_t</a>
+        
+      </h3>
+    </div>
+    <div class="card-body">
+      
+
+        <h4>Components</h4>
+          <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Visibility</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+<th></th><th scope="col">Initial</th>        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lines_"></span>
+              type(<a href='../type/string_t.html'>string_t</a>),
+            </td>
+              <td>private,</td>
+            <td>
+              allocatable
+            </td>
+            <td>::</td>
+            <td><strong>lines_</strong>(:)</td>
+                <td></td>
+                <td></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+        <h4>Constructor</h4>
+          
+        <table class="table table-striped varlist">
+          <tbody>
+                <tr>
+                  <td>
+                        private
+
+                    module
+                    function
+                    <strong>from_file_with_character_name</strong>
+                    (file_name)
+                  </td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>
+                        private
+
+                    module
+                    function
+                    <strong>from_file_with_string_name</strong>
+                    (file_name)
+                  </td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>
+                        private
+
+                    pure, module
+                    function
+                    <strong>from_lines</strong>
+                    (lines)
+                  </td>
+                  <td></td>
+                </tr>
+          </tbody>
+        </table>
+
+
+        <h4>Type-Bound Procedures</h4>
+        <table class="table table-striped varlist">
+          <tbody>
+              <tr>
+                <td>  procedure, public ::
+  <strong><a href='../type/file_t.html#boundprocedure-lines~2'>lines</a></strong></td>
+                  <td></td>
+              </tr>
+              <tr>
+                <td>  generic, public ::
+  <strong><a href='../type/file_t.html#boundprocedure-write_lines'>write_lines</a></strong> => <a href='/home/runner/work/julienne/julienne/doc/html/type/file_t.html#boundprocedure-write_to_output_unit'>write_to_output_unit</a>, <a href='/home/runner/work/julienne/julienne/doc/html/type/file_t.html#boundprocedure-write_to_character_file_name'>write_to_character_file_name</a>, <a href='/home/runner/work/julienne/julienne/doc/html/type/file_t.html#boundprocedure-write_to_string_file_name'>write_to_string_file_name</a></td>
+                  <td></td>
+              </tr>
+              <tr>
+                <td>  procedure, private ::
+  <strong><a href='../type/file_t.html#boundprocedure-write_to_character_file_name'>write_to_character_file_name</a></strong></td>
+                  <td></td>
+              </tr>
+              <tr>
+                <td>  procedure, private ::
+  <strong><a href='../type/file_t.html#boundprocedure-write_to_output_unit'>write_to_output_unit</a></strong></td>
+                  <td></td>
+              </tr>
+              <tr>
+                <td>  procedure, private ::
+  <strong><a href='../type/file_t.html#boundprocedure-write_to_string_file_name'>write_to_string_file_name</a></strong></td>
+                  <td></td>
+              </tr>
+          </tbody>
+        </table>
+    </div>
+  </div>
+
+        </section>
+        <br>
+
+
+
+
+
+    </div>
+  </div>
+
+      <hr>
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col">
+            <p>
+              Julienne
+ was developed by Berkeley Lab<br>              &copy; 2025 
+</p>
+          </div>
+          <div class="col">
+            <p class="text-end">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+ on 2025-10-12 20:01 +0000             </p>
+          </div>
+        </div>
+        <br>
+      </div> <!-- /container -->
+    </footer>
+  </body>
+</html>

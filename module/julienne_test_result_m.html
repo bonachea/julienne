@@ -1,0 +1,1324 @@
+<!-- -*- mode: jinja2 -*- -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="A Fortran 2023 correctness-checking framework supporting expressive idioms for writing assertions and tests">
+    <meta name="author" content="Berkeley Lab" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>julienne_test_result_m &ndash; Julienne</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!-- Font Awesome -->
+    <link href="../css/fontawesome.min.css" rel="stylesheet">
+    <link href="../css/brands.min.css" rel="stylesheet">
+    <link href="../css/regular.min.css" rel="stylesheet">
+    <link href="../css/solid.min.css" rel="stylesheet">
+    <link href="../css/v4-font-face.min.css" rel="stylesheet">
+    <link href="../css/v4-shims.min.css" rel="stylesheet">
+    <!-- MathJax -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: { equationNumbers: { autoNumber: "AMS" } }
+      });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async
+            integrity="sha256-DViIOMYdwlM/axqoGDPeUyf0urLoHMN4QACBKyB58Uw=" crossorigin="anonymous"></script>
+    <!-- Other scripts and stylesheets -->
+    <link href="../css/local.css" rel="stylesheet">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <script src="../js/svg-pan-zoom.min.js"></script>
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="container-fluid mb-sm-4 mb-xl-2">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="../index.html">Julienne </a>
+          <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
+                  aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon">
+          </button>
+
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="../lists/files.html">Source Files</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/modules.html">Modules</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/procedures.html">Procedures</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/absint.html">Abstract Interfaces</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/types.html">Derived Types</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/programs.html">Programs</a>
+                </li>
+            </ul>
+              <div class="d-flex align-items-end flex-grow-1">
+                <form action="../search.html" role="search" class="ms-auto">
+                  <input type="text" class="form-control" aria-label="Search" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+                </form>
+              </div>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+    </div>
+
+    <div class="container">
+  <div class="row">
+    <h1>julienne_test_result_m
+      <small>Module</small>
+      
+    </h1>
+      <div class="container p-2 mb-4 bg-light border rounded-3">
+    <div class="row align-items-center justify-content-between" id="info-bar">
+      <div class="col">
+        <ul class="list-inline" style="margin-bottom:0px;display:inline">
+
+            <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
+              <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
+                 title=" 2.3% of total for modules and submodules.">60 statements</a>
+            </li>
+
+            <li class="list-inline-item" id="source-file">
+              <i class="fa fa-code"></i>
+              <a href="../src/julienne_test_result_m.f90"> Source File</a>
+            </li>
+        </ul>
+      </div>
+      <div class="col">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-end mb-0">
+                <li class="breadcrumb-item"><a href='../sourcefile/julienne_test_result_m.f90.html'>julienne_test_result_m.f90</a></li>
+            <li class="breadcrumb-item active" aria-current="page">julienne_test_result_m</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <script>
+    // Enable Bootstrap tooltips
+    (function () {
+      const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+      const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+    })();
+  </script>
+
+  </div>
+
+  <div class="row">
+    <div class="col-md-3">
+        <div id="sidebar">
+      <h3>Contents</h3>
+  
+  
+  
+  
+  
+  
+  
+  
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#inters-0"
+         aria-expanded="false" aria-controls="inters-0">
+         <h4 class="card-header bg-primary text-white">Interfaces</h4>
+      </a>
+      <div id="inters-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../module/julienne_test_result_m.html#interface-test_result_t">test_result_t</a>
+            <a class="list-group-item" href="../module/julienne_test_result_m.html#interface-co_characterize">co_characterize</a>
+            <a class="list-group-item" href="../module/julienne_test_result_m.html#interface-description_contains_characters">description_contains_characters</a>
+            <a class="list-group-item" href="../module/julienne_test_result_m.html#interface-description_contains_string">description_contains_string</a>
+            <a class="list-group-item" href="../module/julienne_test_result_m.html#interface-passed">passed</a>
+            <a class="list-group-item" href="../module/julienne_test_result_m.html#interface-skipped">skipped</a>
+        </div>
+      </div>
+    </div>
+
+  
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#types-0"
+         aria-expanded="false" aria-controls="types-0">
+         <h4 class="card-header bg-primary text-white">Derived Types</h4>
+      </a>
+      <div id="types-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../module/julienne_test_result_m.html#type-test_result_t">test_result_t</a>
+        </div>
+      </div>
+    </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+  </div>
+
+    </div>
+
+    <div class="col-md-9" id='text'>
+      <p>Define an abstraction for describing test results the test description and,
+if the test was not skipped, then also a test diagnosis.</p>
+<br>          <div class="card mb-4">
+      <h3 class="card-header card-title bg-light">Uses</h3>
+      <div class="card-body">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <ul class="list-inline">
+                  <li class="list-inline-item"><a href='julienne_test_diagnosis_m.html'>julienne_test_diagnosis_m</a></li>
+                  <li class="list-inline-item"><a href='julienne_string_m.html'>julienne_string_m</a></li>
+              </ul>
+            </li>
+            <li class="list-group-item">
+              <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: module~~julienne_test_result_m~~UsesGraph Pages: 1 -->
+<svg id="modulejulienne_test_result_mUsesGraph" width="587pt" height="72pt"
+ viewBox="0.00 0.00 587.00 72.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="module~~julienne_test_result_m~~UsesGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 68)">
+<title>module~~julienne_test_result_m~~UsesGraph</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-68 583,-68 583,4 -4,4"/>
+<!-- module~julienne_test_result_m -->
+<g id="module~~julienne_test_result_m~~UsesGraph_node1" class="node">
+<title>module~julienne_test_result_m</title>
+<polygon fill="none" stroke="black" points="579,-44 449,-44 449,-20 579,-20 579,-44"/>
+<text text-anchor="middle" x="514" y="-29.6" font-family="Helvetica,sans-Serif" font-size="10.50">julienne_test_result_m</text>
+</g>
+<!-- module~julienne_string_m -->
+<g id="module~~julienne_test_result_m~~UsesGraph_node2" class="node">
+<title>module~julienne_string_m</title>
+<g id="a_module~~julienne_test_result_m~~UsesGraph_node2"><a xlink:href="../module/julienne_string_m.html" xlink:title="julienne_string_m">
+<polygon fill="#337ab7" stroke="#337ab7" points="226,-64 120,-64 120,-40 226,-40 226,-64"/>
+<text text-anchor="middle" x="173" y="-49.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">julienne_string_m</text>
+</a>
+</g>
+</g>
+<!-- module~julienne_test_result_m&#45;&gt;module~julienne_string_m -->
+<g id="module~~julienne_test_result_m~~UsesGraph_edge1" class="edge">
+<title>module~julienne_test_result_m&#45;&gt;module~julienne_string_m</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M448.84,-35.79C387.87,-39.38 296.77,-44.76 236.4,-48.32"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="236.01,-44.84 226.24,-48.92 236.43,-51.82 236.01,-44.84"/>
+</g>
+<!-- module~julienne_test_diagnosis_m -->
+<g id="module~~julienne_test_result_m~~UsesGraph_node3" class="node">
+<title>module~julienne_test_diagnosis_m</title>
+<g id="a_module~~julienne_test_result_m~~UsesGraph_node3"><a xlink:href="../module/julienne_test_diagnosis_m.html" xlink:title="julienne_test_diagnosis_m">
+<polygon fill="#337ab7" stroke="#337ab7" points="413,-24 262,-24 262,0 413,0 413,-24"/>
+<text text-anchor="middle" x="337.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">julienne_test_diagnosis_m</text>
+</a>
+</g>
+</g>
+<!-- module~julienne_test_result_m&#45;&gt;module~julienne_test_diagnosis_m -->
+<g id="module~~julienne_test_result_m~~UsesGraph_edge2" class="edge">
+<title>module~julienne_test_result_m&#45;&gt;module~julienne_test_diagnosis_m</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M448.52,-24.61C440.21,-23.66 431.61,-22.67 423.05,-21.69"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="423.36,-18.2 413.03,-20.54 422.57,-25.16 423.36,-18.2"/>
+</g>
+<!-- iso_c_binding -->
+<g id="module~~julienne_test_result_m~~UsesGraph_node4" class="node">
+<title>iso_c_binding</title>
+<g id="a_module~~julienne_test_result_m~~UsesGraph_node4"><a xlink:href="http://fortranwiki.org/fortran/show/iso_c_binding" xlink:title="iso_c_binding">
+<polygon fill="#337ab7" stroke="#337ab7" points="84,-44 0,-44 0,-20 84,-20 84,-44"/>
+<text text-anchor="middle" x="42" y="-29.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">iso_c_binding</text>
+</a>
+</g>
+</g>
+<!-- module~julienne_string_m&#45;&gt;iso_c_binding -->
+<g id="module~~julienne_test_result_m~~UsesGraph_edge3" class="edge">
+<title>module~julienne_string_m&#45;&gt;iso_c_binding</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M119.9,-43.92C111.45,-42.61 102.7,-41.26 94.27,-39.95"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="94.6,-36.46 84.19,-38.39 93.53,-43.38 94.6,-36.46"/>
+</g>
+<!-- module~julienne_test_diagnosis_m&#45;&gt;module~julienne_string_m -->
+<g id="module~~julienne_test_result_m~~UsesGraph_edge5" class="edge">
+<title>module~julienne_test_diagnosis_m&#45;&gt;module~julienne_string_m</title>
+<path fill="none" stroke="#00ffff" stroke-dasharray="5,2" d="M287.74,-24C270.47,-28.25 250.85,-33.08 232.83,-37.52"/>
+<polygon fill="#00ffff" stroke="#00ffff" points="231.88,-34.15 223,-39.94 233.55,-40.95 231.88,-34.15"/>
+</g>
+<!-- module~julienne_test_diagnosis_m&#45;&gt;iso_c_binding -->
+<g id="module~~julienne_test_result_m~~UsesGraph_edge4" class="edge">
+<title>module~julienne_test_diagnosis_m&#45;&gt;iso_c_binding</title>
+<path fill="none" stroke="#00ffff" stroke-dasharray="5,2" d="M261.68,-17.1C209.26,-20.67 140.57,-25.35 94.27,-28.51"/>
+<polygon fill="#00ffff" stroke="#00ffff" points="93.91,-25.02 84.17,-29.19 94.39,-32.01 93.91,-25.02"/>
+</g>
+</g>
+</svg>
+</div>          <div>
+            <a type="button" class="graph-help" data-bs-toggle="modal" href="#UsesGraph-help-text">Help</a>
+          </div>
+          <div class="modal fade" id="UsesGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="518pt" height="32pt"
+ viewBox="0.00 0.00 517.50 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 513.5,-28 513.5,4 -4,4"/>
+<!-- Module -->
+<g id="node1" class="node">
+<title>Module</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="54,-24 0,-24 0,0 54,0 54,-24"/>
+<text text-anchor="middle" x="27" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Module</text>
+</g>
+<!-- Submodule -->
+<g id="node2" class="node">
+<title>Submodule</title>
+<polygon fill="#5bc0de" stroke="#5bc0de" points="145.5,-24 72.5,-24 72.5,0 145.5,0 145.5,-24"/>
+<text text-anchor="middle" x="109" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Submodule</text>
+</g>
+<!-- Subroutine -->
+<g id="node3" class="node">
+<title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="234,-24 164,-24 164,0 234,0 234,-24"/>
+<text text-anchor="middle" x="199" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node4" class="node">
+<title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="310,-24 252,-24 252,0 310,0 310,-24"/>
+<text text-anchor="middle" x="281" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Program -->
+<g id="node5" class="node">
+<title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="386,-24 328,-24 328,0 386,0 386,-24"/>
+<text text-anchor="middle" x="357" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node6" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="509.5,-24 404.5,-24 404.5,0 509.5,0 509.5,-24"/>
+<text text-anchor="middle" x="457" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+<p>Solid arrows point from a submodule to the (sub)module which it is
+descended from. Dashed arrows point from a module or program unit to 
+modules which it uses.
+</p>
+ Where possible, edges connecting nodes are
+given different colours to make them easier to distinguish in
+large graphs.</div>
+            </div>
+          </div>
+        </div>
+            </li>
+        </ul>
+      </div>
+    </div>
+
+          <div class="card">
+      <h3 class="card-header card-title bg-light">Used by</h3>
+      <div class="card-body">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <ul class="list-inline">
+                <li class="list-inline-item"><h5>Descendants:</h5></li>
+                  <li class="list-inline-item"><a href='julienne_test_result_s.html'>julienne_test_result_s</a></li>
+              </ul>
+            </li>
+            <li class="list-group-item">
+              <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: module~~julienne_test_result_m~~UsedByGraph Pages: 1 -->
+<svg id="modulejulienne_test_result_mUsedByGraph" width="641pt" height="105pt"
+ viewBox="0.00 0.00 641.00 105.35" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="module~~julienne_test_result_m~~UsedByGraph" class="graph" transform="scale(0.5 0.5) rotate(0) translate(4 208.19)">
+<title>module~~julienne_test_result_m~~UsedByGraph</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-208.19 1287,-208.19 1287,4 -4,4"/>
+<!-- module~julienne_test_result_m -->
+<g id="module~~julienne_test_result_m~~UsedByGraph_node1" class="node">
+<title>module~julienne_test_result_m</title>
+<polygon fill="none" stroke="black" points="130,-108 0,-108 0,-84 130,-84 130,-108"/>
+<text text-anchor="middle" x="65" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50">julienne_test_result_m</text>
+</g>
+<!-- module~julienne_m -->
+<g id="module~~julienne_test_result_m~~UsedByGraph_node2" class="node">
+<title>module~julienne_m</title>
+<g id="a_module~~julienne_test_result_m~~UsedByGraph_node2"><a xlink:href="../module/julienne_m.html" xlink:title="julienne_m">
+<polygon fill="#337ab7" stroke="#337ab7" points="1007.5,-108 936.5,-108 936.5,-84 1007.5,-84 1007.5,-108"/>
+<text text-anchor="middle" x="972" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">julienne_m</text>
+</a>
+</g>
+</g>
+<!-- module~julienne_m&#45;&gt;module~julienne_test_result_m -->
+<g id="module~~julienne_test_result_m~~UsedByGraph_edge1" class="edge">
+<title>module~julienne_m&#45;&gt;module~julienne_test_result_m</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M619.5,-196C417.38,-217.43 360.46,-196.13 166,-137 143.99,-130.31 120.12,-120.62 101.22,-112.34"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="102.39,-109.03 91.83,-108.16 99.54,-115.42 102.39,-109.03"/>
+</g>
+<!-- module~julienne_test_description_m -->
+<g id="module~~julienne_test_result_m~~UsedByGraph_node3" class="node">
+<title>module~julienne_test_description_m</title>
+<g id="a_module~~julienne_test_result_m~~UsedByGraph_node3"><a xlink:href="../module/julienne_test_description_m.html" xlink:title="julienne_test_description_m">
+<polygon fill="#337ab7" stroke="#337ab7" points="326,-128 166,-128 166,-104 326,-104 326,-128"/>
+<text text-anchor="middle" x="246" y="-113.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">julienne_test_description_m</text>
+</a>
+</g>
+</g>
+<!-- module~julienne_m&#45;&gt;module~julienne_test_description_m -->
+<g id="module~~julienne_test_result_m~~UsedByGraph_edge10" class="edge">
+<title>module~julienne_m&#45;&gt;module~julienne_test_description_m</title>
+<path fill="none" stroke="#7fff00" stroke-dasharray="5,2" d="M794.5,-116C740.16,-120.78 738.26,-155.8 688,-177 659.68,-188.95 652.07,-192.76 621.5,-196"/>
+<path fill="none" stroke="#7fff00" stroke-dasharray="5,2" d="M619.5,-196C588.93,-199.24 578.87,-193.59 553,-177 532.3,-163.73 537.92,-147.91 517,-135 487.19,-116.61 475.09,-121.58 440.5,-116"/>
+</g>
+<!-- module~julienne_test_m -->
+<g id="module~~julienne_test_result_m~~UsedByGraph_node4" class="node">
+<title>module~julienne_test_m</title>
+<g id="a_module~~julienne_test_result_m~~UsedByGraph_node4"><a xlink:href="../module/julienne_test_m.html" xlink:title="julienne_test_m">
+<polygon fill="#337ab7" stroke="#337ab7" points="487.5,-88 391.5,-88 391.5,-64 487.5,-64 487.5,-88"/>
+<text text-anchor="middle" x="439.5" y="-73.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">julienne_test_m</text>
+</a>
+</g>
+</g>
+<!-- module~julienne_m&#45;&gt;module~julienne_test_m -->
+<g id="module~~julienne_test_result_m~~UsedByGraph_edge14" class="edge">
+<title>module~julienne_m&#45;&gt;module~julienne_test_m</title>
+<path fill="none" stroke="#00ffff" stroke-dasharray="5,2" d="M794.5,-116C689.6,-125.94 567.53,-104.93 497.61,-89.77"/>
+<polygon fill="#00ffff" stroke="#00ffff" points="498.2,-86.31 487.68,-87.58 496.69,-93.15 498.2,-86.31"/>
+</g>
+<!-- module~julienne_test_fixture_m -->
+<g id="module~~julienne_test_result_m~~UsedByGraph_node7" class="node">
+<title>module~julienne_test_fixture_m</title>
+<g id="a_module~~julienne_test_result_m~~UsedByGraph_node7"><a xlink:href="../module/julienne_test_fixture_m.html" xlink:title="julienne_test_fixture_m">
+<polygon fill="#337ab7" stroke="#337ab7" points="688,-88 553,-88 553,-64 688,-64 688,-88"/>
+<text text-anchor="middle" x="620.5" y="-73.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">julienne_test_fixture_m</text>
+</a>
+</g>
+</g>
+<!-- module~julienne_m&#45;&gt;module~julienne_test_fixture_m -->
+<g id="module~~julienne_test_result_m~~UsedByGraph_edge17" class="edge">
+<title>module~julienne_m&#45;&gt;module~julienne_test_fixture_m</title>
+<path fill="none" stroke="#ffbf00" stroke-dasharray="5,2" d="M936.28,-100.39C901.09,-104.74 845.07,-111.4 796.5,-116"/>
+<path fill="none" stroke="#ffbf00" stroke-dasharray="5,2" d="M794.5,-116C746.88,-120.51 693.42,-104.85 658.7,-91.82"/>
+<polygon fill="#ffbf00" stroke="#ffbf00" points="659.58,-88.41 648.99,-88.06 657.05,-94.94 659.58,-88.41"/>
+</g>
+<!-- module~julienne_test_harness_m -->
+<g id="module~~julienne_test_result_m~~UsedByGraph_node15" class="node">
+<title>module~julienne_test_harness_m</title>
+<g id="a_module~~julienne_test_result_m~~UsedByGraph_node15"><a xlink:href="../module/julienne_test_harness_m.html" xlink:title="julienne_test_harness_m">
+<polygon fill="#337ab7" stroke="#337ab7" points="867,-46 724,-46 724,-22 867,-22 867,-46"/>
+<text text-anchor="middle" x="795.5" y="-31.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">julienne_test_harness_m</text>
+</a>
+</g>
+</g>
+<!-- module~julienne_m&#45;&gt;module~julienne_test_harness_m -->
+<g id="module~~julienne_test_result_m~~UsedByGraph_edge20" class="edge">
+<title>module~julienne_m&#45;&gt;module~julienne_test_harness_m</title>
+<path fill="none" stroke="#00ffff" stroke-dasharray="5,2" d="M942.11,-83.84C921.38,-75.3 892.68,-63.87 867,-55 861.14,-52.98 854.96,-50.96 848.8,-49.03"/>
+<polygon fill="#00ffff" stroke="#00ffff" points="849.78,-45.67 839.19,-46.07 847.72,-52.36 849.78,-45.67"/>
+</g>
+<!-- module~julienne_test_description_m&#45;&gt;module~julienne_test_result_m -->
+<g id="module~~julienne_test_result_m~~UsedByGraph_edge2" class="edge">
+<title>module~julienne_test_description_m&#45;&gt;module~julienne_test_result_m</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M165.97,-107.17C157.44,-106.22 148.79,-105.25 140.33,-104.3"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="140.44,-100.8 130.12,-103.16 139.67,-107.75 140.44,-100.8"/>
+</g>
+<!-- module~julienne_test_m&#45;&gt;module~julienne_test_result_m -->
+<g id="module~~julienne_test_result_m~~UsedByGraph_edge3" class="edge">
+<title>module~julienne_test_m&#45;&gt;module~julienne_test_result_m</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M391.32,-78.53C328.12,-81.93 215.29,-87.98 140.54,-92"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="140.05,-88.52 130.25,-92.55 140.43,-95.51 140.05,-88.52"/>
+</g>
+<!-- module~julienne_test_m&#45;&gt;module~julienne_test_description_m -->
+<g id="module~~julienne_test_result_m~~UsedByGraph_edge11" class="edge">
+<title>module~julienne_test_m&#45;&gt;module~julienne_test_description_m</title>
+<path fill="none" stroke="#7fff00" stroke-dasharray="5,2" d="M391.16,-85.89C368.09,-90.71 339.92,-96.59 314.63,-101.87"/>
+<polygon fill="#7fff00" stroke="#7fff00" points="313.8,-98.47 304.72,-103.94 315.23,-105.32 313.8,-98.47"/>
+</g>
+<!-- module~julienne_test_result_s -->
+<g id="module~~julienne_test_result_m~~UsedByGraph_node5" class="node">
+<title>module~julienne_test_result_s</title>
+<g id="a_module~~julienne_test_result_m~~UsedByGraph_node5"><a xlink:href="../module/julienne_test_result_s.html" xlink:title="julienne_test_result_s">
+<polygon fill="#5bc0de" stroke="#5bc0de" points="308.5,-48 183.5,-48 183.5,-24 308.5,-24 308.5,-48"/>
+<text text-anchor="middle" x="246" y="-33.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">julienne_test_result_s</text>
+</a>
+</g>
+</g>
+<!-- module~julienne_test_result_s&#45;&gt;module~julienne_test_result_m -->
+<g id="module~~julienne_test_result_m~~UsedByGraph_edge4" class="edge">
+<title>module~julienne_test_result_s&#45;&gt;module~julienne_test_result_m</title>
+<path fill="none" stroke="#ff0000" d="M208,-48.09C194.74,-52.45 179.69,-57.42 166,-62 147.97,-68.03 128.15,-74.75 110.94,-80.62"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="109.48,-77.42 101.14,-83.96 111.74,-84.04 109.48,-77.42"/>
+</g>
+<!-- module~julienne_test_description_s -->
+<g id="module~~julienne_test_result_m~~UsedByGraph_node6" class="node">
+<title>module~julienne_test_description_s</title>
+<g id="a_module~~julienne_test_result_m~~UsedByGraph_node6"><a xlink:href="../module/julienne_test_description_s.html" xlink:title="julienne_test_description_s">
+<polygon fill="#5bc0de" stroke="#5bc0de" points="517,-168 362,-168 362,-144 517,-144 517,-168"/>
+<text text-anchor="middle" x="439.5" y="-153.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">julienne_test_description_s</text>
+</a>
+</g>
+</g>
+<!-- module~julienne_test_description_s&#45;&gt;module~julienne_test_description_m -->
+<g id="module~~julienne_test_result_m~~UsedByGraph_edge13" class="edge">
+<title>module~julienne_test_description_s&#45;&gt;module~julienne_test_description_m</title>
+<path fill="none" stroke="#7fff00" d="M381.04,-144C360.12,-139.63 336.28,-134.65 314.56,-130.11"/>
+<polygon fill="#7fff00" stroke="#7fff00" points="315.25,-126.68 304.75,-128.06 313.82,-133.53 315.25,-126.68"/>
+</g>
+<!-- module~julienne_test_fixture_m&#45;&gt;module~julienne_test_m -->
+<g id="module~~julienne_test_result_m~~UsedByGraph_edge15" class="edge">
+<title>module~julienne_test_fixture_m&#45;&gt;module~julienne_test_m</title>
+<path fill="none" stroke="#00ffff" stroke-dasharray="5,2" d="M552.85,-76C534.73,-76 515.28,-76 497.74,-76"/>
+<polygon fill="#00ffff" stroke="#00ffff" points="497.65,-72.5 487.65,-76 497.65,-79.5 497.65,-72.5"/>
+</g>
+<!-- module~julienne_test_s -->
+<g id="module~~julienne_test_result_m~~UsedByGraph_node8" class="node">
+<title>module~julienne_test_s</title>
+<g id="a_module~~julienne_test_result_m~~UsedByGraph_node8"><a xlink:href="../module/julienne_test_s.html" xlink:title="julienne_test_s">
+<polygon fill="#5bc0de" stroke="#5bc0de" points="666,-168 575,-168 575,-144 666,-144 666,-168"/>
+<text text-anchor="middle" x="620.5" y="-153.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">julienne_test_s</text>
+</a>
+</g>
+</g>
+<!-- module~julienne_test_s&#45;&gt;module~julienne_test_description_m -->
+<g id="module~~julienne_test_result_m~~UsedByGraph_edge12" class="edge">
+<title>module~julienne_test_s&#45;&gt;module~julienne_test_description_m</title>
+<path fill="none" stroke="#7fff00" stroke-dasharray="5,2" d="M574.91,-144.48C538.87,-135.54 486.71,-123.46 440.5,-116"/>
+<path fill="none" stroke="#7fff00" stroke-dasharray="5,2" d="M438.5,-116C405.48,-110.67 368.83,-109.53 336.51,-110.11"/>
+<polygon fill="#7fff00" stroke="#7fff00" points="336.1,-106.62 326.18,-110.35 336.26,-113.61 336.1,-106.62"/>
+</g>
+<!-- module~julienne_test_s&#45;&gt;module~julienne_test_m -->
+<g id="module~~julienne_test_result_m~~UsedByGraph_edge16" class="edge">
+<title>module~julienne_test_s&#45;&gt;module~julienne_test_m</title>
+<path fill="none" stroke="#00ffff" d="M583.08,-143.94C573.06,-140.04 562.38,-135.33 553,-130 535.38,-119.98 534.84,-111.62 517,-102 509.63,-98.03 501.55,-94.5 493.47,-91.42"/>
+<polygon fill="#00ffff" stroke="#00ffff" points="494.64,-88.12 484.05,-88.01 492.26,-94.7 494.64,-88.12"/>
+</g>
+<!-- module~julienne_test_suite_s -->
+<g id="module~~julienne_test_result_m~~UsedByGraph_node9" class="node">
+<title>module~julienne_test_suite_s</title>
+<g id="a_module~~julienne_test_result_m~~UsedByGraph_node9"><a xlink:href="../module/julienne_test_suite_s.html" xlink:title="julienne_test_suite_s">
+<polygon fill="#5bc0de" stroke="#5bc0de" points="1240.5,-192 1119.5,-192 1119.5,-168 1240.5,-168 1240.5,-192"/>
+<text text-anchor="middle" x="1180" y="-177.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">julienne_test_suite_s</text>
+</a>
+</g>
+</g>
+<!-- module~julienne_test_suite_s&#45;&gt;module~julienne_m -->
+<g id="module~~julienne_test_result_m~~UsedByGraph_edge5" class="edge">
+<title>module~julienne_test_suite_s&#45;&gt;module~julienne_m</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M1119.48,-171.3C1105.29,-168.26 1090.38,-164.25 1077,-159 1047.9,-147.58 1017.66,-128.29 997.35,-114.06"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="999.19,-111.07 989.01,-108.12 995.12,-116.77 999.19,-111.07"/>
+</g>
+<!-- program~assertions -->
+<g id="module~~julienne_test_result_m~~UsedByGraph_node10" class="node">
+<title>program~assertions</title>
+<g id="a_module~~julienne_test_result_m~~UsedByGraph_node10"><a xlink:href="../program/assertions.html" xlink:title="assertions">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="1213.5,-150 1146.5,-150 1146.5,-126 1213.5,-126 1213.5,-150"/>
+<text text-anchor="middle" x="1180" y="-135.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">assertions</text>
+</a>
+</g>
+</g>
+<!-- program~assertions&#45;&gt;module~julienne_m -->
+<g id="module~~julienne_test_result_m~~UsedByGraph_edge6" class="edge">
+<title>program~assertions&#45;&gt;module~julienne_m</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M1146.36,-131.34C1111.57,-124.25 1056.28,-112.98 1017.52,-105.08"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="1018.05,-101.61 1007.55,-103.04 1016.65,-108.47 1018.05,-101.61"/>
+</g>
+<!-- program~check_for_command_line_argument -->
+<g id="module~~julienne_test_result_m~~UsedByGraph_node11" class="node">
+<title>program~check_for_command_line_argument</title>
+<g id="a_module~~julienne_test_result_m~~UsedByGraph_node11"><a xlink:href="../program/check_for_command_line_argument.html" xlink:title="check_for_command_line_argument">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="1283,-108 1077,-108 1077,-84 1283,-84 1283,-108"/>
+<text text-anchor="middle" x="1180" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">check_for_command_line_argument</text>
+</a>
+</g>
+</g>
+<!-- program~check_for_command_line_argument&#45;&gt;module~julienne_m -->
+<g id="module~~julienne_test_result_m~~UsedByGraph_edge7" class="edge">
+<title>program~check_for_command_line_argument&#45;&gt;module~julienne_m</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M1076.91,-96C1056.29,-96 1035.64,-96 1018.23,-96"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="1017.84,-92.5 1007.84,-96 1017.84,-99.5 1017.84,-92.5"/>
+</g>
+<!-- program~get_command_line_flag_value -->
+<g id="module~~julienne_test_result_m~~UsedByGraph_node12" class="node">
+<title>program~get_command_line_flag_value</title>
+<g id="a_module~~julienne_test_result_m~~UsedByGraph_node12"><a xlink:href="../program/get_command_line_flag_value.html" xlink:title="get_command_line_flag_value">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="1267,-66 1093,-66 1093,-42 1267,-42 1267,-66"/>
+<text text-anchor="middle" x="1180" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">get_command_line_flag_value</text>
+</a>
+</g>
+</g>
+<!-- program~get_command_line_flag_value&#45;&gt;module~julienne_m -->
+<g id="module~~julienne_test_result_m~~UsedByGraph_edge8" class="edge">
+<title>program~get_command_line_flag_value&#45;&gt;module~julienne_m</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M1119.97,-66.04C1087.42,-72.67 1047.67,-80.78 1017.72,-86.88"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="1016.66,-83.53 1007.56,-88.95 1018.06,-90.39 1016.66,-83.53"/>
+</g>
+<!-- program~scaffold -->
+<g id="module~~julienne_test_result_m~~UsedByGraph_node13" class="node">
+<title>program~scaffold</title>
+<g id="a_module~~julienne_test_result_m~~UsedByGraph_node13"><a xlink:href="../program/scaffold.html" xlink:title="scaffold">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="1207.5,-24 1152.5,-24 1152.5,0 1207.5,0 1207.5,-24"/>
+<text text-anchor="middle" x="1180" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">scaffold</text>
+</a>
+</g>
+</g>
+<!-- program~scaffold&#45;&gt;module~julienne_m -->
+<g id="module~~julienne_test_result_m~~UsedByGraph_edge9" class="edge">
+<title>program~scaffold&#45;&gt;module~julienne_m</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M1152.29,-14.93C1131.28,-17.84 1101.55,-23.31 1077,-33 1059.56,-39.88 1057.03,-45.27 1041,-55 1028.23,-62.75 1014.08,-71.29 1002.02,-78.56"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="1000.01,-75.68 993.25,-83.83 1003.62,-81.67 1000.01,-75.68"/>
+</g>
+<!-- module~julienne_test_fixture_s -->
+<g id="module~~julienne_test_result_m~~UsedByGraph_node14" class="node">
+<title>module~julienne_test_fixture_s</title>
+<g id="a_module~~julienne_test_result_m~~UsedByGraph_node14"><a xlink:href="../module/julienne_test_fixture_s.html" xlink:title="julienne_test_fixture_s">
+<polygon fill="#5bc0de" stroke="#5bc0de" points="860.5,-88 730.5,-88 730.5,-64 860.5,-64 860.5,-88"/>
+<text text-anchor="middle" x="795.5" y="-73.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">julienne_test_fixture_s</text>
+</a>
+</g>
+</g>
+<!-- module~julienne_test_fixture_s&#45;&gt;module~julienne_test_fixture_m -->
+<g id="module~~julienne_test_result_m~~UsedByGraph_edge19" class="edge">
+<title>module~julienne_test_fixture_s&#45;&gt;module~julienne_test_fixture_m</title>
+<path fill="none" stroke="#ffbf00" d="M730.08,-76C719.74,-76 708.95,-76 698.36,-76"/>
+<polygon fill="#ffbf00" stroke="#ffbf00" points="698.29,-72.5 688.29,-76 698.29,-79.5 698.29,-72.5"/>
+</g>
+<!-- module~julienne_test_harness_m&#45;&gt;module~julienne_test_fixture_m -->
+<g id="module~~julienne_test_result_m~~UsedByGraph_edge18" class="edge">
+<title>module~julienne_test_harness_m&#45;&gt;module~julienne_test_fixture_m</title>
+<path fill="none" stroke="#ffbf00" stroke-dasharray="5,2" d="M744.93,-46.04C724.93,-50.89 701.69,-56.53 680.81,-61.6"/>
+<polygon fill="#ffbf00" stroke="#ffbf00" points="679.97,-58.2 671.08,-63.96 681.63,-65 679.97,-58.2"/>
+</g>
+<!-- module~julienne_test_harness_s -->
+<g id="module~~julienne_test_result_m~~UsedByGraph_node16" class="node">
+<title>module~julienne_test_harness_s</title>
+<g id="a_module~~julienne_test_result_m~~UsedByGraph_node16"><a xlink:href="../module/julienne_test_harness_s.html" xlink:title="julienne_test_harness_s">
+<polygon fill="#5bc0de" stroke="#5bc0de" points="1041,-46 903,-46 903,-22 1041,-22 1041,-46"/>
+<text text-anchor="middle" x="972" y="-31.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">julienne_test_harness_s</text>
+</a>
+</g>
+</g>
+<!-- module~julienne_test_harness_s&#45;&gt;module~julienne_test_harness_m -->
+<g id="module~~julienne_test_result_m~~UsedByGraph_edge21" class="edge">
+<title>module~julienne_test_harness_s&#45;&gt;module~julienne_test_harness_m</title>
+<path fill="none" stroke="#00ffff" d="M902.78,-34C894.49,-34 885.96,-34 877.51,-34"/>
+<polygon fill="#00ffff" stroke="#00ffff" points="877.26,-30.5 867.26,-34 877.26,-37.5 877.26,-30.5"/>
+</g>
+</g>
+</svg>
+</div>                <script>
+                  var panmodulejulienne_test_result_mUsedByGraph = svgPanZoom('#modulejulienne_test_result_mUsedByGraph',
+                    {zoomEnabled: true, controlIconsEnabled: true, fit: true, center: true,}
+                  );
+                </script>          <div>
+            <a type="button" class="graph-help" data-bs-toggle="modal" href="#UsedByGraph-help-text">Help</a>
+          </div>
+          <div class="modal fade" id="UsedByGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="518pt" height="32pt"
+ viewBox="0.00 0.00 517.50 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 513.5,-28 513.5,4 -4,4"/>
+<!-- Module -->
+<g id="node1" class="node">
+<title>Module</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="54,-24 0,-24 0,0 54,0 54,-24"/>
+<text text-anchor="middle" x="27" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Module</text>
+</g>
+<!-- Submodule -->
+<g id="node2" class="node">
+<title>Submodule</title>
+<polygon fill="#5bc0de" stroke="#5bc0de" points="145.5,-24 72.5,-24 72.5,0 145.5,0 145.5,-24"/>
+<text text-anchor="middle" x="109" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Submodule</text>
+</g>
+<!-- Subroutine -->
+<g id="node3" class="node">
+<title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="234,-24 164,-24 164,0 234,0 234,-24"/>
+<text text-anchor="middle" x="199" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node4" class="node">
+<title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="310,-24 252,-24 252,0 310,0 310,-24"/>
+<text text-anchor="middle" x="281" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Program -->
+<g id="node5" class="node">
+<title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="386,-24 328,-24 328,0 386,0 386,-24"/>
+<text text-anchor="middle" x="357" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node6" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="509.5,-24 404.5,-24 404.5,0 509.5,0 509.5,-24"/>
+<text text-anchor="middle" x="457" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+<p>Solid arrows point from a submodule to the (sub)module which it is
+descended from. Dashed arrows point from a module or program unit to 
+modules which it uses.
+</p>
+ Where possible, edges connecting nodes are
+given different colours to make them easier to distinguish in
+large graphs.</div>
+            </div>
+          </div>
+        </div>
+            </li>
+        </ul>
+      </div>
+    </div>
+
+      <br>
+
+
+
+
+        <section>
+          <h2>Interfaces</h2>
+              <div class="card">
+    <div class="card-header bg-light codesum">
+      <span class="anchor" id="interface-test_result_t"></span>
+      <h3>public        interface <a href='../interface/test_result_t.html'>test_result_t</a> 
+      </h3>
+    </div>
+    <ul class="list-group">
+          <li class="list-group-item">
+                <h3>
+    private elemental module function construct_from_character(description, diagnosis) result(test_result)  
+    <a href="../proc/construct_from_character~2.html"><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
+
+    </h3>
+  <p>The result is a test_result_t object with the components defined by the dummy arguments</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-description~2"></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>description</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-diagnosis~2"></span>
+              type(<a href='../type/test_diagnosis_t.html'>test_diagnosis_t</a>),
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>diagnosis</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>type(<a href='../type/test_result_t.html'>test_result_t</a>)</small>
+    </h4>
+    
+
+          </li>
+          <li class="list-group-item">
+                <h3>
+    private elemental module function construct_from_string(description, diagnosis) result(test_result)  
+    <a href="../proc/construct_from_string~2.html"><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
+
+    </h3>
+  <p>The result is a test_result_t object with the components defined by the dummy arguments</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-description"></span>
+              type(<a href='../type/string_t.html'>string_t</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>description</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-diagnosis"></span>
+              type(<a href='../type/test_diagnosis_t.html'>test_diagnosis_t</a>),
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>diagnosis</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>type(<a href='../type/test_result_t.html'>test_result_t</a>)</small>
+    </h4>
+    
+
+          </li>
+    </ul>
+  </div>
+
+              <div class="card">
+    <div class="card-header bg-light codesum">
+      <span class="anchor" id="interface-co_characterize"></span>
+      <h3>        interface
+      </h3>
+    </div>
+    <ul class="list-group">
+        <li class="list-group-item">
+              <h3>
+    private module subroutine co_characterize(self)  
+    <a href="../proc/co_characterize~2.html"><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
+
+    </h3>
+  <p>Print a description of the test, its outcome, and diagnostic information if the test fails</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-self~3"></span>
+              class(<a href='../type/test_result_t.html'>test_result_t</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>self</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+        </li>
+    </ul>
+  </div>
+
+              <div class="card">
+    <div class="card-header bg-light codesum">
+      <span class="anchor" id="interface-description_contains_characters"></span>
+      <h3>        interface
+      </h3>
+    </div>
+    <ul class="list-group">
+        <li class="list-group-item">
+              <h3>
+    private elemental module function description_contains_characters(self, substring) result(substring_found)  
+    <a href="../proc/description_contains_characters.html"><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
+
+    </h3>
+  <p>The result is true if and only if the test description contains the substring</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-self~7"></span>
+              class(<a href='../type/test_result_t.html'>test_result_t</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>self</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-substring~2"></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>substring</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>logical</small>
+    </h4>
+    
+
+        </li>
+    </ul>
+  </div>
+
+              <div class="card">
+    <div class="card-header bg-light codesum">
+      <span class="anchor" id="interface-description_contains_string"></span>
+      <h3>        interface
+      </h3>
+    </div>
+    <ul class="list-group">
+        <li class="list-group-item">
+              <h3>
+    private elemental module function description_contains_string(self, substring) result(substring_found)  
+    <a href="../proc/description_contains_string.html"><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
+
+    </h3>
+  <p>The result is true if and only if the test description contains the substring</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-self~6"></span>
+              class(<a href='../type/test_result_t.html'>test_result_t</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>self</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-substring"></span>
+              type(<a href='../type/string_t.html'>string_t</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>substring</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>logical</small>
+    </h4>
+    
+
+        </li>
+    </ul>
+  </div>
+
+              <div class="card">
+    <div class="card-header bg-light codesum">
+      <span class="anchor" id="interface-passed"></span>
+      <h3>        interface
+      </h3>
+    </div>
+    <ul class="list-group">
+        <li class="list-group-item">
+              <h3>
+    private impure elemental module function passed(self) result(test_passed)  
+    <a href="../proc/passed.html"><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
+
+    </h3>
+  <p>The result is true if and only if the test passed on all images</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-self~4"></span>
+              class(<a href='../type/test_result_t.html'>test_result_t</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>self</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>logical</small>
+    </h4>
+    
+
+        </li>
+    </ul>
+  </div>
+
+              <div class="card">
+    <div class="card-header bg-light codesum">
+      <span class="anchor" id="interface-skipped"></span>
+      <h3>        interface
+      </h3>
+    </div>
+    <ul class="list-group">
+        <li class="list-group-item">
+              <h3>
+    private impure elemental module function skipped(self) result(test_skipped)  
+    <a href="../proc/skipped.html"><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
+
+    </h3>
+  <p>The result is true if and only if the test result contains no diagnosis on any image</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-self~5"></span>
+              class(<a href='../type/test_result_t.html'>test_result_t</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>self</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>logical</small>
+    </h4>
+    
+
+        </li>
+    </ul>
+  </div>
+
+        </section>
+        <br>
+
+
+        <section>
+          <h2>Derived Types</h2>
+              <div class="card">
+    <div class="card-header codesum">
+      <span class="anchor" id="type-test_result_t"></span>
+      <h3>
+        type, public&nbsp;::&nbsp;
+        <a href='../type/test_result_t.html'>test_result_t</a>
+        
+      </h3>
+    </div>
+    <div class="card-body">
+      <p>Encapsulate a test-description string and optionally a test diagnosis.
+This type is similar to test_description_t and test_diagnosis_t type but
+1. Doesn't need the former's procedure(diagnosis_function_i) component and
+2. Allocates an instance of the latter if and only if the test wasn't skipped.</p>
+
+        <h4>Components</h4>
+          <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Visibility</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+<th></th><th scope="col">Initial</th>        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-description_"></span>
+              type(<a href='../type/string_t.html'>string_t</a>),
+            </td>
+              <td>private</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>description_</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-diagnosis_"></span>
+              type(<a href='../type/test_diagnosis_t.html'>test_diagnosis_t</a>),
+            </td>
+              <td>private,</td>
+            <td>
+              allocatable
+            </td>
+            <td>::</td>
+            <td><strong>diagnosis_</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+        <h4>Constructor</h4>
+          
+        <table class="table table-striped varlist">
+          <tbody>
+                <tr>
+                  <td>
+                        private
+
+                    elemental, module
+                    function
+                    <strong>construct_from_character</strong>
+                    (description, diagnosis)
+                  </td>
+                  <td><p>The result is a test_result_t object with the components defined by the dummy arguments</p></td>
+                </tr>
+                <tr>
+                  <td>
+                        private
+
+                    elemental, module
+                    function
+                    <strong>construct_from_string</strong>
+                    (description, diagnosis)
+                  </td>
+                  <td><p>The result is a test_result_t object with the components defined by the dummy arguments</p></td>
+                </tr>
+          </tbody>
+        </table>
+
+
+        <h4>Type-Bound Procedures</h4>
+        <table class="table table-striped varlist">
+          <tbody>
+              <tr>
+                <td>  procedure, public ::
+  <strong><a href='../type/test_result_t.html#boundprocedure-co_characterize'>co_characterize</a></strong></td>
+                  <td></td>
+              </tr>
+              <tr>
+                <td>  generic, public ::
+  <strong><a href='../type/test_result_t.html#boundprocedure-description_contains'>description_contains</a></strong> => <a href='/home/runner/work/julienne/julienne/doc/html/type/test_result_t.html#boundprocedure-description_contains_string'>description_contains_string</a>, <a href='/home/runner/work/julienne/julienne/doc/html/type/test_result_t.html#boundprocedure-description_contains_characters'>description_contains_characters</a></td>
+                  <td></td>
+              </tr>
+              <tr>
+                <td>  procedure, public ::
+  <strong><a href='../type/test_result_t.html#boundprocedure-passed'>passed</a></strong></td>
+                  <td></td>
+              </tr>
+              <tr>
+                <td>  procedure, public ::
+  <strong><a href='../type/test_result_t.html#boundprocedure-skipped'>skipped</a></strong></td>
+                  <td></td>
+              </tr>
+              <tr>
+                <td>  procedure, private ::
+  <strong><a href='../type/test_result_t.html#boundprocedure-description_contains_characters'>description_contains_characters</a></strong></td>
+                  <td></td>
+              </tr>
+              <tr>
+                <td>  procedure, private ::
+  <strong><a href='../type/test_result_t.html#boundprocedure-description_contains_string'>description_contains_string</a></strong></td>
+                  <td></td>
+              </tr>
+          </tbody>
+        </table>
+    </div>
+  </div>
+
+        </section>
+        <br>
+
+
+
+
+
+    </div>
+  </div>
+
+      <hr>
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col">
+            <p>
+              Julienne
+ was developed by Berkeley Lab<br>              &copy; 2025 
+</p>
+          </div>
+          <div class="col">
+            <p class="text-end">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+ on 2025-10-12 20:01 +0000             </p>
+          </div>
+        </div>
+        <br>
+      </div> <!-- /container -->
+    </footer>
+  </body>
+</html>

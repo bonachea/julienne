@@ -1,0 +1,1193 @@
+<!-- -*- mode: jinja2 -*- -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="A Fortran 2023 correctness-checking framework supporting expressive idioms for writing assertions and tests">
+    <meta name="author" content="Berkeley Lab" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>All Modules &ndash; Julienne
+</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!-- Font Awesome -->
+    <link href="../css/fontawesome.min.css" rel="stylesheet">
+    <link href="../css/brands.min.css" rel="stylesheet">
+    <link href="../css/regular.min.css" rel="stylesheet">
+    <link href="../css/solid.min.css" rel="stylesheet">
+    <link href="../css/v4-font-face.min.css" rel="stylesheet">
+    <link href="../css/v4-shims.min.css" rel="stylesheet">
+    <!-- MathJax -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: { equationNumbers: { autoNumber: "AMS" } }
+      });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async
+            integrity="sha256-DViIOMYdwlM/axqoGDPeUyf0urLoHMN4QACBKyB58Uw=" crossorigin="anonymous"></script>
+    <!-- Other scripts and stylesheets -->
+    <link href="../css/local.css" rel="stylesheet">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <script src="../js/svg-pan-zoom.min.js"></script>
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="container-fluid mb-sm-4 mb-xl-2">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="../index.html">Julienne </a>
+          <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
+                  aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon">
+          </button>
+
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="../lists/files.html">Source Files</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/modules.html">Modules</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/procedures.html">Procedures</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/absint.html">Abstract Interfaces</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/types.html">Derived Types</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/programs.html">Programs</a>
+                </li>
+            </ul>
+              <div class="d-flex align-items-end flex-grow-1">
+                <form action="../search.html" role="search" class="ms-auto">
+                  <input type="text" class="form-control" aria-label="Search" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+                </form>
+              </div>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12" id='text'>
+			 <h1>Modules</h1>
+			 <table class="table">
+			 <thead><tr><th>Module</th><th>Source File</th><th>Description</th></tr></thead>
+			 <tbody>
+			   <tr class="active">
+                 <td><a href='../module/julienne_assert_m.html'>julienne_assert_m</a></td>
+                 <td><a href='../sourcefile/julienne_assert_m.f90.html'>julienne_assert_m.f90</a></td>
+                 <td><p>Define interfaces for writing assertions</p></td>
+               </tr>
+                  			   <tr class="active submod">
+                 <td>&nbsp;&nbsp;&nbsp;<a href='../module/julienne_assert_s.html'>julienne_assert_s</a></td>
+                 <td><a href='../sourcefile/julienne_assert_s.f90.html'>julienne_assert_s.f90</a></td>
+                 <td></td>
+               </tr>
+
+<!--active-->			   <tr class="">
+                 <td><a href='../module/julienne_bin_m.html'>julienne_bin_m</a></td>
+                 <td><a href='../sourcefile/julienne_bin_m.f90.html'>julienne_bin_m.f90</a></td>
+                 <td><p>distribute item numbers across bins such that the number of items differs by at most 1 between any two bins</p></td>
+               </tr>
+                  			   <tr class=" submod">
+                 <td>&nbsp;&nbsp;&nbsp;<a href='../module/julienne_bin_s.html'>julienne_bin_s</a></td>
+                 <td><a href='../sourcefile/julienne_bin_s.f90.html'>julienne_bin_s.F90</a></td>
+                 <td></td>
+               </tr>
+
+<!---->			   <tr class="active">
+                 <td><a href='../module/julienne_command_line_m.html'>julienne_command_line_m</a></td>
+                 <td><a href='../sourcefile/julienne_command_line_m.f90.html'>julienne_command_line_m.f90</a></td>
+                 <td><p>return command line argument information</p></td>
+               </tr>
+                  			   <tr class="active submod">
+                 <td>&nbsp;&nbsp;&nbsp;<a href='../module/julienne_command_line_s.html'>julienne_command_line_s</a></td>
+                 <td><a href='../sourcefile/julienne_command_line_s.f90.html'>julienne_command_line_s.f90</a></td>
+                 <td></td>
+               </tr>
+
+<!--active-->			   <tr class="">
+                 <td><a href='../module/julienne_file_m.html'>julienne_file_m</a></td>
+                 <td><a href='../sourcefile/julienne_file_m.f90.html'>julienne_file_m.f90</a></td>
+                 <td><p>A representation of a file as an object</p></td>
+               </tr>
+                  			   <tr class=" submod">
+                 <td>&nbsp;&nbsp;&nbsp;<a href='../module/julienne_file_s.html'>julienne_file_s</a></td>
+                 <td><a href='../sourcefile/julienne_file_s.f90.html'>julienne_file_s.F90</a></td>
+                 <td></td>
+               </tr>
+
+<!---->			   <tr class="active">
+                 <td><a href='../module/julienne_formats_m.html'>julienne_formats_m</a></td>
+                 <td><a href='../sourcefile/julienne_formats_m.f90.html'>julienne_formats_m.F90</a></td>
+                 <td><p>Useful strings for formatting <code>print</code> and <code>write</code> statements</p></td>
+               </tr>
+                  			   <tr class="active submod">
+                 <td>&nbsp;&nbsp;&nbsp;<a href='../module/julienne_formats_s.html'>julienne_formats_s</a></td>
+                 <td><a href='../sourcefile/julienne_formats_s.f90.html'>julienne_formats_s.F90</a></td>
+                 <td><p>Construct separated-value formats </p></td>
+               </tr>
+
+<!--active-->			   <tr class="">
+                 <td><a href='../module/julienne_github_ci_m.html'>julienne_github_ci_m</a></td>
+                 <td><a href='../sourcefile/julienne_github_ci_m.f90.html'>julienne_github_ci_m.f90</a></td>
+                 <td><p>Detect whether a program is running in GitHub Continuous Integration (CI)</p></td>
+               </tr>
+                  			   <tr class=" submod">
+                 <td>&nbsp;&nbsp;&nbsp;<a href='../module/julienne_github_ci_s.html'>julienne_github_ci_s</a></td>
+                 <td><a href='../sourcefile/julienne_github_ci_s.f90.html'>julienne_github_ci_s.f90</a></td>
+                 <td></td>
+               </tr>
+
+<!---->			   <tr class="active">
+                 <td><a href='../module/julienne_m.html'>julienne_m</a></td>
+                 <td><a href='../sourcefile/julienne_m.f90.html'>julienne_m.f90</a></td>
+                 <td><p>Global aggregation of all public entities</p></td>
+               </tr>
+<!--active-->			   <tr class="">
+                 <td><a href='../module/julienne_one_image_prints_m.html'>julienne_one_image_prints_m</a></td>
+                 <td><a href='../sourcefile/julienne_one_image_prints_m.f90.html'>julienne_one_image_prints_m.f90</a></td>
+                 <td></td>
+               </tr>
+                  			   <tr class=" submod">
+                 <td>&nbsp;&nbsp;&nbsp;<a href='../module/julienne_one_image_prints_s.html'>julienne_one_image_prints_s</a></td>
+                 <td><a href='../sourcefile/julienne_one_image_prints_s.f90.html'>julienne_one_image_prints_s.F90</a></td>
+                 <td></td>
+               </tr>
+
+<!---->			   <tr class="active">
+                 <td><a href='../module/julienne_string_m.html'>julienne_string_m</a></td>
+                 <td><a href='../sourcefile/julienne_string_m.f90.html'>julienne_string_m.F90</a></td>
+                 <td></td>
+               </tr>
+                  			   <tr class="active submod">
+                 <td>&nbsp;&nbsp;&nbsp;<a href='../module/julienne_string_s.html'>julienne_string_s</a></td>
+                 <td><a href='../sourcefile/julienne_string_s.f90.html'>julienne_string_s.F90</a></td>
+                 <td></td>
+               </tr>
+
+<!--active-->			   <tr class="">
+                 <td><a href='../module/julienne_test_description_m.html'>julienne_test_description_m</a></td>
+                 <td><a href='../sourcefile/julienne_test_description_m.f90.html'>julienne_test_description_m.f90</a></td>
+                 <td><p>Define an abstraction for describing test intentions and test functions</p></td>
+               </tr>
+                  			   <tr class=" submod">
+                 <td>&nbsp;&nbsp;&nbsp;<a href='../module/julienne_test_description_s.html'>julienne_test_description_s</a></td>
+                 <td><a href='../sourcefile/julienne_test_description_s.f90.html'>julienne_test_description_s.F90</a></td>
+                 <td></td>
+               </tr>
+
+<!---->			   <tr class="active">
+                 <td><a href='../module/julienne_test_diagnosis_m.html'>julienne_test_diagnosis_m</a></td>
+                 <td><a href='../sourcefile/julienne_test_diagnosis_m.f90.html'>julienne_test_diagnosis_m.F90</a></td>
+                 <td><p>Define abstractions, defined operations, and procedures for writing correctness checks</p></td>
+               </tr>
+                  			   <tr class="active submod">
+                 <td>&nbsp;&nbsp;&nbsp;<a href='../module/julienne_test_diagnosis_s.html'>julienne_test_diagnosis_s</a></td>
+                 <td><a href='../sourcefile/julienne_test_diagnosis_s.f90.html'>julienne_test_diagnosis_s.F90</a></td>
+                 <td></td>
+               </tr>
+
+<!--active-->			   <tr class="">
+                 <td><a href='../module/julienne_test_fixture_m.html'>julienne_test_fixture_m</a></td>
+                 <td><a href='../sourcefile/julienne_test_fixture_m.f90.html'>julienne_test_fixture_m.f90</a></td>
+                 <td><p>Define a wrapper type for the test_t type to facilitate creating a polymorphic 
+array of test_t objects.</p></td>
+               </tr>
+                  			   <tr class=" submod">
+                 <td>&nbsp;&nbsp;&nbsp;<a href='../module/julienne_test_fixture_s.html'>julienne_test_fixture_s</a></td>
+                 <td><a href='../sourcefile/julienne_test_fixture_s.f90.html'>julienne_test_fixture_s.F90</a></td>
+                 <td></td>
+               </tr>
+
+<!---->			   <tr class="active">
+                 <td><a href='../module/julienne_test_harness_m.html'>julienne_test_harness_m</a></td>
+                 <td><a href='../sourcefile/julienne_test_harness_m.f90.html'>julienne_test_harness_m.f90</a></td>
+                 <td><p>Define a test harness encapsulating an array of text fixtures, each of which can run a set of tests.</p></td>
+               </tr>
+                  			   <tr class="active submod">
+                 <td>&nbsp;&nbsp;&nbsp;<a href='../module/julienne_test_harness_s.html'>julienne_test_harness_s</a></td>
+                 <td><a href='../sourcefile/julienne_test_harness_s.f90.html'>julienne_test_harness_s.F90</a></td>
+                 <td></td>
+               </tr>
+
+<!--active-->			   <tr class="">
+                 <td><a href='../module/julienne_test_m.html'>julienne_test_m</a></td>
+                 <td><a href='../sourcefile/julienne_test_m.f90.html'>julienne_test_m.F90</a></td>
+                 <td><p>Define an abstract test_t type with deferred bindings ("subject" and "results")
+used by a type-bound procedure ("report") for reporting test results.  The "report"
+procedure thus represents an implementation of the Template Method pattern.</p></td>
+               </tr>
+                  			   <tr class=" submod">
+                 <td>&nbsp;&nbsp;&nbsp;<a href='../module/julienne_test_s.html'>julienne_test_s</a></td>
+                 <td><a href='../sourcefile/julienne_test_s.f90.html'>julienne_test_s.F90</a></td>
+                 <td></td>
+               </tr>
+
+<!---->			   <tr class="active">
+                 <td><a href='../module/julienne_test_result_m.html'>julienne_test_result_m</a></td>
+                 <td><a href='../sourcefile/julienne_test_result_m.f90.html'>julienne_test_result_m.f90</a></td>
+                 <td><p>Define an abstraction for describing test results the test description and,
+if the test was not skipped, then also a test diagnosis.</p></td>
+               </tr>
+                  			   <tr class="active submod">
+                 <td>&nbsp;&nbsp;&nbsp;<a href='../module/julienne_test_result_s.html'>julienne_test_result_s</a></td>
+                 <td><a href='../sourcefile/julienne_test_result_s.f90.html'>julienne_test_result_s.F90</a></td>
+                 <td></td>
+               </tr>
+
+<!--active-->			   <tr class="">
+                 <td><a href='../module/julienne_test_suite_m.html'>julienne_test_suite_m</a></td>
+                 <td><a href='../sourcefile/julienne_test_suite_m.f90.html'>julienne_test_suite_m.f90</a></td>
+                 <td></td>
+               </tr>
+                  			   <tr class=" submod">
+                 <td>&nbsp;&nbsp;&nbsp;<a href='../module/julienne_test_suite_s.html'>julienne_test_suite_s</a></td>
+                 <td><a href='../sourcefile/julienne_test_suite_s.f90.html'>julienne_test_suite_s.F90</a></td>
+                 <td></td>
+               </tr>
+
+<!---->			 </tbody></table>
+             <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: module~~graph~~ModuleGraph Pages: 1 -->
+<svg id="modulegraphModuleGraph" width="855pt" height="375pt"
+ viewBox="0.00 0.00 855.00 375.03" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="module~~graph~~ModuleGraph" class="graph" transform="scale(0.48 0.48) rotate(0) translate(4 783.78)">
+<title>module~~graph~~ModuleGraph</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-783.78 1792,-783.78 1792,4 -4,4"/>
+<!-- module~julienne_assert_m -->
+<g id="module~~graph~~ModuleGraph_node1" class="node">
+<title>module~julienne_assert_m</title>
+<g id="a_module~~graph~~ModuleGraph_node1"><a xlink:href="../module/julienne_assert_m.html" xlink:title="julienne_assert_m">
+<polygon fill="#337ab7" stroke="#337ab7" points="568.5,-579.78 459.5,-579.78 459.5,-555.78 568.5,-555.78 568.5,-579.78"/>
+<text text-anchor="middle" x="514" y="-565.38" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">julienne_assert_m</text>
+</a>
+</g>
+</g>
+<!-- module~julienne_test_diagnosis_m -->
+<g id="module~~graph~~ModuleGraph_node20" class="node">
+<title>module~julienne_test_diagnosis_m</title>
+<g id="a_module~~graph~~ModuleGraph_node20"><a xlink:href="../module/julienne_test_diagnosis_m.html" xlink:title="julienne_test_diagnosis_m">
+<polygon fill="#337ab7" stroke="#337ab7" points="413,-579.78 262,-579.78 262,-555.78 413,-555.78 413,-579.78"/>
+<text text-anchor="middle" x="337.5" y="-565.38" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">julienne_test_diagnosis_m</text>
+</a>
+</g>
+</g>
+<!-- module~julienne_assert_m&#45;&gt;module~julienne_test_diagnosis_m -->
+<g id="module~~graph~~ModuleGraph_edge1" class="edge">
+<title>module~julienne_assert_m&#45;&gt;module~julienne_test_diagnosis_m</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M459.22,-567.78C447.88,-567.78 435.64,-567.78 423.47,-567.78"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="423.28,-564.28 413.28,-567.78 423.28,-571.28 423.28,-564.28"/>
+</g>
+<!-- module~julienne_assert_s -->
+<g id="module~~graph~~ModuleGraph_node2" class="node">
+<title>module~julienne_assert_s</title>
+<g id="a_module~~graph~~ModuleGraph_node2"><a xlink:href="../module/julienne_assert_s.html" xlink:title="julienne_assert_s">
+<polygon fill="#5bc0de" stroke="#5bc0de" points="746.5,-619.78 643.5,-619.78 643.5,-595.78 746.5,-595.78 746.5,-619.78"/>
+<text text-anchor="middle" x="695" y="-605.38" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">julienne_assert_s</text>
+</a>
+</g>
+</g>
+<!-- module~julienne_assert_s&#45;&gt;module~julienne_assert_m -->
+<g id="module~~graph~~ModuleGraph_edge3" class="edge">
+<title>module~julienne_assert_s&#45;&gt;module~julienne_assert_m</title>
+<path fill="none" stroke="#ff2a00" d="M643.18,-596.43C623.11,-591.94 599.82,-586.73 578.64,-582"/>
+<polygon fill="#ff2a00" stroke="#ff2a00" points="579.28,-578.56 568.76,-579.79 577.75,-585.39 579.28,-578.56"/>
+</g>
+<!-- assert_m -->
+<g id="module~~graph~~ModuleGraph_node37" class="node">
+<title>assert_m</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="544.5,-661.78 483.5,-661.78 483.5,-637.78 544.5,-637.78 544.5,-661.78"/>
+<text text-anchor="middle" x="514" y="-647.38" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">assert_m</text>
+</g>
+<!-- module~julienne_assert_s&#45;&gt;assert_m -->
+<g id="module~~graph~~ModuleGraph_edge2" class="edge">
+<title>module~julienne_assert_s&#45;&gt;assert_m</title>
+<path fill="none" stroke="#ff2a00" stroke-dasharray="5,2" d="M643.18,-619.7C615.08,-626.3 580.67,-634.37 554.59,-640.49"/>
+<polygon fill="#ff2a00" stroke="#ff2a00" points="553.61,-637.13 544.67,-642.82 555.21,-643.94 553.61,-637.13"/>
+</g>
+<!-- module~julienne_bin_m -->
+<g id="module~~graph~~ModuleGraph_node3" class="node">
+<title>module~julienne_bin_m</title>
+<g id="a_module~~graph~~ModuleGraph_node3"><a xlink:href="../module/julienne_bin_m.html" xlink:title="julienne_bin_m">
+<polygon fill="#337ab7" stroke="#337ab7" points="560.5,-478.78 467.5,-478.78 467.5,-454.78 560.5,-454.78 560.5,-478.78"/>
+<text text-anchor="middle" x="514" y="-464.38" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">julienne_bin_m</text>
+</a>
+</g>
+</g>
+<!-- module~julienne_bin_s -->
+<g id="module~~graph~~ModuleGraph_node4" class="node">
+<title>module~julienne_bin_s</title>
+<g id="a_module~~graph~~ModuleGraph_node4"><a xlink:href="../module/julienne_bin_s.html" xlink:title="julienne_bin_s">
+<polygon fill="#5bc0de" stroke="#5bc0de" points="739,-539.78 651,-539.78 651,-515.78 739,-515.78 739,-539.78"/>
+<text text-anchor="middle" x="695" y="-525.38" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">julienne_bin_s</text>
+</a>
+</g>
+</g>
+<!-- module~julienne_bin_s&#45;&gt;module~julienne_assert_m -->
+<g id="module~~graph~~ModuleGraph_edge4" class="edge">
+<title>module~julienne_bin_s&#45;&gt;module~julienne_assert_m</title>
+<path fill="none" stroke="#ff7f00" stroke-dasharray="5,2" d="M650.67,-537.46C629.12,-542.28 602.66,-548.19 578.84,-553.51"/>
+<polygon fill="#ff7f00" stroke="#ff7f00" points="577.82,-550.16 568.82,-555.75 579.34,-556.99 577.82,-550.16"/>
+</g>
+<!-- module~julienne_bin_s&#45;&gt;module~julienne_bin_m -->
+<g id="module~~graph~~ModuleGraph_edge6" class="edge">
+<title>module~julienne_bin_s&#45;&gt;module~julienne_bin_m</title>
+<path fill="none" stroke="#ff7f00" d="M650.67,-517.27C639.01,-514.17 626.45,-510.58 615,-506.78 593.84,-499.77 570.7,-490.61 552.02,-482.83"/>
+<polygon fill="#ff7f00" stroke="#ff7f00" points="553.26,-479.55 542.68,-478.9 550.54,-486.01 553.26,-479.55"/>
+</g>
+<!-- module~julienne_bin_s&#45;&gt;module~julienne_test_diagnosis_m -->
+<g id="module~~graph~~ModuleGraph_edge5" class="edge">
+<title>module~julienne_bin_s&#45;&gt;module~julienne_test_diagnosis_m</title>
+<path fill="none" stroke="#ff7f00" stroke-dasharray="5,2" d="M650.92,-529.68C601.87,-532.18 519.41,-537.39 449,-546.78 434.9,-548.66 419.89,-551.17 405.61,-553.8"/>
+<polygon fill="#ff7f00" stroke="#ff7f00" points="404.55,-550.44 395.37,-555.73 405.85,-557.32 404.55,-550.44"/>
+</g>
+<!-- module~julienne_command_line_m -->
+<g id="module~~graph~~ModuleGraph_node5" class="node">
+<title>module~julienne_command_line_m</title>
+<g id="a_module~~graph~~ModuleGraph_node5"><a xlink:href="../module/julienne_command_line_m.html" xlink:title="julienne_command_line_m">
+<polygon fill="#337ab7" stroke="#337ab7" points="772.5,-417.78 617.5,-417.78 617.5,-393.78 772.5,-393.78 772.5,-417.78"/>
+<text text-anchor="middle" x="695" y="-403.38" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">julienne_command_line_m</text>
+</a>
+</g>
+</g>
+<!-- module~julienne_command_line_s -->
+<g id="module~~graph~~ModuleGraph_node6" class="node">
+<title>module~julienne_command_line_s</title>
+<g id="a_module~~graph~~ModuleGraph_node6"><a xlink:href="../module/julienne_command_line_s.html" xlink:title="julienne_command_line_s">
+<polygon fill="#5bc0de" stroke="#5bc0de" points="963.5,-455.78 813.5,-455.78 813.5,-431.78 963.5,-431.78 963.5,-455.78"/>
+<text text-anchor="middle" x="888.5" y="-441.38" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">julienne_command_line_s</text>
+</a>
+</g>
+</g>
+<!-- module~julienne_command_line_s&#45;&gt;module~julienne_command_line_m -->
+<g id="module~~graph~~ModuleGraph_edge7" class="edge">
+<title>module~julienne_command_line_s&#45;&gt;module~julienne_command_line_m</title>
+<path fill="none" stroke="#ffd400" d="M826.91,-431.76C807.69,-427.94 786.28,-423.7 766.43,-419.76"/>
+<polygon fill="#ffd400" stroke="#ffd400" points="767.02,-416.31 756.53,-417.79 765.65,-423.17 767.02,-416.31"/>
+</g>
+<!-- module~julienne_file_m -->
+<g id="module~~graph~~ModuleGraph_node7" class="node">
+<title>module~julienne_file_m</title>
+<g id="a_module~~graph~~ModuleGraph_node7"><a xlink:href="../module/julienne_file_m.html" xlink:title="julienne_file_m">
+<polygon fill="#337ab7" stroke="#337ab7" points="560.5,-143.78 467.5,-143.78 467.5,-119.78 560.5,-119.78 560.5,-143.78"/>
+<text text-anchor="middle" x="514" y="-129.38" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">julienne_file_m</text>
+</a>
+</g>
+</g>
+<!-- module~julienne_string_m -->
+<g id="module~~graph~~ModuleGraph_node16" class="node">
+<title>module~julienne_string_m</title>
+<g id="a_module~~graph~~ModuleGraph_node16"><a xlink:href="../module/julienne_string_m.html" xlink:title="julienne_string_m">
+<polygon fill="#337ab7" stroke="#337ab7" points="226,-259.78 120,-259.78 120,-235.78 226,-235.78 226,-259.78"/>
+<text text-anchor="middle" x="173" y="-245.38" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">julienne_string_m</text>
+</a>
+</g>
+</g>
+<!-- module~julienne_file_m&#45;&gt;module~julienne_string_m -->
+<g id="module~~graph~~ModuleGraph_edge8" class="edge">
+<title>module~julienne_file_m&#45;&gt;module~julienne_string_m</title>
+<path fill="none" stroke="#ffff00" stroke-dasharray="5,2" d="M503.13,-144.03C478.74,-172.88 412.2,-243.04 338.5,-247.78"/>
+</g>
+<!-- module~julienne_file_s -->
+<g id="module~~graph~~ModuleGraph_node8" class="node">
+<title>module~julienne_file_s</title>
+<g id="a_module~~graph~~ModuleGraph_node8"><a xlink:href="../module/julienne_file_s.html" xlink:title="julienne_file_s">
+<polygon fill="#5bc0de" stroke="#5bc0de" points="739,-219.78 651,-219.78 651,-195.78 739,-195.78 739,-219.78"/>
+<text text-anchor="middle" x="695" y="-205.38" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">julienne_file_s</text>
+</a>
+</g>
+</g>
+<!-- module~julienne_file_s&#45;&gt;module~julienne_file_m -->
+<g id="module~~graph~~ModuleGraph_edge11" class="edge">
+<title>module~julienne_file_s&#45;&gt;module~julienne_file_m</title>
+<path fill="none" stroke="#d4ff00" d="M653.4,-195.67C640.94,-191.62 627.28,-186.84 615,-181.78 591.25,-172 565.33,-158.97 545.83,-148.66"/>
+<polygon fill="#d4ff00" stroke="#d4ff00" points="547.28,-145.47 536.81,-143.85 543.99,-151.64 547.28,-145.47"/>
+</g>
+<!-- module~julienne_file_s&#45;&gt;assert_m -->
+<g id="module~~graph~~ModuleGraph_edge9" class="edge">
+<title>module~julienne_file_s&#45;&gt;assert_m</title>
+<path fill="none" stroke="#d4ff00" stroke-dasharray="5,2" d="M668.08,-219.88C649.97,-229.79 626.98,-245.63 615,-266.78 536.86,-404.78 672.4,-493.61 579,-621.78 572.89,-630.16 563.73,-636.07 554.23,-640.22"/>
+<polygon fill="#d4ff00" stroke="#d4ff00" points="552.83,-637 544.71,-643.81 555.31,-643.55 552.83,-637"/>
+</g>
+<!-- iso_fortran_env -->
+<g id="module~~graph~~ModuleGraph_node39" class="node">
+<title>iso_fortran_env</title>
+<g id="a_module~~graph~~ModuleGraph_node39"><a xlink:href="http://fortranwiki.org/fortran/show/iso_fortran_env" xlink:title="iso_fortran_env">
+<polygon fill="#337ab7" stroke="#337ab7" points="561,-63.78 467,-63.78 467,-39.78 561,-39.78 561,-63.78"/>
+<text text-anchor="middle" x="514" y="-49.38" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">iso_fortran_env</text>
+</a>
+</g>
+</g>
+<!-- module~julienne_file_s&#45;&gt;iso_fortran_env -->
+<g id="module~~graph~~ModuleGraph_edge10" class="edge">
+<title>module~julienne_file_s&#45;&gt;iso_fortran_env</title>
+<path fill="none" stroke="#d4ff00" stroke-dasharray="5,2" d="M674.99,-195.57C657.78,-183.83 632.51,-164.8 615,-143.78 593.61,-118.11 603.93,-100.03 579,-77.78 575.07,-74.28 570.61,-71.21 565.92,-68.53"/>
+<polygon fill="#d4ff00" stroke="#d4ff00" points="567.18,-65.25 556.68,-63.86 564.02,-71.5 567.18,-65.25"/>
+</g>
+<!-- module~julienne_formats_m -->
+<g id="module~~graph~~ModuleGraph_node9" class="node">
+<title>module~julienne_formats_m</title>
+<g id="a_module~~graph~~ModuleGraph_node9"><a xlink:href="../module/julienne_formats_m.html" xlink:title="julienne_formats_m">
+<polygon fill="#337ab7" stroke="#337ab7" points="1317.5,-661.78 1199.5,-661.78 1199.5,-637.78 1317.5,-637.78 1317.5,-661.78"/>
+<text text-anchor="middle" x="1258.5" y="-647.38" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">julienne_formats_m</text>
+</a>
+</g>
+</g>
+<!-- module~julienne_formats_s -->
+<g id="module~~graph~~ModuleGraph_node10" class="node">
+<title>module~julienne_formats_s</title>
+<g id="a_module~~graph~~ModuleGraph_node10"><a xlink:href="../module/julienne_formats_s.html" xlink:title="julienne_formats_s">
+<polygon fill="#5bc0de" stroke="#5bc0de" points="1519,-661.78 1407,-661.78 1407,-637.78 1519,-637.78 1519,-661.78"/>
+<text text-anchor="middle" x="1463" y="-647.38" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">julienne_formats_s</text>
+</a>
+</g>
+</g>
+<!-- module~julienne_formats_s&#45;&gt;module~julienne_formats_m -->
+<g id="module~~graph~~ModuleGraph_edge12" class="edge">
+<title>module~julienne_formats_s&#45;&gt;module~julienne_formats_m</title>
+<path fill="none" stroke="#7fff00" d="M1406.93,-649.78C1382.53,-649.78 1353.58,-649.78 1327.81,-649.78"/>
+<polygon fill="#7fff00" stroke="#7fff00" points="1327.74,-646.28 1317.74,-649.78 1327.74,-653.28 1327.74,-646.28"/>
+</g>
+<!-- module~julienne_github_ci_m -->
+<g id="module~~graph~~ModuleGraph_node11" class="node">
+<title>module~julienne_github_ci_m</title>
+<g id="a_module~~graph~~ModuleGraph_node11"><a xlink:href="../module/julienne_github_ci_m.html" xlink:title="julienne_github_ci_m">
+<polygon fill="#337ab7" stroke="#337ab7" points="1320.5,-619.78 1196.5,-619.78 1196.5,-595.78 1320.5,-595.78 1320.5,-619.78"/>
+<text text-anchor="middle" x="1258.5" y="-605.38" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">julienne_github_ci_m</text>
+</a>
+</g>
+</g>
+<!-- module~julienne_github_ci_s -->
+<g id="module~~graph~~ModuleGraph_node12" class="node">
+<title>module~julienne_github_ci_s</title>
+<g id="a_module~~graph~~ModuleGraph_node12"><a xlink:href="../module/julienne_github_ci_s.html" xlink:title="julienne_github_ci_s">
+<polygon fill="#5bc0de" stroke="#5bc0de" points="1522.5,-619.78 1403.5,-619.78 1403.5,-595.78 1522.5,-595.78 1522.5,-619.78"/>
+<text text-anchor="middle" x="1463" y="-605.38" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">julienne_github_ci_s</text>
+</a>
+</g>
+</g>
+<!-- module~julienne_github_ci_s&#45;&gt;module~julienne_github_ci_m -->
+<g id="module~~graph~~ModuleGraph_edge13" class="edge">
+<title>module~julienne_github_ci_s&#45;&gt;module~julienne_github_ci_m</title>
+<path fill="none" stroke="#2aff00" d="M1403.43,-607.78C1380.74,-607.78 1354.55,-607.78 1330.78,-607.78"/>
+<polygon fill="#2aff00" stroke="#2aff00" points="1330.76,-604.28 1320.76,-607.78 1330.76,-611.28 1330.76,-604.28"/>
+</g>
+<!-- module~julienne_m -->
+<g id="module~~graph~~ModuleGraph_node13" class="node">
+<title>module~julienne_m</title>
+<g id="a_module~~graph~~ModuleGraph_node13"><a xlink:href="../module/julienne_m.html" xlink:title="julienne_m">
+<polygon fill="#337ab7" stroke="#337ab7" points="1498.5,-377.78 1427.5,-377.78 1427.5,-353.78 1498.5,-353.78 1498.5,-377.78"/>
+<text text-anchor="middle" x="1463" y="-363.38" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">julienne_m</text>
+</a>
+</g>
+</g>
+<!-- module~julienne_m&#45;&gt;module~julienne_assert_m -->
+<g id="module~~graph~~ModuleGraph_edge14" class="edge">
+<title>module~julienne_m&#45;&gt;module~julienne_assert_m</title>
+<path fill="none" stroke="#00ff00" stroke-dasharray="5,2" d="M1068.5,-567.78C904.02,-548.95 861.31,-558.84 696,-567.78"/>
+</g>
+<!-- module~julienne_m&#45;&gt;module~julienne_bin_m -->
+<g id="module~~graph~~ModuleGraph_edge15" class="edge">
+<title>module~julienne_m&#45;&gt;module~julienne_bin_m</title>
+<path fill="none" stroke="#00ff00" stroke-dasharray="5,2" d="M887.5,-483.78C840.09,-465.78 825.53,-469.02 775,-464.78 704.14,-458.84 686.11,-464.07 615,-464.78 600.75,-464.92 585.36,-465.18 571.02,-465.46"/>
+<polygon fill="#00ff00" stroke="#00ff00" points="570.72,-461.97 560.8,-465.67 570.87,-468.97 570.72,-461.97"/>
+</g>
+<!-- module~julienne_m&#45;&gt;module~julienne_command_line_m -->
+<g id="module~~graph~~ModuleGraph_edge16" class="edge">
+<title>module~julienne_m&#45;&gt;module~julienne_command_line_m</title>
+<path fill="none" stroke="#00ff00" stroke-dasharray="5,2" d="M1452.75,-377.87C1426.14,-411.95 1345.75,-510.05 1259.5,-567.78"/>
+<path fill="none" stroke="#00ff00" stroke-dasharray="5,2" d="M1257.5,-567.78C1222.97,-590.9 1111.79,-572.51 1070.5,-567.78"/>
+<path fill="none" stroke="#00ff00" stroke-dasharray="5,2" d="M1068.5,-567.78C1015.37,-561.7 1015.05,-526.07 966,-504.78 933.66,-490.74 922.46,-496.3 889.5,-483.78"/>
+<path fill="none" stroke="#00ff00" stroke-dasharray="5,2" d="M887.5,-483.78C854.75,-471.35 841.87,-481.35 811,-464.78 791.88,-454.51 793.73,-442.75 775,-431.78 768.25,-427.83 760.83,-424.39 753.31,-421.41"/>
+<polygon fill="#00ff00" stroke="#00ff00" points="754.38,-418.08 743.79,-417.9 751.96,-424.64 754.38,-418.08"/>
+</g>
+<!-- module~julienne_m&#45;&gt;module~julienne_file_m -->
+<g id="module~~graph~~ModuleGraph_edge17" class="edge">
+<title>module~julienne_m&#45;&gt;module~julienne_file_m</title>
+<path fill="none" stroke="#00ff00" stroke-dasharray="5,2" d="M1257.5,-243.78C1181.35,-213.96 971.27,-248.99 889.5,-247.78"/>
+<path fill="none" stroke="#00ff00" stroke-dasharray="5,2" d="M887.5,-247.78C830.62,-248.04 828.38,-206.43 775,-186.78 706.87,-161.71 624.26,-146.68 570.71,-138.82"/>
+<polygon fill="#00ff00" stroke="#00ff00" points="571.13,-135.34 560.73,-137.39 570.13,-142.27 571.13,-135.34"/>
+</g>
+<!-- module~julienne_m&#45;&gt;module~julienne_formats_m -->
+<g id="module~~graph~~ModuleGraph_edge18" class="edge">
+<title>module~julienne_m&#45;&gt;module~julienne_formats_m</title>
+<path fill="none" stroke="#00ff00" stroke-dasharray="5,2" d="M1458.16,-377.83C1443.02,-424.62 1386.23,-593.47 1344,-628.78 1339.05,-632.92 1333.41,-636.26 1327.44,-638.95"/>
+<polygon fill="#00ff00" stroke="#00ff00" points="1325.89,-635.8 1317.83,-642.68 1328.42,-642.32 1325.89,-635.8"/>
+</g>
+<!-- module~julienne_m&#45;&gt;module~julienne_github_ci_m -->
+<g id="module~~graph~~ModuleGraph_edge19" class="edge">
+<title>module~julienne_m&#45;&gt;module~julienne_github_ci_m</title>
+<path fill="none" stroke="#00ff00" stroke-dasharray="5,2" d="M1458.89,-377.91C1448.88,-414.48 1414.01,-524.63 1344,-581.78 1339.43,-585.51 1334.33,-588.71 1328.95,-591.45"/>
+<polygon fill="#00ff00" stroke="#00ff00" points="1327.37,-588.32 1319.71,-595.64 1330.26,-594.7 1327.37,-588.32"/>
+</g>
+<!-- module~julienne_one_image_prints_m -->
+<g id="module~~graph~~ModuleGraph_node14" class="node">
+<title>module~julienne_one_image_prints_m</title>
+<g id="a_module~~graph~~ModuleGraph_node14"><a xlink:href="../module/julienne_one_image_prints_m.html" xlink:title="julienne_one_image_prints_m">
+<polygon fill="#337ab7" stroke="#337ab7" points="1344,-135.78 1173,-135.78 1173,-111.78 1344,-111.78 1344,-135.78"/>
+<text text-anchor="middle" x="1258.5" y="-121.38" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">julienne_one_image_prints_m</text>
+</a>
+</g>
+</g>
+<!-- module~julienne_m&#45;&gt;module~julienne_one_image_prints_m -->
+<g id="module~~graph~~ModuleGraph_edge20" class="edge">
+<title>module~julienne_m&#45;&gt;module~julienne_one_image_prints_m</title>
+<path fill="none" stroke="#00ff00" stroke-dasharray="5,2" d="M1456.22,-353.53C1441.1,-322.36 1397.78,-238.58 1344,-182.78 1328.29,-166.48 1307.46,-151.87 1290.41,-141.27"/>
+<polygon fill="#00ff00" stroke="#00ff00" points="1291.75,-138 1281.38,-135.81 1288.13,-143.98 1291.75,-138"/>
+</g>
+<!-- module~julienne_m&#45;&gt;module~julienne_string_m -->
+<g id="module~~graph~~ModuleGraph_edge21" class="edge">
+<title>module~julienne_m&#45;&gt;module~julienne_string_m</title>
+<path fill="none" stroke="#00ff00" stroke-dasharray="5,2" d="M1068.5,-365.78C792.42,-350.57 711.88,-394.48 449,-308.78 395.66,-291.4 394.5,-244.46 338.5,-247.78"/>
+</g>
+<!-- module~julienne_test_description_m -->
+<g id="module~~graph~~ModuleGraph_node18" class="node">
+<title>module~julienne_test_description_m</title>
+<g id="a_module~~graph~~ModuleGraph_node18"><a xlink:href="../module/julienne_test_description_m.html" xlink:title="julienne_test_description_m">
+<polygon fill="#337ab7" stroke="#337ab7" points="775,-299.78 615,-299.78 615,-275.78 775,-275.78 775,-299.78"/>
+<text text-anchor="middle" x="695" y="-285.38" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">julienne_test_description_m</text>
+</a>
+</g>
+</g>
+<!-- module~julienne_m&#45;&gt;module~julienne_test_description_m -->
+<g id="module~~graph~~ModuleGraph_edge22" class="edge">
+<title>module~julienne_m&#45;&gt;module~julienne_test_description_m</title>
+<path fill="none" stroke="#00ff00" stroke-dasharray="5,2" d="M887.5,-247.78C836.07,-246.58 778.46,-260.8 739.99,-272.62"/>
+<polygon fill="#00ff00" stroke="#00ff00" points="738.64,-269.37 730.15,-275.72 740.74,-276.05 738.64,-269.37"/>
+</g>
+<!-- module~julienne_m&#45;&gt;module~julienne_test_diagnosis_m -->
+<g id="module~~graph~~ModuleGraph_edge23" class="edge">
+<title>module~julienne_m&#45;&gt;module~julienne_test_diagnosis_m</title>
+<path fill="none" stroke="#00ff00" stroke-dasharray="5,2" d="M1257.5,-567.78C1225.51,-589.19 1210.26,-577.13 1173,-586.78 994.52,-633.03 957.49,-677.51 775,-703.78 704.61,-713.91 685.77,-710.75 615,-703.78 540.14,-696.41 515.95,-705.07 449,-670.78 409.29,-650.45 373.56,-611.66 354.06,-587.92"/>
+<polygon fill="#00ff00" stroke="#00ff00" points="356.62,-585.52 347.63,-579.91 351.16,-589.9 356.62,-585.52"/>
+</g>
+<!-- module~julienne_test_fixture_m -->
+<g id="module~~graph~~ModuleGraph_node22" class="node">
+<title>module~julienne_test_fixture_m</title>
+<g id="a_module~~graph~~ModuleGraph_node22"><a xlink:href="../module/julienne_test_fixture_m.html" xlink:title="julienne_test_fixture_m">
+<polygon fill="#337ab7" stroke="#337ab7" points="1137,-337.78 1002,-337.78 1002,-313.78 1137,-313.78 1137,-337.78"/>
+<text text-anchor="middle" x="1069.5" y="-323.38" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">julienne_test_fixture_m</text>
+</a>
+</g>
+</g>
+<!-- module~julienne_m&#45;&gt;module~julienne_test_fixture_m -->
+<g id="module~~graph~~ModuleGraph_edge24" class="edge">
+<title>module~julienne_m&#45;&gt;module~julienne_test_fixture_m</title>
+<path fill="none" stroke="#00ff00" stroke-dasharray="5,2" d="M1427.21,-366.89C1386.85,-367.93 1318.3,-368.88 1259.5,-365.78"/>
+<path fill="none" stroke="#00ff00" stroke-dasharray="5,2" d="M1257.5,-365.78C1209.72,-363.26 1156.47,-350.9 1119.05,-340.58"/>
+<polygon fill="#00ff00" stroke="#00ff00" points="1119.99,-337.21 1109.42,-337.87 1118.09,-343.95 1119.99,-337.21"/>
+</g>
+<!-- module~julienne_test_harness_m -->
+<g id="module~~graph~~ModuleGraph_node24" class="node">
+<title>module~julienne_test_harness_m</title>
+<g id="a_module~~graph~~ModuleGraph_node24"><a xlink:href="../module/julienne_test_harness_m.html" xlink:title="julienne_test_harness_m">
+<polygon fill="#337ab7" stroke="#337ab7" points="1330,-215.78 1187,-215.78 1187,-191.78 1330,-191.78 1330,-215.78"/>
+<text text-anchor="middle" x="1258.5" y="-201.38" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">julienne_test_harness_m</text>
+</a>
+</g>
+</g>
+<!-- module~julienne_m&#45;&gt;module~julienne_test_harness_m -->
+<g id="module~~graph~~ModuleGraph_edge25" class="edge">
+<title>module~julienne_m&#45;&gt;module~julienne_test_harness_m</title>
+<path fill="none" stroke="#00ff00" stroke-dasharray="5,2" d="M1454.81,-353.61C1438.51,-327.08 1396.12,-263.73 1344,-229.78 1337.9,-225.81 1331.16,-222.41 1324.22,-219.52"/>
+<polygon fill="#00ff00" stroke="#00ff00" points="1325.28,-216.18 1314.69,-215.88 1322.78,-222.72 1325.28,-216.18"/>
+</g>
+<!-- module~julienne_test_m -->
+<g id="module~~graph~~ModuleGraph_node26" class="node">
+<title>module~julienne_test_m</title>
+<g id="a_module~~graph~~ModuleGraph_node26"><a xlink:href="../module/julienne_test_m.html" xlink:title="julienne_test_m">
+<polygon fill="#337ab7" stroke="#337ab7" points="936.5,-337.78 840.5,-337.78 840.5,-313.78 936.5,-313.78 936.5,-337.78"/>
+<text text-anchor="middle" x="888.5" y="-323.38" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">julienne_test_m</text>
+</a>
+</g>
+</g>
+<!-- module~julienne_m&#45;&gt;module~julienne_test_m -->
+<g id="module~~graph~~ModuleGraph_edge26" class="edge">
+<title>module~julienne_m&#45;&gt;module~julienne_test_m</title>
+<path fill="none" stroke="#00ff00" stroke-dasharray="5,2" d="M1257.5,-365.78C1174.5,-361.4 1153.49,-370.35 1070.5,-365.78"/>
+<path fill="none" stroke="#00ff00" stroke-dasharray="5,2" d="M1068.5,-365.78C1022.87,-363.27 972.15,-351 936.38,-340.71"/>
+<polygon fill="#00ff00" stroke="#00ff00" points="937.29,-337.33 926.71,-337.87 935.32,-344.04 937.29,-337.33"/>
+</g>
+<!-- module~julienne_test_result_m -->
+<g id="module~~graph~~ModuleGraph_node27" class="node">
+<title>module~julienne_test_result_m</title>
+<g id="a_module~~graph~~ModuleGraph_node27"><a xlink:href="../module/julienne_test_result_m.html" xlink:title="julienne_test_result_m">
+<polygon fill="#337ab7" stroke="#337ab7" points="579,-299.78 449,-299.78 449,-275.78 579,-275.78 579,-299.78"/>
+<text text-anchor="middle" x="514" y="-285.38" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">julienne_test_result_m</text>
+</a>
+</g>
+</g>
+<!-- module~julienne_m&#45;&gt;module~julienne_test_result_m -->
+<g id="module~~graph~~ModuleGraph_edge27" class="edge">
+<title>module~julienne_m&#45;&gt;module~julienne_test_result_m</title>
+<path fill="none" stroke="#00ff00" stroke-dasharray="5,2" d="M887.5,-247.78C766.13,-244.95 735.25,-250.04 615,-266.78 602.24,-268.56 588.68,-271.01 575.8,-273.62"/>
+<polygon fill="#00ff00" stroke="#00ff00" points="574.71,-270.27 565.64,-275.74 576.14,-277.13 574.71,-270.27"/>
+</g>
+<!-- module~julienne_test_suite_m -->
+<g id="module~~graph~~ModuleGraph_node30" class="node">
+<title>module~julienne_test_suite_m</title>
+<g id="a_module~~graph~~ModuleGraph_node30"><a xlink:href="../module/julienne_test_suite_m.html" xlink:title="julienne_test_suite_m">
+<polygon fill="#337ab7" stroke="#337ab7" points="1133,-175.78 1006,-175.78 1006,-151.78 1133,-151.78 1133,-175.78"/>
+<text text-anchor="middle" x="1069.5" y="-161.38" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">julienne_test_suite_m</text>
+</a>
+</g>
+</g>
+<!-- module~julienne_m&#45;&gt;module~julienne_test_suite_m -->
+<g id="module~~graph~~ModuleGraph_edge28" class="edge">
+<title>module~julienne_m&#45;&gt;module~julienne_test_suite_m</title>
+<path fill="none" stroke="#00ff00" stroke-dasharray="5,2" d="M1446.19,-353.65C1413.31,-329.05 1334.41,-273.11 1259.5,-243.78"/>
+<path fill="none" stroke="#00ff00" stroke-dasharray="5,2" d="M1257.5,-243.78C1221.66,-229.75 1208.76,-239.02 1173,-224.78 1144.85,-213.57 1115.38,-195.24 1095.31,-181.6"/>
+<polygon fill="#00ff00" stroke="#00ff00" points="1097.27,-178.7 1087.05,-175.89 1093.29,-184.45 1097.27,-178.7"/>
+</g>
+<!-- module~julienne_one_image_prints_m&#45;&gt;module~julienne_string_m -->
+<g id="module~~graph~~ModuleGraph_edge29" class="edge">
+<title>module~julienne_one_image_prints_m&#45;&gt;module~julienne_string_m</title>
+<path fill="none" stroke="#00ff2a" stroke-dasharray="5,2" d="M1172.78,-111.83C1004.25,-89.39 633.03,-47.1 515,-91.78"/>
+</g>
+<!-- module~julienne_one_image_prints_s -->
+<g id="module~~graph~~ModuleGraph_node15" class="node">
+<title>module~julienne_one_image_prints_s</title>
+<g id="a_module~~graph~~ModuleGraph_node15"><a xlink:href="../module/julienne_one_image_prints_s.html" xlink:title="julienne_one_image_prints_s">
+<polygon fill="#5bc0de" stroke="#5bc0de" points="1546,-135.78 1380,-135.78 1380,-111.78 1546,-111.78 1546,-135.78"/>
+<text text-anchor="middle" x="1463" y="-121.38" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">julienne_one_image_prints_s</text>
+</a>
+</g>
+</g>
+<!-- module~julienne_one_image_prints_s&#45;&gt;module~julienne_one_image_prints_m -->
+<g id="module~~graph~~ModuleGraph_edge30" class="edge">
+<title>module~julienne_one_image_prints_s&#45;&gt;module~julienne_one_image_prints_m</title>
+<path fill="none" stroke="#00ff55" d="M1379.93,-123.78C1371.59,-123.78 1363.07,-123.78 1354.6,-123.78"/>
+<polygon fill="#00ff55" stroke="#00ff55" points="1354.33,-120.28 1344.33,-123.78 1354.33,-127.28 1354.33,-120.28"/>
+</g>
+<!-- iso_c_binding -->
+<g id="module~~graph~~ModuleGraph_node38" class="node">
+<title>iso_c_binding</title>
+<g id="a_module~~graph~~ModuleGraph_node38"><a xlink:href="http://fortranwiki.org/fortran/show/iso_c_binding" xlink:title="iso_c_binding">
+<polygon fill="#337ab7" stroke="#337ab7" points="84,-259.78 0,-259.78 0,-235.78 84,-235.78 84,-259.78"/>
+<text text-anchor="middle" x="42" y="-245.38" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">iso_c_binding</text>
+</a>
+</g>
+</g>
+<!-- module~julienne_string_m&#45;&gt;iso_c_binding -->
+<g id="module~~graph~~ModuleGraph_edge31" class="edge">
+<title>module~julienne_string_m&#45;&gt;iso_c_binding</title>
+<path fill="none" stroke="#00ff7f" stroke-dasharray="5,2" d="M119.9,-247.78C111.45,-247.78 102.7,-247.78 94.27,-247.78"/>
+<polygon fill="#00ff7f" stroke="#00ff7f" points="94.19,-244.28 84.19,-247.78 94.19,-251.28 94.19,-244.28"/>
+</g>
+<!-- module~julienne_string_s -->
+<g id="module~~graph~~ModuleGraph_node17" class="node">
+<title>module~julienne_string_s</title>
+<g id="a_module~~graph~~ModuleGraph_node17"><a xlink:href="../module/julienne_string_s.html" xlink:title="julienne_string_s">
+<polygon fill="#5bc0de" stroke="#5bc0de" points="745.5,-661.78 644.5,-661.78 644.5,-637.78 745.5,-637.78 745.5,-661.78"/>
+<text text-anchor="middle" x="695" y="-647.38" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">julienne_string_s</text>
+</a>
+</g>
+</g>
+<!-- module~julienne_string_s&#45;&gt;module~julienne_assert_m -->
+<g id="module~~graph~~ModuleGraph_edge33" class="edge">
+<title>module~julienne_string_s&#45;&gt;module~julienne_assert_m</title>
+<path fill="none" stroke="#00ffa9" stroke-dasharray="5,2" d="M644.43,-640.76C634.31,-637.79 624.01,-633.89 615,-628.78 595.59,-617.78 597.68,-605.98 579,-593.78 573.4,-590.12 567.2,-586.83 560.94,-583.91"/>
+<polygon fill="#00ffa9" stroke="#00ffa9" points="562.33,-580.69 551.76,-579.9 559.52,-587.11 562.33,-580.69"/>
+</g>
+<!-- module~julienne_string_s&#45;&gt;module~julienne_string_m -->
+<g id="module~~graph~~ModuleGraph_edge35" class="edge">
+<title>module~julienne_string_s&#45;&gt;module~julienne_string_m</title>
+<path fill="none" stroke="#00ffa9" d="M513,-607.78C402.75,-588.81 347.79,-660.59 262,-588.78 212.15,-547.05 184.39,-339.34 176.43,-270.2"/>
+<polygon fill="#00ffa9" stroke="#00ffa9" points="179.87,-269.55 175.28,-260 172.92,-270.33 179.87,-269.55"/>
+</g>
+<!-- module~julienne_string_s&#45;&gt;module~julienne_test_diagnosis_m -->
+<g id="module~~graph~~ModuleGraph_edge34" class="edge">
+<title>module~julienne_string_s&#45;&gt;module~julienne_test_diagnosis_m</title>
+<path fill="none" stroke="#00ffa9" stroke-dasharray="5,2" d="M649.43,-637.75C613.4,-628.41 561.24,-615.74 515,-607.78"/>
+<path fill="none" stroke="#00ffa9" stroke-dasharray="5,2" d="M513,-607.78C472.99,-600.9 428.39,-590.63 394.29,-582.22"/>
+<polygon fill="#00ffa9" stroke="#00ffa9" points="395.06,-578.8 384.51,-579.78 393.37,-585.59 395.06,-578.8"/>
+</g>
+<!-- module~julienne_string_s&#45;&gt;assert_m -->
+<g id="module~~graph~~ModuleGraph_edge32" class="edge">
+<title>module~julienne_string_s&#45;&gt;assert_m</title>
+<path fill="none" stroke="#00ffa9" stroke-dasharray="5,2" d="M644.14,-649.78C615.92,-649.78 581.11,-649.78 554.75,-649.78"/>
+<polygon fill="#00ffa9" stroke="#00ffa9" points="554.73,-646.28 544.73,-649.78 554.73,-653.28 554.73,-646.28"/>
+</g>
+<!-- module~julienne_test_description_m&#45;&gt;module~julienne_string_m -->
+<g id="module~~graph~~ModuleGraph_edge36" class="edge">
+<title>module~julienne_test_description_m&#45;&gt;module~julienne_string_m</title>
+<path fill="none" stroke="#00ffd4" stroke-dasharray="5,2" d="M640.24,-275.78C570.74,-261.64 445.88,-240.87 338.5,-247.78"/>
+</g>
+<!-- module~julienne_test_description_m&#45;&gt;module~julienne_test_diagnosis_m -->
+<g id="module~~graph~~ModuleGraph_edge37" class="edge">
+<title>module~julienne_test_description_m&#45;&gt;module~julienne_test_diagnosis_m</title>
+<path fill="none" stroke="#00ffd4" stroke-dasharray="5,2" d="M671.02,-299.91C625.96,-324.27 523.86,-382.24 449,-445.78 411.39,-477.71 374.25,-522.06 354.05,-547.56"/>
+<polygon fill="#00ffd4" stroke="#00ffd4" points="351.06,-545.71 347.64,-555.74 356.57,-550.02 351.06,-545.71"/>
+</g>
+<!-- module~julienne_test_description_m&#45;&gt;module~julienne_test_result_m -->
+<g id="module~~graph~~ModuleGraph_edge38" class="edge">
+<title>module~julienne_test_description_m&#45;&gt;module~julienne_test_result_m</title>
+<path fill="none" stroke="#00ffd4" stroke-dasharray="5,2" d="M614.97,-287.78C606.44,-287.78 597.79,-287.78 589.33,-287.78"/>
+<polygon fill="#00ffd4" stroke="#00ffd4" points="589.12,-284.28 579.12,-287.78 589.12,-291.28 589.12,-284.28"/>
+</g>
+<!-- module~julienne_test_description_s -->
+<g id="module~~graph~~ModuleGraph_node19" class="node">
+<title>module~julienne_test_description_s</title>
+<g id="a_module~~graph~~ModuleGraph_node19"><a xlink:href="../module/julienne_test_description_s.html" xlink:title="julienne_test_description_s">
+<polygon fill="#5bc0de" stroke="#5bc0de" points="966,-537.78 811,-537.78 811,-513.78 966,-513.78 966,-537.78"/>
+<text text-anchor="middle" x="888.5" y="-523.38" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">julienne_test_description_s</text>
+</a>
+</g>
+</g>
+<!-- module~julienne_test_description_s&#45;&gt;module~julienne_assert_m -->
+<g id="module~~graph~~ModuleGraph_edge40" class="edge">
+<title>module~julienne_test_description_s&#45;&gt;module~julienne_assert_m</title>
+<path fill="none" stroke="#00ffff" stroke-dasharray="5,2" d="M849.85,-537.83C811.59,-549.17 750.38,-564.84 696,-567.78"/>
+<path fill="none" stroke="#00ffff" stroke-dasharray="5,2" d="M694,-567.78C655.89,-569.84 613.16,-569.93 579,-569.46"/>
+<polygon fill="#00ffff" stroke="#00ffff" points="578.75,-565.95 568.69,-569.29 578.64,-572.95 578.75,-565.95"/>
+</g>
+<!-- module~julienne_test_description_s&#45;&gt;module~julienne_command_line_m -->
+<g id="module~~graph~~ModuleGraph_edge41" class="edge">
+<title>module~julienne_test_description_s&#45;&gt;module~julienne_command_line_m</title>
+<path fill="none" stroke="#00ffff" stroke-dasharray="5,2" d="M845.25,-513.64C833.72,-509.46 821.51,-504.17 811,-497.78 792.46,-486.5 791.72,-478.63 775,-464.78 757.65,-450.41 737.25,-435.22 721.53,-423.85"/>
+<polygon fill="#00ffff" stroke="#00ffff" points="723.49,-420.95 713.33,-417.96 719.41,-426.64 723.49,-420.95"/>
+</g>
+<!-- module~julienne_test_description_s&#45;&gt;module~julienne_test_description_m -->
+<g id="module~~graph~~ModuleGraph_edge42" class="edge">
+<title>module~julienne_test_description_s&#45;&gt;module~julienne_test_description_m</title>
+<path fill="none" stroke="#00ffff" d="M834.7,-513.72C825.92,-509.8 817.56,-504.62 811,-497.78 774.53,-459.73 800.08,-431.14 775,-384.78 758.9,-355.03 733.15,-325.58 715.45,-307.07"/>
+<polygon fill="#00ffff" stroke="#00ffff" points="717.89,-304.56 708.41,-299.84 712.88,-309.45 717.89,-304.56"/>
+</g>
+<!-- module~julienne_test_description_s&#45;&gt;assert_m -->
+<g id="module~~graph~~ModuleGraph_edge39" class="edge">
+<title>module~julienne_test_description_s&#45;&gt;assert_m</title>
+<path fill="none" stroke="#00ffff" stroke-dasharray="5,2" d="M881.6,-538.17C867.47,-566.46 828.8,-636.03 775,-670.78 744.67,-690.37 731.96,-686.48 696,-689.78"/>
+<path fill="none" stroke="#00ffff" stroke-dasharray="5,2" d="M694,-689.78C644.58,-694.32 588.99,-678.51 553.06,-665.44"/>
+<polygon fill="#00ffff" stroke="#00ffff" points="554.06,-662.08 543.47,-661.85 551.61,-668.64 554.06,-662.08"/>
+</g>
+<!-- module~julienne_test_diagnosis_m&#45;&gt;module~julienne_string_m -->
+<g id="module~~graph~~ModuleGraph_edge44" class="edge">
+<title>module~julienne_test_diagnosis_m&#45;&gt;module~julienne_string_m</title>
+<path fill="none" stroke="#00d4ff" stroke-dasharray="5,2" d="M330.33,-555.63C305.95,-507.61 216.13,-330.75 184.84,-269.13"/>
+<polygon fill="#00d4ff" stroke="#00d4ff" points="187.83,-267.28 180.18,-259.95 181.59,-270.45 187.83,-267.28"/>
+</g>
+<!-- module~julienne_test_diagnosis_m&#45;&gt;iso_c_binding -->
+<g id="module~~graph~~ModuleGraph_edge43" class="edge">
+<title>module~julienne_test_diagnosis_m&#45;&gt;iso_c_binding</title>
+<path fill="none" stroke="#00d4ff" stroke-dasharray="5,2" d="M332.69,-579.89C317.58,-625.61 258.57,-783.33 174,-746.78"/>
+<path fill="none" stroke="#00d4ff" stroke-dasharray="5,2" d="M172,-746.78C80.93,-707.43 50.84,-361.84 44.42,-270.07"/>
+<polygon fill="#00d4ff" stroke="#00d4ff" points="47.9,-269.7 43.74,-259.96 40.92,-270.17 47.9,-269.7"/>
+</g>
+<!-- module~julienne_test_diagnosis_s -->
+<g id="module~~graph~~ModuleGraph_node21" class="node">
+<title>module~julienne_test_diagnosis_s</title>
+<g id="a_module~~graph~~ModuleGraph_node21"><a xlink:href="../module/julienne_test_diagnosis_s.html" xlink:title="julienne_test_diagnosis_s">
+<polygon fill="#5bc0de" stroke="#5bc0de" points="768,-779.78 622,-779.78 622,-755.78 768,-755.78 768,-779.78"/>
+<text text-anchor="middle" x="695" y="-765.38" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">julienne_test_diagnosis_s</text>
+</a>
+</g>
+</g>
+<!-- module~julienne_test_diagnosis_s&#45;&gt;module~julienne_string_m -->
+<g id="module~~graph~~ModuleGraph_edge47" class="edge">
+<title>module~julienne_test_diagnosis_s&#45;&gt;module~julienne_string_m</title>
+<path fill="none" stroke="#00a9ff" stroke-dasharray="5,2" d="M513,-746.78C438.74,-724.43 406.79,-783.55 338.5,-746.78"/>
+<path fill="none" stroke="#00a9ff" stroke-dasharray="5,2" d="M336.5,-746.78C247.75,-698.99 191.02,-361.02 177.26,-270.2"/>
+<polygon fill="#00a9ff" stroke="#00a9ff" points="180.7,-269.54 175.76,-260.17 173.78,-270.57 180.7,-269.54"/>
+</g>
+<!-- module~julienne_test_diagnosis_s&#45;&gt;module~julienne_test_diagnosis_m -->
+<g id="module~~graph~~ModuleGraph_edge48" class="edge">
+<title>module~julienne_test_diagnosis_s&#45;&gt;module~julienne_test_diagnosis_m</title>
+<path fill="none" stroke="#00a9ff" d="M621.84,-765.09C588.73,-762.4 549.31,-757.11 515,-746.78"/>
+<path fill="none" stroke="#00a9ff" d="M513,-746.78C483.91,-738.02 473.09,-741.29 449,-722.78 401.03,-685.92 365.16,-622.52 348.62,-589.38"/>
+<polygon fill="#00a9ff" stroke="#00a9ff" points="351.64,-587.59 344.11,-580.13 345.34,-590.66 351.64,-587.59"/>
+</g>
+<!-- module~julienne_test_diagnosis_s&#45;&gt;assert_m -->
+<g id="module~~graph~~ModuleGraph_edge45" class="edge">
+<title>module~julienne_test_diagnosis_s&#45;&gt;assert_m</title>
+<path fill="none" stroke="#00a9ff" stroke-dasharray="5,2" d="M675.52,-755.6C643.81,-734.7 578.93,-691.93 542.1,-667.65"/>
+<polygon fill="#00a9ff" stroke="#00a9ff" points="543.66,-664.48 533.38,-661.9 539.8,-670.32 543.66,-664.48"/>
+</g>
+<!-- module~julienne_test_diagnosis_s&#45;&gt;iso_c_binding -->
+<g id="module~~graph~~ModuleGraph_edge46" class="edge">
+<title>module~julienne_test_diagnosis_s&#45;&gt;iso_c_binding</title>
+<path fill="none" stroke="#00a9ff" stroke-dasharray="5,2" d="M336.5,-746.78C272.91,-712.54 240.3,-775.43 174,-746.78"/>
+</g>
+<!-- module~julienne_test_fixture_m&#45;&gt;module~julienne_test_m -->
+<g id="module~~graph~~ModuleGraph_edge49" class="edge">
+<title>module~julienne_test_fixture_m&#45;&gt;module~julienne_test_m</title>
+<path fill="none" stroke="#007fff" stroke-dasharray="5,2" d="M1001.85,-325.78C983.73,-325.78 964.28,-325.78 946.74,-325.78"/>
+<polygon fill="#007fff" stroke="#007fff" points="946.65,-322.28 936.65,-325.78 946.65,-329.28 946.65,-322.28"/>
+</g>
+<!-- module~julienne_test_fixture_s -->
+<g id="module~~graph~~ModuleGraph_node23" class="node">
+<title>module~julienne_test_fixture_s</title>
+<g id="a_module~~graph~~ModuleGraph_node23"><a xlink:href="../module/julienne_test_fixture_s.html" xlink:title="julienne_test_fixture_s">
+<polygon fill="#5bc0de" stroke="#5bc0de" points="1323.5,-337.78 1193.5,-337.78 1193.5,-313.78 1323.5,-313.78 1323.5,-337.78"/>
+<text text-anchor="middle" x="1258.5" y="-323.38" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">julienne_test_fixture_s</text>
+</a>
+</g>
+</g>
+<!-- module~julienne_test_fixture_s&#45;&gt;module~julienne_test_fixture_m -->
+<g id="module~~graph~~ModuleGraph_edge50" class="edge">
+<title>module~julienne_test_fixture_s&#45;&gt;module~julienne_test_fixture_m</title>
+<path fill="none" stroke="#0054ff" d="M1193.41,-325.78C1178.49,-325.78 1162.46,-325.78 1147.06,-325.78"/>
+<polygon fill="#0054ff" stroke="#0054ff" points="1147.06,-322.28 1137.06,-325.78 1147.06,-329.28 1147.06,-322.28"/>
+</g>
+<!-- module~julienne_test_harness_m&#45;&gt;module~julienne_test_fixture_m -->
+<g id="module~~graph~~ModuleGraph_edge51" class="edge">
+<title>module~julienne_test_harness_m&#45;&gt;module~julienne_test_fixture_m</title>
+<path fill="none" stroke="#002aff" stroke-dasharray="5,2" d="M1196.15,-215.96C1187.77,-219.46 1179.75,-223.97 1173,-229.78 1144.98,-253.91 1164.93,-280.55 1137,-304.78 1135.46,-306.12 1133.83,-307.37 1132.13,-308.55"/>
+<polygon fill="#002aff" stroke="#002aff" points="1130.04,-305.71 1123.17,-313.78 1133.57,-311.76 1130.04,-305.71"/>
+</g>
+<!-- module~julienne_test_harness_s -->
+<g id="module~~graph~~ModuleGraph_node25" class="node">
+<title>module~julienne_test_harness_s</title>
+<g id="a_module~~graph~~ModuleGraph_node25"><a xlink:href="../module/julienne_test_harness_s.html" xlink:title="julienne_test_harness_s">
+<polygon fill="#5bc0de" stroke="#5bc0de" points="1532,-93.78 1394,-93.78 1394,-69.78 1532,-69.78 1532,-93.78"/>
+<text text-anchor="middle" x="1463" y="-79.38" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">julienne_test_harness_s</text>
+</a>
+</g>
+</g>
+<!-- module~julienne_test_harness_s&#45;&gt;module~julienne_command_line_m -->
+<g id="module~~graph~~ModuleGraph_edge53" class="edge">
+<title>module~julienne_test_harness_s&#45;&gt;module~julienne_command_line_m</title>
+<path fill="none" stroke="#0000ff" stroke-dasharray="5,2" d="M1393.7,-92C1388.58,-94.84 1383.9,-98.38 1380,-102.78 1297.71,-195.73 1435.61,-295.99 1344,-379.78 1303.55,-416.78 949.55,-412.53 782.53,-408.38"/>
+<polygon fill="#0000ff" stroke="#0000ff" points="782.62,-404.88 772.53,-408.13 782.44,-411.88 782.62,-404.88"/>
+</g>
+<!-- module~julienne_test_harness_s&#45;&gt;module~julienne_string_m -->
+<g id="module~~graph~~ModuleGraph_edge54" class="edge">
+<title>module~julienne_test_harness_s&#45;&gt;module~julienne_string_m</title>
+<path fill="none" stroke="#0000ff" stroke-dasharray="5,2" d="M694,-53.78C653.4,-56.11 552.79,-76.76 515,-91.78"/>
+<path fill="none" stroke="#0000ff" stroke-dasharray="5,2" d="M513,-91.78C485.43,-102.75 470.24,-90.06 449,-110.78 411.87,-146.99 449.26,-184.7 413,-221.78 388.48,-246.85 373.45,-244.95 338.5,-247.78"/>
+<path fill="none" stroke="#0000ff" stroke-dasharray="5,2" d="M336.5,-247.78C303.4,-250.46 266.39,-250.68 236.06,-250.13"/>
+<polygon fill="#0000ff" stroke="#0000ff" points="236.12,-246.63 226.05,-249.92 235.97,-253.63 236.12,-246.63"/>
+</g>
+<!-- module~julienne_test_harness_s&#45;&gt;module~julienne_test_harness_m -->
+<g id="module~~graph~~ModuleGraph_edge55" class="edge">
+<title>module~julienne_test_harness_s&#45;&gt;module~julienne_test_harness_m</title>
+<path fill="none" stroke="#0000ff" d="M1398.58,-93.78C1392.07,-96.25 1385.74,-99.21 1380,-102.78 1359.12,-115.77 1362.22,-128.28 1344,-144.78 1326.88,-160.29 1305.54,-175.16 1288.59,-186.09"/>
+<polygon fill="#0000ff" stroke="#0000ff" points="1286.25,-183.43 1279.67,-191.74 1289.99,-189.34 1286.25,-183.43"/>
+</g>
+<!-- module~julienne_test_harness_s&#45;&gt;iso_fortran_env -->
+<g id="module~~graph~~ModuleGraph_edge52" class="edge">
+<title>module~julienne_test_harness_s&#45;&gt;iso_fortran_env</title>
+<path fill="none" stroke="#0000ff" stroke-dasharray="5,2" d="M1393.83,-75.35C1260,-63.61 953.52,-41.01 696,-53.78"/>
+<path fill="none" stroke="#0000ff" stroke-dasharray="5,2" d="M694,-53.78C652.91,-56.14 606.43,-55.52 571.14,-54.38"/>
+<polygon fill="#0000ff" stroke="#0000ff" points="571.14,-50.88 561.03,-54.03 570.9,-57.87 571.14,-50.88"/>
+</g>
+<!-- module~julienne_test_m&#45;&gt;module~julienne_command_line_m -->
+<g id="module~~graph~~ModuleGraph_edge56" class="edge">
+<title>module~julienne_test_m&#45;&gt;module~julienne_command_line_m</title>
+<path fill="none" stroke="#2a00ff" stroke-dasharray="5,2" d="M858.42,-337.93C825.18,-351.81 770.68,-374.58 734.08,-389.87"/>
+<polygon fill="#2a00ff" stroke="#2a00ff" points="732.61,-386.69 724.73,-393.78 735.31,-393.15 732.61,-386.69"/>
+</g>
+<!-- module~julienne_test_m&#45;&gt;module~julienne_test_description_m -->
+<g id="module~~graph~~ModuleGraph_edge57" class="edge">
+<title>module~julienne_test_m&#45;&gt;module~julienne_test_description_m</title>
+<path fill="none" stroke="#2a00ff" stroke-dasharray="5,2" d="M840.16,-316.39C817.97,-311.98 791.06,-306.65 766.54,-301.78"/>
+<polygon fill="#2a00ff" stroke="#2a00ff" points="767.04,-298.31 756.55,-299.8 765.68,-305.18 767.04,-298.31"/>
+</g>
+<!-- module~julienne_test_m&#45;&gt;module~julienne_test_result_m -->
+<g id="module~~graph~~ModuleGraph_edge58" class="edge">
+<title>module~julienne_test_m&#45;&gt;module~julienne_test_result_m</title>
+<path fill="none" stroke="#2a00ff" stroke-dasharray="5,2" d="M840.04,-324.9C785.51,-323.4 693.44,-319.41 615,-308.78 601.97,-307.02 588.11,-304.51 574.98,-301.85"/>
+<polygon fill="#2a00ff" stroke="#2a00ff" points="575.62,-298.41 565.11,-299.79 574.19,-305.26 575.62,-298.41"/>
+</g>
+<!-- module~julienne_test_result_m&#45;&gt;module~julienne_string_m -->
+<g id="module~~graph~~ModuleGraph_edge59" class="edge">
+<title>module~julienne_test_result_m&#45;&gt;module~julienne_string_m</title>
+<path fill="none" stroke="#5400ff" stroke-dasharray="5,2" d="M484.09,-275.78C449.83,-262.81 390.76,-244.42 338.5,-247.78"/>
+</g>
+<!-- module~julienne_test_result_m&#45;&gt;module~julienne_test_diagnosis_m -->
+<g id="module~~graph~~ModuleGraph_edge60" class="edge">
+<title>module~julienne_test_result_m&#45;&gt;module~julienne_test_diagnosis_m</title>
+<path fill="none" stroke="#5400ff" stroke-dasharray="5,2" d="M469.92,-299.88C462.3,-303.45 454.92,-308 449,-313.78 380.51,-380.62 351.73,-497.03 342.31,-545.55"/>
+<polygon fill="#5400ff" stroke="#5400ff" points="338.83,-545.13 340.45,-555.6 345.71,-546.4 338.83,-545.13"/>
+</g>
+<!-- module~julienne_test_result_s -->
+<g id="module~~graph~~ModuleGraph_node28" class="node">
+<title>module~julienne_test_result_s</title>
+<g id="a_module~~graph~~ModuleGraph_node28"><a xlink:href="../module/julienne_test_result_s.html" xlink:title="julienne_test_result_s">
+<polygon fill="#5bc0de" stroke="#5bc0de" points="757.5,-497.78 632.5,-497.78 632.5,-473.78 757.5,-473.78 757.5,-497.78"/>
+<text text-anchor="middle" x="695" y="-483.38" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">julienne_test_result_s</text>
+</a>
+</g>
+</g>
+<!-- module~julienne_test_result_s&#45;&gt;module~julienne_assert_m -->
+<g id="module~~graph~~ModuleGraph_edge61" class="edge">
+<title>module~julienne_test_result_s&#45;&gt;module~julienne_assert_m</title>
+<path fill="none" stroke="#7f00ff" stroke-dasharray="5,2" d="M640.18,-497.85C631.61,-500.41 622.96,-503.38 615,-506.78 587.92,-518.35 559.47,-536.35 539.88,-549.81"/>
+<polygon fill="#7f00ff" stroke="#7f00ff" points="537.73,-547.04 531.53,-555.63 541.74,-552.78 537.73,-547.04"/>
+</g>
+<!-- module~julienne_test_result_s&#45;&gt;module~julienne_test_result_m -->
+<g id="module~~graph~~ModuleGraph_edge62" class="edge">
+<title>module~julienne_test_result_s&#45;&gt;module~julienne_test_result_m</title>
+<path fill="none" stroke="#7f00ff" d="M674.51,-473.67C657.67,-462.66 633.23,-445.34 615,-426.78 578.13,-389.25 544.44,-337.17 527.16,-308.6"/>
+<polygon fill="#7f00ff" stroke="#7f00ff" points="530.08,-306.66 521.95,-299.87 524.07,-310.25 530.08,-306.66"/>
+</g>
+<!-- module~julienne_test_s -->
+<g id="module~~graph~~ModuleGraph_node29" class="node">
+<title>module~julienne_test_s</title>
+<g id="a_module~~graph~~ModuleGraph_node29"><a xlink:href="../module/julienne_test_s.html" xlink:title="julienne_test_s">
+<polygon fill="#5bc0de" stroke="#5bc0de" points="1115,-295.78 1024,-295.78 1024,-271.78 1115,-271.78 1115,-295.78"/>
+<text text-anchor="middle" x="1069.5" y="-281.38" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">julienne_test_s</text>
+</a>
+</g>
+</g>
+<!-- module~julienne_test_s&#45;&gt;module~julienne_test_description_m -->
+<g id="module~~graph~~ModuleGraph_edge63" class="edge">
+<title>module~julienne_test_s&#45;&gt;module~julienne_test_description_m</title>
+<path fill="none" stroke="#aa00ff" stroke-dasharray="5,2" d="M1023.94,-284.26C965.29,-284.89 860.82,-286.01 785.54,-286.82"/>
+<polygon fill="#aa00ff" stroke="#aa00ff" points="785.08,-283.32 775.12,-286.93 785.15,-290.32 785.08,-283.32"/>
+</g>
+<!-- module~julienne_test_s&#45;&gt;module~julienne_test_m -->
+<g id="module~~graph~~ModuleGraph_edge64" class="edge">
+<title>module~julienne_test_s&#45;&gt;module~julienne_test_m</title>
+<path fill="none" stroke="#aa00ff" d="M1023.79,-294.27C1000.49,-299.74 971.74,-306.49 946.82,-312.33"/>
+<polygon fill="#aa00ff" stroke="#aa00ff" points="945.7,-309 936.76,-314.69 947.3,-315.81 945.7,-309"/>
+</g>
+<!-- module~julienne_test_suite_m&#45;&gt;module~julienne_file_m -->
+<g id="module~~graph~~ModuleGraph_edge65" class="edge">
+<title>module~julienne_test_suite_m&#45;&gt;module~julienne_file_m</title>
+<path fill="none" stroke="#d400ff" stroke-dasharray="5,2" d="M694,-129.78C652.75,-127.74 606.1,-128.35 570.76,-129.42"/>
+<polygon fill="#d400ff" stroke="#d400ff" points="570.53,-125.92 560.64,-129.75 570.75,-132.92 570.53,-125.92"/>
+</g>
+<!-- module~julienne_test_suite_m&#45;&gt;module~julienne_string_m -->
+<g id="module~~graph~~ModuleGraph_edge66" class="edge">
+<title>module~julienne_test_suite_m&#45;&gt;module~julienne_string_m</title>
+<path fill="none" stroke="#d400ff" stroke-dasharray="5,2" d="M1006,-156.48C932.09,-148.22 805.29,-135.2 696,-129.78"/>
+<path fill="none" stroke="#d400ff" stroke-dasharray="5,2" d="M694,-129.78C653.5,-126.09 553.03,-77.38 515,-91.78"/>
+</g>
+<!-- module~julienne_test_suite_s -->
+<g id="module~~graph~~ModuleGraph_node31" class="node">
+<title>module~julienne_test_suite_s</title>
+<g id="a_module~~graph~~ModuleGraph_node31"><a xlink:href="../module/julienne_test_suite_s.html" xlink:title="julienne_test_suite_s">
+<polygon fill="#5bc0de" stroke="#5bc0de" points="1745.5,-293.78 1624.5,-293.78 1624.5,-269.78 1745.5,-269.78 1745.5,-293.78"/>
+<text text-anchor="middle" x="1685" y="-279.38" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">julienne_test_suite_s</text>
+</a>
+</g>
+</g>
+<!-- module~julienne_test_suite_s&#45;&gt;module~julienne_m -->
+<g id="module~~graph~~ModuleGraph_edge68" class="edge">
+<title>module~julienne_test_suite_s&#45;&gt;module~julienne_m</title>
+<path fill="none" stroke="#ff00ff" stroke-dasharray="5,2" d="M1624.41,-291.06C1610.29,-294.07 1595.43,-297.93 1582,-302.78 1549.22,-314.62 1514.32,-334.23 1491.05,-348.43"/>
+<polygon fill="#ff00ff" stroke="#ff00ff" points="1489.09,-345.53 1482.43,-353.77 1492.78,-351.48 1489.09,-345.53"/>
+</g>
+<!-- module~julienne_test_suite_s&#45;&gt;module~julienne_test_suite_m -->
+<g id="module~~graph~~ModuleGraph_edge69" class="edge">
+<title>module~julienne_test_suite_s&#45;&gt;module~julienne_test_suite_m</title>
+<path fill="none" stroke="#ff00ff" d="M1651.26,-269.69C1591.28,-248.12 1459.3,-203.33 1344,-182.78 1276.62,-170.77 1198.64,-166.26 1143.23,-164.61"/>
+<polygon fill="#ff00ff" stroke="#ff00ff" points="1143.24,-161.11 1133.15,-164.34 1143.05,-168.11 1143.24,-161.11"/>
+</g>
+<!-- module~julienne_test_suite_s&#45;&gt;assert_m -->
+<g id="module~~graph~~ModuleGraph_edge67" class="edge">
+<title>module~julienne_test_suite_s&#45;&gt;assert_m</title>
+<path fill="none" stroke="#ff00ff" stroke-dasharray="5,2" d="M1624.42,-281.61C1608.54,-284.57 1592.82,-290.75 1582,-302.78 1527.04,-363.87 1605,-613.6 1546,-670.78 1454.36,-759.59 1387.11,-689.78 1259.5,-689.78 1259.5,-689.78 1259.5,-689.78 1068.5,-689.78 902.94,-689.78 860.86,-674.63 696,-689.78"/>
+</g>
+<!-- program~assertions -->
+<g id="module~~graph~~ModuleGraph_node32" class="node">
+<title>program~assertions</title>
+<g id="a_module~~graph~~ModuleGraph_node32"><a xlink:href="../program/assertions.html" xlink:title="assertions">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="1718.5,-461.78 1651.5,-461.78 1651.5,-437.78 1718.5,-437.78 1718.5,-461.78"/>
+<text text-anchor="middle" x="1685" y="-447.38" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">assertions</text>
+</a>
+</g>
+</g>
+<!-- program~assertions&#45;&gt;module~julienne_m -->
+<g id="module~~graph~~ModuleGraph_edge70" class="edge">
+<title>program~assertions&#45;&gt;module~julienne_m</title>
+<path fill="none" stroke="#ff00d4" stroke-dasharray="5,2" d="M1651.19,-445.48C1630.86,-442.22 1604.45,-436.89 1582,-428.78 1549.22,-416.94 1514.32,-397.33 1491.05,-383.13"/>
+<polygon fill="#ff00d4" stroke="#ff00d4" points="1492.78,-380.08 1482.43,-377.79 1489.09,-386.03 1492.78,-380.08"/>
+</g>
+<!-- program~check_for_command_line_argument -->
+<g id="module~~graph~~ModuleGraph_node33" class="node">
+<title>program~check_for_command_line_argument</title>
+<g id="a_module~~graph~~ModuleGraph_node33"><a xlink:href="../program/check_for_command_line_argument.html" xlink:title="check_for_command_line_argument">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="1788,-419.78 1582,-419.78 1582,-395.78 1788,-395.78 1788,-419.78"/>
+<text text-anchor="middle" x="1685" y="-405.38" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">check_for_command_line_argument</text>
+</a>
+</g>
+</g>
+<!-- program~check_for_command_line_argument&#45;&gt;module~julienne_m -->
+<g id="module~~graph~~ModuleGraph_edge71" class="edge">
+<title>program~check_for_command_line_argument&#45;&gt;module~julienne_m</title>
+<path fill="none" stroke="#ff00aa" stroke-dasharray="5,2" d="M1620.96,-395.75C1585.1,-388.9 1541.04,-380.49 1508.74,-374.32"/>
+<polygon fill="#ff00aa" stroke="#ff00aa" points="1509.17,-370.84 1498.69,-372.4 1507.86,-377.72 1509.17,-370.84"/>
+</g>
+<!-- program~create_markdown_table -->
+<g id="module~~graph~~ModuleGraph_node34" class="node">
+<title>program~create_markdown_table</title>
+<g id="a_module~~graph~~ModuleGraph_node34"><a xlink:href="../program/create_markdown_table.html" xlink:title="create_markdown_table">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="765,-24.78 625,-24.78 625,-0.78 765,-0.78 765,-24.78"/>
+<text text-anchor="middle" x="695" y="-10.38" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">create_markdown_table</text>
+</a>
+</g>
+</g>
+<!-- program~create_markdown_table&#45;&gt;module~julienne_string_m -->
+<g id="module~~graph~~ModuleGraph_edge74" class="edge">
+<title>program~create_markdown_table&#45;&gt;module~julienne_string_m</title>
+<path fill="none" stroke="#ff007f" stroke-dasharray="5,2" d="M336.5,-207.78C318.99,-216.88 274.3,-227.59 236.21,-235.64"/>
+<polygon fill="#ff007f" stroke="#ff007f" points="235.25,-232.26 226.18,-237.73 236.68,-239.11 235.25,-232.26"/>
+</g>
+<!-- program~create_markdown_table&#45;&gt;iso_c_binding -->
+<g id="module~~graph~~ModuleGraph_edge72" class="edge">
+<title>program~create_markdown_table&#45;&gt;iso_c_binding</title>
+<path fill="none" stroke="#ff007f" stroke-dasharray="5,2" d="M624.81,-1.9C572.77,2.69 501.67,1.01 449,-30.78 369.6,-78.7 420.79,-165.01 338.5,-207.78"/>
+<path fill="none" stroke="#ff007f" stroke-dasharray="5,2" d="M336.5,-207.78C293.53,-229.84 167.54,-218.28 120,-226.78 110.78,-228.43 101.07,-230.67 91.76,-233.08"/>
+<polygon fill="#ff007f" stroke="#ff007f" points="90.62,-229.76 81.86,-235.73 92.43,-236.52 90.62,-229.76"/>
+</g>
+<!-- program~create_markdown_table&#45;&gt;iso_fortran_env -->
+<g id="module~~graph~~ModuleGraph_edge73" class="edge">
+<title>program~create_markdown_table&#45;&gt;iso_fortran_env</title>
+<path fill="none" stroke="#ff007f" stroke-dasharray="5,2" d="M638.83,-24.8C617.37,-29.48 592.81,-34.83 571.25,-39.53"/>
+<polygon fill="#ff007f" stroke="#ff007f" points="570.28,-36.16 561.25,-41.7 571.77,-43 570.28,-36.16"/>
+</g>
+<!-- program~get_command_line_flag_value -->
+<g id="module~~graph~~ModuleGraph_node35" class="node">
+<title>program~get_command_line_flag_value</title>
+<g id="a_module~~graph~~ModuleGraph_node35"><a xlink:href="../program/get_command_line_flag_value.html" xlink:title="get_command_line_flag_value">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="1772,-377.78 1598,-377.78 1598,-353.78 1772,-353.78 1772,-377.78"/>
+<text text-anchor="middle" x="1685" y="-363.38" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">get_command_line_flag_value</text>
+</a>
+</g>
+</g>
+<!-- program~get_command_line_flag_value&#45;&gt;module~julienne_m -->
+<g id="module~~graph~~ModuleGraph_edge75" class="edge">
+<title>program~get_command_line_flag_value&#45;&gt;module~julienne_m</title>
+<path fill="none" stroke="#ff0055" stroke-dasharray="5,2" d="M1598,-365.78C1567.49,-365.78 1534.4,-365.78 1508.73,-365.78"/>
+<polygon fill="#ff0055" stroke="#ff0055" points="1508.57,-362.28 1498.57,-365.78 1508.57,-369.28 1508.57,-362.28"/>
+</g>
+<!-- program~scaffold -->
+<g id="module~~graph~~ModuleGraph_node36" class="node">
+<title>program~scaffold</title>
+<g id="a_module~~graph~~ModuleGraph_node36"><a xlink:href="../program/scaffold.html" xlink:title="scaffold">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="1712.5,-335.78 1657.5,-335.78 1657.5,-311.78 1712.5,-311.78 1712.5,-335.78"/>
+<text text-anchor="middle" x="1685" y="-321.38" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">scaffold</text>
+</a>
+</g>
+</g>
+<!-- program~scaffold&#45;&gt;module~julienne_m -->
+<g id="module~~graph~~ModuleGraph_edge76" class="edge">
+<title>program~scaffold&#45;&gt;module~julienne_m</title>
+<path fill="none" stroke="#ff002a" stroke-dasharray="5,2" d="M1657.46,-328.85C1620.57,-335.89 1553.28,-348.74 1508.6,-357.27"/>
+<polygon fill="#ff002a" stroke="#ff002a" points="1507.76,-353.86 1498.59,-359.18 1509.07,-360.74 1507.76,-353.86"/>
+</g>
+</g>
+</svg>
+</div>                <script>
+                  var panmodulegraphModuleGraph = svgPanZoom('#modulegraphModuleGraph',
+                    {zoomEnabled: true, controlIconsEnabled: true, fit: true, center: true,}
+                  );
+                </script>          <div>
+            <a type="button" class="graph-help" data-bs-toggle="modal" href="#ModuleGraph-help-text">Help</a>
+          </div>
+          <div class="modal fade" id="ModuleGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="518pt" height="32pt"
+ viewBox="0.00 0.00 517.50 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 513.5,-28 513.5,4 -4,4"/>
+<!-- Module -->
+<g id="node1" class="node">
+<title>Module</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="54,-24 0,-24 0,0 54,0 54,-24"/>
+<text text-anchor="middle" x="27" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Module</text>
+</g>
+<!-- Submodule -->
+<g id="node2" class="node">
+<title>Submodule</title>
+<polygon fill="#5bc0de" stroke="#5bc0de" points="145.5,-24 72.5,-24 72.5,0 145.5,0 145.5,-24"/>
+<text text-anchor="middle" x="109" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Submodule</text>
+</g>
+<!-- Subroutine -->
+<g id="node3" class="node">
+<title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="234,-24 164,-24 164,0 234,0 234,-24"/>
+<text text-anchor="middle" x="199" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node4" class="node">
+<title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="310,-24 252,-24 252,0 310,0 310,-24"/>
+<text text-anchor="middle" x="281" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Program -->
+<g id="node5" class="node">
+<title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="386,-24 328,-24 328,0 386,0 386,-24"/>
+<text text-anchor="middle" x="357" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node6" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="509.5,-24 404.5,-24 404.5,0 509.5,0 509.5,-24"/>
+<text text-anchor="middle" x="457" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+<p>Solid arrows point from a submodule to the (sub)module which it is
+descended from. Dashed arrows point from a module or program unit to 
+modules which it uses.
+</p>
+ Where possible, edges connecting nodes are
+given different colours to make them easier to distinguish in
+large graphs.</div>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+      <hr>
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col">
+            <p>
+              Julienne
+ was developed by Berkeley Lab<br>              &copy; 2025 
+</p>
+          </div>
+          <div class="col">
+            <p class="text-end">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+ on 2025-10-12 20:01 +0000             </p>
+          </div>
+        </div>
+        <br>
+      </div> <!-- /container -->
+    </footer>
+  </body>
+</html>

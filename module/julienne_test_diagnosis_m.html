@@ -1,0 +1,5187 @@
+<!-- -*- mode: jinja2 -*- -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="A Fortran 2023 correctness-checking framework supporting expressive idioms for writing assertions and tests">
+    <meta name="author" content="Berkeley Lab" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>julienne_test_diagnosis_m &ndash; Julienne</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!-- Font Awesome -->
+    <link href="../css/fontawesome.min.css" rel="stylesheet">
+    <link href="../css/brands.min.css" rel="stylesheet">
+    <link href="../css/regular.min.css" rel="stylesheet">
+    <link href="../css/solid.min.css" rel="stylesheet">
+    <link href="../css/v4-font-face.min.css" rel="stylesheet">
+    <link href="../css/v4-shims.min.css" rel="stylesheet">
+    <!-- MathJax -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: { equationNumbers: { autoNumber: "AMS" } }
+      });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async
+            integrity="sha256-DViIOMYdwlM/axqoGDPeUyf0urLoHMN4QACBKyB58Uw=" crossorigin="anonymous"></script>
+    <!-- Other scripts and stylesheets -->
+    <link href="../css/local.css" rel="stylesheet">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <script src="../js/svg-pan-zoom.min.js"></script>
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="container-fluid mb-sm-4 mb-xl-2">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="../index.html">Julienne </a>
+          <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
+                  aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon">
+          </button>
+
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="../lists/files.html">Source Files</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/modules.html">Modules</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/procedures.html">Procedures</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/absint.html">Abstract Interfaces</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/types.html">Derived Types</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/programs.html">Programs</a>
+                </li>
+            </ul>
+              <div class="d-flex align-items-end flex-grow-1">
+                <form action="../search.html" role="search" class="ms-auto">
+                  <input type="text" class="form-control" aria-label="Search" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+                </form>
+              </div>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+    </div>
+
+    <div class="container">
+  <div class="row">
+    <h1>julienne_test_diagnosis_m
+      <small>Module</small>
+      
+    </h1>
+      <div class="container p-2 mb-4 bg-light border rounded-3">
+    <div class="row align-items-center justify-content-between" id="info-bar">
+      <div class="col">
+        <ul class="list-inline" style="margin-bottom:0px;display:inline">
+
+            <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
+              <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
+                 title="16.2% of total for modules and submodules.">419 statements</a>
+            </li>
+
+            <li class="list-inline-item" id="source-file">
+              <i class="fa fa-code"></i>
+              <a href="../src/julienne_test_diagnosis_m.F90"> Source File</a>
+            </li>
+        </ul>
+      </div>
+      <div class="col">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-end mb-0">
+                <li class="breadcrumb-item"><a href='../sourcefile/julienne_test_diagnosis_m.f90.html'>julienne_test_diagnosis_m.F90</a></li>
+            <li class="breadcrumb-item active" aria-current="page">julienne_test_diagnosis_m</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <script>
+    // Enable Bootstrap tooltips
+    (function () {
+      const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+      const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+    })();
+  </script>
+
+  </div>
+
+  <div class="row">
+    <div class="col-md-3">
+        <div id="sidebar">
+      <h3>Contents</h3>
+  
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#vars-0"
+         aria-expanded="false" aria-controls="vars-0">
+         <h4 class="card-header bg-primary text-white">Variables</h4>
+      </a>
+      <div id="vars-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../module/julienne_test_diagnosis_m.html#variable-default_real">default_real</a>
+            <a class="list-group-item" href="../module/julienne_test_diagnosis_m.html#variable-double_precision">double_precision</a>
+        </div>
+      </div>
+    </div>
+
+  
+  
+  
+  
+  
+  
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#inters-0"
+         aria-expanded="false" aria-controls="inters-0">
+         <h4 class="card-header bg-primary text-white">Interfaces</h4>
+      </a>
+      <div id="inters-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../module/julienne_test_diagnosis_m.html#interface-operator%28.all.%29">operator(.all.)</a>
+            <a class="list-group-item" href="../module/julienne_test_diagnosis_m.html#interface-operator%28.also.%29">operator(.also.)</a>
+            <a class="list-group-item" href="../module/julienne_test_diagnosis_m.html#interface-operator%28.and.%29">operator(.and.)</a>
+            <a class="list-group-item" href="../module/julienne_test_diagnosis_m.html#interface-operator%28.approximates.%29">operator(.approximates.)</a>
+            <a class="list-group-item" href="../module/julienne_test_diagnosis_m.html#interface-operator%28.equalsexpected.%29">operator(.equalsExpected.)</a>
+            <a class="list-group-item" href="../module/julienne_test_diagnosis_m.html#interface-operator%28.expect.%29">operator(.expect.)</a>
+            <a class="list-group-item" href="../module/julienne_test_diagnosis_m.html#interface-operator%28.greaterthan.%29">operator(.greaterThan.)</a>
+            <a class="list-group-item" href="../module/julienne_test_diagnosis_m.html#interface-operator%28.greaterthanorequalto.%29">operator(.greaterThanOrEqualTo.)</a>
+            <a class="list-group-item" href="../module/julienne_test_diagnosis_m.html#interface-operator%28.isafter.%29">operator(.isAfter.)</a>
+            <a class="list-group-item" href="../module/julienne_test_diagnosis_m.html#interface-operator%28.isatleast.%29">operator(.isAtLeast.)</a>
+            <a class="list-group-item" href="../module/julienne_test_diagnosis_m.html#interface-operator%28.isatmost.%29">operator(.isAtMost.)</a>
+            <a class="list-group-item" href="../module/julienne_test_diagnosis_m.html#interface-operator%28.isbefore.%29">operator(.isBefore.)</a>
+            <a class="list-group-item" href="../module/julienne_test_diagnosis_m.html#interface-operator%28.lessthan.%29">operator(.lessThan.)</a>
+            <a class="list-group-item" href="../module/julienne_test_diagnosis_m.html#interface-operator%28.lessthanorequalto.%29">operator(.lessThanOrEqualTo.)</a>
+            <a class="list-group-item" href="../module/julienne_test_diagnosis_m.html#interface-operator%28.within.%29">operator(.within.)</a>
+            <a class="list-group-item" href="../module/julienne_test_diagnosis_m.html#interface-operator%28.withinfraction.%29">operator(.withinFraction.)</a>
+            <a class="list-group-item" href="../module/julienne_test_diagnosis_m.html#interface-operator%28.withinpercentage.%29">operator(.withinPercentage.)</a>
+            <a class="list-group-item" href="../module/julienne_test_diagnosis_m.html#interface-operator%28SLASHSLASH%29">operator(//)</a>
+            <a class="list-group-item" href="../module/julienne_test_diagnosis_m.html#interface-test_diagnosis_t">test_diagnosis_t</a>
+            <a class="list-group-item" href="../module/julienne_test_diagnosis_m.html#interface-diagnostics_string">diagnostics_string</a>
+            <a class="list-group-item" href="../module/julienne_test_diagnosis_m.html#interface-test_passed">test_passed</a>
+        </div>
+      </div>
+    </div>
+
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#absints-0"
+         aria-expanded="false" aria-controls="absints-0">
+         <h4 class="card-header bg-primary text-white">Abstract Interfaces</h4>
+      </a>
+      <div id="absints-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../module/julienne_test_diagnosis_m.html#interface-diagnosis_function_i">diagnosis_function_i</a>
+        </div>
+      </div>
+    </div>
+
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#types-0"
+         aria-expanded="false" aria-controls="types-0">
+         <h4 class="card-header bg-primary text-white">Derived Types</h4>
+      </a>
+      <div id="types-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../module/julienne_test_diagnosis_m.html#type-test_diagnosis_t">test_diagnosis_t</a>
+            <a class="list-group-item" href="../module/julienne_test_diagnosis_m.html#type-double_precision_operands_t">double_precision_operands_t</a>
+            <a class="list-group-item" href="../module/julienne_test_diagnosis_m.html#type-operands_t">operands_t</a>
+            <a class="list-group-item" href="../module/julienne_test_diagnosis_m.html#type-operands_t~2">operands_t</a>
+        </div>
+      </div>
+    </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+  </div>
+
+    </div>
+
+    <div class="col-md-9" id='text'>
+      <p>Define abstractions, defined operations, and procedures for writing correctness checks</p>
+<br>          <div class="card mb-4">
+      <h3 class="card-header card-title bg-light">Uses</h3>
+      <div class="card-body">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <ul class="list-inline">
+                  <li class="list-inline-item"><a href='http://fortranwiki.org/fortran/show/iso_c_binding'>iso_c_binding</a></li>
+                  <li class="list-inline-item"><a href='julienne_string_m.html'>julienne_string_m</a></li>
+              </ul>
+            </li>
+            <li class="list-group-item">
+              <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: module~~julienne_test_diagnosis_m~~UsesGraph Pages: 1 -->
+<svg id="modulejulienne_test_diagnosis_mUsesGraph" width="421pt" height="52pt"
+ viewBox="0.00 0.00 421.00 52.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="module~~julienne_test_diagnosis_m~~UsesGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 48)">
+<title>module~~julienne_test_diagnosis_m~~UsesGraph</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-48 417,-48 417,4 -4,4"/>
+<!-- module~julienne_test_diagnosis_m -->
+<g id="module~~julienne_test_diagnosis_m~~UsesGraph_node1" class="node">
+<title>module~julienne_test_diagnosis_m</title>
+<polygon fill="none" stroke="black" points="413,-44 262,-44 262,-20 413,-20 413,-44"/>
+<text text-anchor="middle" x="337.5" y="-29.6" font-family="Helvetica,sans-Serif" font-size="10.50">julienne_test_diagnosis_m</text>
+</g>
+<!-- iso_c_binding -->
+<g id="module~~julienne_test_diagnosis_m~~UsesGraph_node2" class="node">
+<title>iso_c_binding</title>
+<g id="a_module~~julienne_test_diagnosis_m~~UsesGraph_node2"><a xlink:href="http://fortranwiki.org/fortran/show/iso_c_binding" xlink:title="iso_c_binding">
+<polygon fill="#337ab7" stroke="#337ab7" points="84,-44 0,-44 0,-20 84,-20 84,-44"/>
+<text text-anchor="middle" x="42" y="-29.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">iso_c_binding</text>
+</a>
+</g>
+</g>
+<!-- module~julienne_test_diagnosis_m&#45;&gt;iso_c_binding -->
+<g id="module~~julienne_test_diagnosis_m~~UsesGraph_edge1" class="edge">
+<title>module~julienne_test_diagnosis_m&#45;&gt;iso_c_binding</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M261.9,-32.77C249.9,-32.86 237.61,-32.95 226,-33 178.89,-33.21 167.11,-33.31 120,-33 111.73,-32.95 102.96,-32.86 94.42,-32.76"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="94.2,-29.26 84.16,-32.63 94.11,-36.26 94.2,-29.26"/>
+</g>
+<!-- module~julienne_string_m -->
+<g id="module~~julienne_test_diagnosis_m~~UsesGraph_node3" class="node">
+<title>module~julienne_string_m</title>
+<g id="a_module~~julienne_test_diagnosis_m~~UsesGraph_node3"><a xlink:href="../module/julienne_string_m.html" xlink:title="julienne_string_m">
+<polygon fill="#337ab7" stroke="#337ab7" points="226,-24 120,-24 120,0 226,0 226,-24"/>
+<text text-anchor="middle" x="173" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">julienne_string_m</text>
+</a>
+</g>
+</g>
+<!-- module~julienne_test_diagnosis_m&#45;&gt;module~julienne_string_m -->
+<g id="module~~julienne_test_diagnosis_m~~UsesGraph_edge2" class="edge">
+<title>module~julienne_test_diagnosis_m&#45;&gt;module~julienne_string_m</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M261.91,-22.82C253.37,-21.77 244.73,-20.7 236.37,-19.68"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="236.69,-16.19 226.34,-18.44 235.84,-23.14 236.69,-16.19"/>
+</g>
+<!-- module~julienne_string_m&#45;&gt;iso_c_binding -->
+<g id="module~~julienne_test_diagnosis_m~~UsesGraph_edge3" class="edge">
+<title>module~julienne_string_m&#45;&gt;iso_c_binding</title>
+<path fill="none" stroke="#00ffff" stroke-dasharray="5,2" d="M119.9,-20.08C111.45,-21.39 102.7,-22.74 94.27,-24.05"/>
+<polygon fill="#00ffff" stroke="#00ffff" points="93.53,-20.62 84.19,-25.61 94.6,-27.54 93.53,-20.62"/>
+</g>
+</g>
+</svg>
+</div>          <div>
+            <a type="button" class="graph-help" data-bs-toggle="modal" href="#UsesGraph-help-text">Help</a>
+          </div>
+          <div class="modal fade" id="UsesGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="518pt" height="32pt"
+ viewBox="0.00 0.00 517.50 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 513.5,-28 513.5,4 -4,4"/>
+<!-- Module -->
+<g id="node1" class="node">
+<title>Module</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="54,-24 0,-24 0,0 54,0 54,-24"/>
+<text text-anchor="middle" x="27" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Module</text>
+</g>
+<!-- Submodule -->
+<g id="node2" class="node">
+<title>Submodule</title>
+<polygon fill="#5bc0de" stroke="#5bc0de" points="145.5,-24 72.5,-24 72.5,0 145.5,0 145.5,-24"/>
+<text text-anchor="middle" x="109" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Submodule</text>
+</g>
+<!-- Subroutine -->
+<g id="node3" class="node">
+<title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="234,-24 164,-24 164,0 234,0 234,-24"/>
+<text text-anchor="middle" x="199" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node4" class="node">
+<title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="310,-24 252,-24 252,0 310,0 310,-24"/>
+<text text-anchor="middle" x="281" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Program -->
+<g id="node5" class="node">
+<title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="386,-24 328,-24 328,0 386,0 386,-24"/>
+<text text-anchor="middle" x="357" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node6" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="509.5,-24 404.5,-24 404.5,0 509.5,0 509.5,-24"/>
+<text text-anchor="middle" x="457" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+<p>Solid arrows point from a submodule to the (sub)module which it is
+descended from. Dashed arrows point from a module or program unit to 
+modules which it uses.
+</p>
+ Where possible, edges connecting nodes are
+given different colours to make them easier to distinguish in
+large graphs.</div>
+            </div>
+          </div>
+        </div>
+            </li>
+        </ul>
+      </div>
+    </div>
+
+          <div class="card">
+      <h3 class="card-header card-title bg-light">Used by</h3>
+      <div class="card-body">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <ul class="list-inline">
+                <li class="list-inline-item"><h5>Descendants:</h5></li>
+                  <li class="list-inline-item"><a href='julienne_test_diagnosis_s.html'>julienne_test_diagnosis_s</a></li>
+              </ul>
+            </li>
+            <li class="list-group-item">
+              <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: module~~julienne_test_diagnosis_m~~UsedByGraph Pages: 1 -->
+<svg id="modulejulienne_test_diagnosis_mUsedByGraph" width="641pt" height="156pt"
+ viewBox="0.00 0.00 641.00 156.44" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="module~~julienne_test_diagnosis_m~~UsedByGraph" class="graph" transform="scale(0.43 0.43) rotate(0) translate(4 360.63)">
+<title>module~~julienne_test_diagnosis_m~~UsedByGraph</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-360.63 1490,-360.63 1490,4 -4,4"/>
+<!-- module~julienne_test_diagnosis_m -->
+<g id="module~~julienne_test_diagnosis_m~~UsedByGraph_node1" class="node">
+<title>module~julienne_test_diagnosis_m</title>
+<polygon fill="none" stroke="black" points="151,-126 0,-126 0,-102 151,-102 151,-126"/>
+<text text-anchor="middle" x="75.5" y="-111.6" font-family="Helvetica,sans-Serif" font-size="10.50">julienne_test_diagnosis_m</text>
+</g>
+<!-- module~julienne_assert_m -->
+<g id="module~~julienne_test_diagnosis_m~~UsedByGraph_node2" class="node">
+<title>module~julienne_assert_m</title>
+<g id="a_module~~julienne_test_diagnosis_m~~UsedByGraph_node2"><a xlink:href="../module/julienne_assert_m.html" xlink:title="julienne_assert_m">
+<polygon fill="#337ab7" stroke="#337ab7" points="314.5,-186 205.5,-186 205.5,-162 314.5,-162 314.5,-186"/>
+<text text-anchor="middle" x="260" y="-171.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">julienne_assert_m</text>
+</a>
+</g>
+</g>
+<!-- module~julienne_assert_m&#45;&gt;module~julienne_test_diagnosis_m -->
+<g id="module~~julienne_test_diagnosis_m~~UsedByGraph_edge1" class="edge">
+<title>module~julienne_assert_m&#45;&gt;module~julienne_test_diagnosis_m</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M222.07,-161.86C193.4,-152.43 153.49,-139.31 122.71,-129.19"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="123.66,-125.82 113.06,-126.02 121.47,-132.47 123.66,-125.82"/>
+</g>
+<!-- module~julienne_bin_s -->
+<g id="module~~julienne_test_diagnosis_m~~UsedByGraph_node3" class="node">
+<title>module~julienne_bin_s</title>
+<g id="a_module~~julienne_test_diagnosis_m~~UsedByGraph_node3"><a xlink:href="../module/julienne_bin_s.html" xlink:title="julienne_bin_s">
+<polygon fill="#5bc0de" stroke="#5bc0de" points="493,-306 405,-306 405,-282 493,-282 493,-306"/>
+<text text-anchor="middle" x="449" y="-291.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">julienne_bin_s</text>
+</a>
+</g>
+</g>
+<!-- module~julienne_bin_s&#45;&gt;module~julienne_test_diagnosis_m -->
+<g id="module~~julienne_test_diagnosis_m~~UsedByGraph_edge2" class="edge">
+<title>module~julienne_bin_s&#45;&gt;module~julienne_test_diagnosis_m</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M404.64,-305.94C353.64,-319.57 274.2,-339.33 261,-334"/>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M259,-334C166.83,-296.78 107.17,-183.12 85.57,-135.43"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="88.67,-133.78 81.43,-126.05 82.27,-136.61 88.67,-133.78"/>
+</g>
+<!-- module~julienne_bin_s&#45;&gt;module~julienne_assert_m -->
+<g id="module~~julienne_test_diagnosis_m~~UsedByGraph_edge8" class="edge">
+<title>module~julienne_bin_s&#45;&gt;module~julienne_assert_m</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M404.86,-283.22C392.83,-279.32 380.05,-274.28 369,-268 333.36,-247.73 298.82,-214.56 278.75,-193.53"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="281.19,-191.01 271.79,-186.11 276.08,-195.8 281.19,-191.01"/>
+</g>
+<!-- module~julienne_m -->
+<g id="module~~julienne_test_diagnosis_m~~UsedByGraph_node4" class="node">
+<title>module~julienne_m</title>
+<g id="a_module~~julienne_test_diagnosis_m~~UsedByGraph_node4"><a xlink:href="../module/julienne_m.html" xlink:title="julienne_m">
+<polygon fill="#337ab7" stroke="#337ab7" points="1210.5,-166 1139.5,-166 1139.5,-142 1210.5,-142 1210.5,-166"/>
+<text text-anchor="middle" x="1175" y="-151.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">julienne_m</text>
+</a>
+</g>
+</g>
+<!-- module~julienne_m&#45;&gt;module~julienne_test_diagnosis_m -->
+<g id="module~~julienne_test_diagnosis_m~~UsedByGraph_edge3" class="edge">
+<title>module~julienne_m&#45;&gt;module~julienne_test_diagnosis_m</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M641.5,-254C584.9,-259.65 583.6,-299.07 529,-315 414.37,-348.44 371.72,-378.71 261,-334"/>
+</g>
+<!-- module~julienne_m&#45;&gt;module~julienne_assert_m -->
+<g id="module~~julienne_test_diagnosis_m~~UsedByGraph_edge9" class="edge">
+<title>module~julienne_m&#45;&gt;module~julienne_assert_m</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M641.5,-254C520.76,-266.67 485.27,-269.93 369,-235 338.14,-225.73 306.46,-206.46 285.46,-192.04"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="287.34,-189.09 277.15,-186.2 283.32,-194.82 287.34,-189.09"/>
+</g>
+<!-- module~julienne_test_description_m -->
+<g id="module~~julienne_test_diagnosis_m~~UsedByGraph_node6" class="node">
+<title>module~julienne_test_description_m</title>
+<g id="a_module~~julienne_test_diagnosis_m~~UsedByGraph_node6"><a xlink:href="../module/julienne_test_description_m.html" xlink:title="julienne_test_description_m">
+<polygon fill="#337ab7" stroke="#337ab7" points="529,-24 369,-24 369,0 529,0 529,-24"/>
+<text text-anchor="middle" x="449" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">julienne_test_description_m</text>
+</a>
+</g>
+</g>
+<!-- module~julienne_m&#45;&gt;module~julienne_test_description_m -->
+<g id="module~~julienne_test_diagnosis_m~~UsedByGraph_edge19" class="edge">
+<title>module~julienne_m&#45;&gt;module~julienne_test_description_m</title>
+<path fill="none" stroke="#0091ff" stroke-dasharray="5,2" d="M822.5,-174C699.66,-169.26 668.33,-139.6 565,-73 546.24,-60.91 548.09,-49.56 529,-38 522.4,-34 515.11,-30.54 507.71,-27.57"/>
+<polygon fill="#0091ff" stroke="#0091ff" points="508.92,-24.28 498.33,-24.05 506.47,-30.84 508.92,-24.28"/>
+</g>
+<!-- module~julienne_test_result_m -->
+<g id="module~~julienne_test_diagnosis_m~~UsedByGraph_node8" class="node">
+<title>module~julienne_test_result_m</title>
+<g id="a_module~~julienne_test_diagnosis_m~~UsedByGraph_node8"><a xlink:href="../module/julienne_test_result_m.html" xlink:title="julienne_test_result_m">
+<polygon fill="#337ab7" stroke="#337ab7" points="325,-106 195,-106 195,-82 325,-82 325,-106"/>
+<text text-anchor="middle" x="260" y="-91.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">julienne_test_result_m</text>
+</a>
+</g>
+</g>
+<!-- module~julienne_m&#45;&gt;module~julienne_test_result_m -->
+<g id="module~~julienne_test_diagnosis_m~~UsedByGraph_edge23" class="edge">
+<title>module~julienne_m&#45;&gt;module~julienne_test_result_m</title>
+<path fill="none" stroke="#ff00da" stroke-dasharray="5,2" d="M822.5,-174C769.71,-169.13 769.03,-214.84 720,-235 687.6,-248.32 678.36,-250.52 643.5,-254"/>
+<path fill="none" stroke="#ff00da" stroke-dasharray="5,2" d="M641.5,-254C606.64,-257.48 589.43,-260.11 565,-235 512.96,-181.52 581.24,-124.29 529,-71 503.72,-45.21 485.8,-56.72 450,-52"/>
+</g>
+<!-- module~julienne_test_m -->
+<g id="module~~julienne_test_diagnosis_m~~UsedByGraph_node11" class="node">
+<title>module~julienne_test_m</title>
+<g id="a_module~~julienne_test_diagnosis_m~~UsedByGraph_node11"><a xlink:href="../module/julienne_test_m.html" xlink:title="julienne_test_m">
+<polygon fill="#337ab7" stroke="#337ab7" points="690.5,-64 594.5,-64 594.5,-40 690.5,-40 690.5,-64"/>
+<text text-anchor="middle" x="642.5" y="-49.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">julienne_test_m</text>
+</a>
+</g>
+</g>
+<!-- module~julienne_m&#45;&gt;module~julienne_test_m -->
+<g id="module~~julienne_test_diagnosis_m~~UsedByGraph_edge27" class="edge">
+<title>module~julienne_m&#45;&gt;module~julienne_test_m</title>
+<path fill="none" stroke="#cbff00" stroke-dasharray="5,2" d="M997.5,-174C920.64,-171.81 901.33,-176.97 824.5,-174"/>
+<path fill="none" stroke="#cbff00" stroke-dasharray="5,2" d="M822.5,-174C751.48,-171.26 687.77,-106.08 659.28,-72.14"/>
+<polygon fill="#cbff00" stroke="#cbff00" points="661.85,-69.76 652.81,-64.24 656.44,-74.2 661.85,-69.76"/>
+</g>
+<!-- module~julienne_test_fixture_m -->
+<g id="module~~julienne_test_diagnosis_m~~UsedByGraph_node19" class="node">
+<title>module~julienne_test_fixture_m</title>
+<g id="a_module~~julienne_test_diagnosis_m~~UsedByGraph_node19"><a xlink:href="../module/julienne_test_fixture_m.html" xlink:title="julienne_test_fixture_m">
+<polygon fill="#337ab7" stroke="#337ab7" points="891,-126 756,-126 756,-102 891,-102 891,-126"/>
+<text text-anchor="middle" x="823.5" y="-111.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">julienne_test_fixture_m</text>
+</a>
+</g>
+</g>
+<!-- module~julienne_m&#45;&gt;module~julienne_test_fixture_m -->
+<g id="module~~julienne_test_diagnosis_m~~UsedByGraph_edge30" class="edge">
+<title>module~julienne_m&#45;&gt;module~julienne_test_fixture_m</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M1139.36,-160.91C1104.24,-167.23 1048.27,-175.39 999.5,-174"/>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M997.5,-174C945.15,-172.51 888.54,-148.09 854.82,-130.87"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="856.02,-127.55 845.54,-126.01 852.77,-133.75 856.02,-127.55"/>
+</g>
+<!-- module~julienne_test_harness_m -->
+<g id="module~~julienne_test_diagnosis_m~~UsedByGraph_node21" class="node">
+<title>module~julienne_test_harness_m</title>
+<g id="a_module~~julienne_test_diagnosis_m~~UsedByGraph_node21"><a xlink:href="../module/julienne_test_harness_m.html" xlink:title="julienne_test_harness_m">
+<polygon fill="#337ab7" stroke="#337ab7" points="1070,-104 927,-104 927,-80 1070,-80 1070,-104"/>
+<text text-anchor="middle" x="998.5" y="-89.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">julienne_test_harness_m</text>
+</a>
+</g>
+</g>
+<!-- module~julienne_m&#45;&gt;module~julienne_test_harness_m -->
+<g id="module~~julienne_test_diagnosis_m~~UsedByGraph_edge33" class="edge">
+<title>module~julienne_m&#45;&gt;module~julienne_test_harness_m</title>
+<path fill="none" stroke="#00ffff" stroke-dasharray="5,2" d="M1145.11,-141.84C1124.38,-133.3 1095.68,-121.87 1070,-113 1064.14,-110.98 1057.96,-108.96 1051.8,-107.03"/>
+<polygon fill="#00ffff" stroke="#00ffff" points="1052.78,-103.67 1042.19,-104.07 1050.72,-110.36 1052.78,-103.67"/>
+</g>
+<!-- module~julienne_string_s -->
+<g id="module~~julienne_test_diagnosis_m~~UsedByGraph_node5" class="node">
+<title>module~julienne_string_s</title>
+<g id="a_module~~julienne_test_diagnosis_m~~UsedByGraph_node5"><a xlink:href="../module/julienne_string_s.html" xlink:title="julienne_string_s">
+<polygon fill="#5bc0de" stroke="#5bc0de" points="499.5,-146 398.5,-146 398.5,-122 499.5,-122 499.5,-146"/>
+<text text-anchor="middle" x="449" y="-131.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">julienne_string_s</text>
+</a>
+</g>
+</g>
+<!-- module~julienne_string_s&#45;&gt;module~julienne_test_diagnosis_m -->
+<g id="module~~julienne_test_diagnosis_m~~UsedByGraph_edge4" class="edge">
+<title>module~julienne_string_s&#45;&gt;module~julienne_test_diagnosis_m</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M398.28,-131.32C337.76,-128.07 234.59,-122.51 161.4,-118.57"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="161.45,-115.07 151.28,-118.03 161.08,-122.06 161.45,-115.07"/>
+</g>
+<!-- module~julienne_string_s&#45;&gt;module~julienne_assert_m -->
+<g id="module~~julienne_test_diagnosis_m~~UsedByGraph_edge10" class="edge">
+<title>module~julienne_string_s&#45;&gt;module~julienne_assert_m</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M398.38,-144.61C375.85,-149.43 348.91,-155.19 324.89,-160.33"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="323.84,-156.98 314.8,-162.49 325.31,-163.82 323.84,-156.98"/>
+</g>
+<!-- module~julienne_test_description_m&#45;&gt;module~julienne_test_diagnosis_m -->
+<g id="module~~julienne_test_diagnosis_m~~UsedByGraph_edge5" class="edge">
+<title>module~julienne_test_description_m&#45;&gt;module~julienne_test_diagnosis_m</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M368.73,-6.34C315.68,-5.27 245.18,-9.2 187,-31 150.14,-44.81 115.15,-75 94.76,-94.91"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="92.29,-92.44 87.69,-101.98 97.24,-97.39 92.29,-92.44"/>
+</g>
+<!-- module~julienne_test_description_m&#45;&gt;module~julienne_test_result_m -->
+<g id="module~~julienne_test_diagnosis_m~~UsedByGraph_edge24" class="edge">
+<title>module~julienne_test_description_m&#45;&gt;module~julienne_test_result_m</title>
+<path fill="none" stroke="#ff00da" stroke-dasharray="5,2" d="M399.67,-24.05C389.16,-27.71 378.39,-32.31 369,-38 349.91,-49.56 352.28,-61.77 333,-73 329.83,-74.85 326.49,-76.54 323.05,-78.09"/>
+<polygon fill="#ff00da" stroke="#ff00da" points="321.71,-74.86 313.77,-81.88 324.35,-81.34 321.71,-74.86"/>
+</g>
+<!-- module~julienne_test_diagnosis_s -->
+<g id="module~~julienne_test_diagnosis_m~~UsedByGraph_node7" class="node">
+<title>module~julienne_test_diagnosis_s</title>
+<g id="a_module~~julienne_test_diagnosis_m~~UsedByGraph_node7"><a xlink:href="../module/julienne_test_diagnosis_s.html" xlink:title="julienne_test_diagnosis_s">
+<polygon fill="#5bc0de" stroke="#5bc0de" points="333,-64 187,-64 187,-40 333,-40 333,-64"/>
+<text text-anchor="middle" x="260" y="-49.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">julienne_test_diagnosis_s</text>
+</a>
+</g>
+</g>
+<!-- module~julienne_test_diagnosis_s&#45;&gt;module~julienne_test_diagnosis_m -->
+<g id="module~~julienne_test_diagnosis_m~~UsedByGraph_edge7" class="edge">
+<title>module~julienne_test_diagnosis_s&#45;&gt;module~julienne_test_diagnosis_m</title>
+<path fill="none" stroke="#ff0000" d="M215.82,-64.05C206.29,-66.86 196.27,-69.93 187,-73 163.52,-80.77 137.58,-90.34 116.74,-98.28"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="115.34,-95.07 107.25,-101.92 117.84,-101.61 115.34,-95.07"/>
+</g>
+<!-- module~julienne_test_result_m&#45;&gt;module~julienne_test_diagnosis_m -->
+<g id="module~~julienne_test_diagnosis_m~~UsedByGraph_edge6" class="edge">
+<title>module~julienne_test_result_m&#45;&gt;module~julienne_test_diagnosis_m</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M194.91,-101.02C183.95,-102.22 172.41,-103.49 161.02,-104.74"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="160.61,-101.26 151.06,-105.83 161.38,-108.22 160.61,-101.26"/>
+</g>
+<!-- module~julienne_assert_s -->
+<g id="module~~julienne_test_diagnosis_m~~UsedByGraph_node9" class="node">
+<title>module~julienne_assert_s</title>
+<g id="a_module~~julienne_test_diagnosis_m~~UsedByGraph_node9"><a xlink:href="../module/julienne_assert_s.html" xlink:title="julienne_assert_s">
+<polygon fill="#5bc0de" stroke="#5bc0de" points="500.5,-226 397.5,-226 397.5,-202 500.5,-202 500.5,-226"/>
+<text text-anchor="middle" x="449" y="-211.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">julienne_assert_s</text>
+</a>
+</g>
+</g>
+<!-- module~julienne_assert_s&#45;&gt;module~julienne_assert_m -->
+<g id="module~~julienne_test_diagnosis_m~~UsedByGraph_edge13" class="edge">
+<title>module~julienne_assert_s&#45;&gt;module~julienne_assert_m</title>
+<path fill="none" stroke="#ff0000" d="M397.4,-203.18C374.96,-198.38 348.33,-192.68 324.57,-187.6"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="325.1,-184.13 314.59,-185.46 323.64,-190.98 325.1,-184.13"/>
+</g>
+<!-- module~julienne_test_description_s -->
+<g id="module~~julienne_test_diagnosis_m~~UsedByGraph_node10" class="node">
+<title>module~julienne_test_description_s</title>
+<g id="a_module~~julienne_test_diagnosis_m~~UsedByGraph_node10"><a xlink:href="../module/julienne_test_description_s.html" xlink:title="julienne_test_description_s">
+<polygon fill="#5bc0de" stroke="#5bc0de" points="720,-226 565,-226 565,-202 720,-202 720,-226"/>
+<text text-anchor="middle" x="642.5" y="-211.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">julienne_test_description_s</text>
+</a>
+</g>
+</g>
+<!-- module~julienne_test_description_s&#45;&gt;module~julienne_assert_m -->
+<g id="module~~julienne_test_diagnosis_m~~UsedByGraph_edge11" class="edge">
+<title>module~julienne_test_description_s&#45;&gt;module~julienne_assert_m</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M584.18,-202C566.55,-198.66 547.03,-195.31 529,-193 459.46,-184.07 379.19,-179.08 324.76,-176.48"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="324.72,-172.97 314.57,-176 324.39,-179.96 324.72,-172.97"/>
+</g>
+<!-- module~julienne_test_description_s&#45;&gt;module~julienne_test_description_m -->
+<g id="module~~julienne_test_diagnosis_m~~UsedByGraph_edge22" class="edge">
+<title>module~julienne_test_description_s&#45;&gt;module~julienne_test_description_m</title>
+<path fill="none" stroke="#0091ff" d="M584.07,-201.82C576.93,-198.31 570.29,-193.8 565,-188 518.8,-137.34 575.44,-88.43 529,-38 525.89,-34.62 522.33,-31.68 518.49,-29.12"/>
+<polygon fill="#0091ff" stroke="#0091ff" points="520.1,-26.01 509.68,-24.11 516.64,-32.1 520.1,-26.01"/>
+</g>
+<!-- module~julienne_test_m&#45;&gt;module~julienne_test_description_m -->
+<g id="module~~julienne_test_diagnosis_m~~UsedByGraph_edge20" class="edge">
+<title>module~julienne_test_m&#45;&gt;module~julienne_test_description_m</title>
+<path fill="none" stroke="#0091ff" stroke-dasharray="5,2" d="M594.16,-42.11C571.09,-37.29 542.92,-31.41 517.63,-26.13"/>
+<polygon fill="#0091ff" stroke="#0091ff" points="518.23,-22.68 507.72,-24.06 516.8,-29.53 518.23,-22.68"/>
+</g>
+<!-- module~julienne_test_m&#45;&gt;module~julienne_test_result_m -->
+<g id="module~~julienne_test_diagnosis_m~~UsedByGraph_edge25" class="edge">
+<title>module~julienne_test_m&#45;&gt;module~julienne_test_result_m</title>
+<path fill="none" stroke="#ff00da" stroke-dasharray="5,2" d="M594.45,-55.42C555.55,-57.42 498.95,-58.46 450,-52"/>
+<path fill="none" stroke="#ff00da" stroke-dasharray="5,2" d="M448,-52C434.97,-50.28 366.82,-66.68 316.53,-79.48"/>
+<polygon fill="#ff00da" stroke="#ff00da" points="315.55,-76.12 306.73,-81.99 317.29,-82.9 315.55,-76.12"/>
+</g>
+<!-- module~julienne_test_result_s -->
+<g id="module~~julienne_test_diagnosis_m~~UsedByGraph_node12" class="node">
+<title>module~julienne_test_result_s</title>
+<g id="a_module~~julienne_test_diagnosis_m~~UsedByGraph_node12"><a xlink:href="../module/julienne_test_result_s.html" xlink:title="julienne_test_result_s">
+<polygon fill="#5bc0de" stroke="#5bc0de" points="511.5,-104 386.5,-104 386.5,-80 511.5,-80 511.5,-104"/>
+<text text-anchor="middle" x="449" y="-89.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">julienne_test_result_s</text>
+</a>
+</g>
+</g>
+<!-- module~julienne_test_result_s&#45;&gt;module~julienne_assert_m -->
+<g id="module~~julienne_test_diagnosis_m~~UsedByGraph_edge12" class="edge">
+<title>module~julienne_test_result_s&#45;&gt;module~julienne_assert_m</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M395.12,-104.06C386.27,-106.64 377.28,-109.63 369,-113 339.86,-124.88 308.8,-143.07 287.5,-156.5"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="285.55,-153.59 279.01,-161.93 289.32,-159.49 285.55,-153.59"/>
+</g>
+<!-- module~julienne_test_result_s&#45;&gt;module~julienne_test_result_m -->
+<g id="module~~julienne_test_diagnosis_m~~UsedByGraph_edge26" class="edge">
+<title>module~julienne_test_result_s&#45;&gt;module~julienne_test_result_m</title>
+<path fill="none" stroke="#ff00da" d="M386.25,-92.66C370.04,-92.83 352.39,-93.02 335.58,-93.2"/>
+<polygon fill="#ff00da" stroke="#ff00da" points="335.21,-89.71 325.25,-93.31 335.29,-96.71 335.21,-89.71"/>
+</g>
+<!-- module~julienne_test_s -->
+<g id="module~~julienne_test_diagnosis_m~~UsedByGraph_node13" class="node">
+<title>module~julienne_test_s</title>
+<g id="a_module~~julienne_test_diagnosis_m~~UsedByGraph_node13"><a xlink:href="../module/julienne_test_s.html" xlink:title="julienne_test_s">
+<polygon fill="#5bc0de" stroke="#5bc0de" points="869,-44 778,-44 778,-20 869,-20 869,-44"/>
+<text text-anchor="middle" x="823.5" y="-29.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">julienne_test_s</text>
+</a>
+</g>
+</g>
+<!-- module~julienne_test_s&#45;&gt;module~julienne_test_description_m -->
+<g id="module~~julienne_test_diagnosis_m~~UsedByGraph_edge21" class="edge">
+<title>module~julienne_test_s&#45;&gt;module~julienne_test_description_m</title>
+<path fill="none" stroke="#0091ff" stroke-dasharray="5,2" d="M777.94,-29.61C719.29,-26.46 614.82,-20.85 539.54,-16.81"/>
+<polygon fill="#0091ff" stroke="#0091ff" points="539.29,-13.29 529.12,-16.25 538.91,-20.28 539.29,-13.29"/>
+</g>
+<!-- module~julienne_test_s&#45;&gt;module~julienne_test_m -->
+<g id="module~~julienne_test_diagnosis_m~~UsedByGraph_edge29" class="edge">
+<title>module~julienne_test_s&#45;&gt;module~julienne_test_m</title>
+<path fill="none" stroke="#cbff00" d="M777.79,-37C754.49,-39.6 725.74,-42.81 700.82,-45.6"/>
+<polygon fill="#cbff00" stroke="#cbff00" points="700.31,-42.13 690.76,-46.72 701.09,-49.09 700.31,-42.13"/>
+</g>
+<!-- module~julienne_test_suite_s -->
+<g id="module~~julienne_test_diagnosis_m~~UsedByGraph_node14" class="node">
+<title>module~julienne_test_suite_s</title>
+<g id="a_module~~julienne_test_diagnosis_m~~UsedByGraph_node14"><a xlink:href="../module/julienne_test_suite_s.html" xlink:title="julienne_test_suite_s">
+<polygon fill="#5bc0de" stroke="#5bc0de" points="1443.5,-250 1322.5,-250 1322.5,-226 1443.5,-226 1443.5,-250"/>
+<text text-anchor="middle" x="1383" y="-235.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">julienne_test_suite_s</text>
+</a>
+</g>
+</g>
+<!-- module~julienne_test_suite_s&#45;&gt;module~julienne_m -->
+<g id="module~~julienne_test_diagnosis_m~~UsedByGraph_edge14" class="edge">
+<title>module~julienne_test_suite_s&#45;&gt;module~julienne_m</title>
+<path fill="none" stroke="#48ff00" stroke-dasharray="5,2" d="M1322.48,-229.3C1308.29,-226.26 1293.38,-222.25 1280,-217 1250.9,-205.58 1220.66,-186.29 1200.35,-172.06"/>
+<polygon fill="#48ff00" stroke="#48ff00" points="1202.19,-169.07 1192.01,-166.12 1198.12,-174.77 1202.19,-169.07"/>
+</g>
+<!-- program~assertions -->
+<g id="module~~julienne_test_diagnosis_m~~UsedByGraph_node15" class="node">
+<title>program~assertions</title>
+<g id="a_module~~julienne_test_diagnosis_m~~UsedByGraph_node15"><a xlink:href="../program/assertions.html" xlink:title="assertions">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="1416.5,-208 1349.5,-208 1349.5,-184 1416.5,-184 1416.5,-208"/>
+<text text-anchor="middle" x="1383" y="-193.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">assertions</text>
+</a>
+</g>
+</g>
+<!-- program~assertions&#45;&gt;module~julienne_m -->
+<g id="module~~julienne_test_diagnosis_m~~UsedByGraph_edge15" class="edge">
+<title>program~assertions&#45;&gt;module~julienne_m</title>
+<path fill="none" stroke="#48ff00" stroke-dasharray="5,2" d="M1349.36,-189.34C1314.57,-182.25 1259.28,-170.98 1220.52,-163.08"/>
+<polygon fill="#48ff00" stroke="#48ff00" points="1221.05,-159.61 1210.55,-161.04 1219.65,-166.47 1221.05,-159.61"/>
+</g>
+<!-- program~check_for_command_line_argument -->
+<g id="module~~julienne_test_diagnosis_m~~UsedByGraph_node16" class="node">
+<title>program~check_for_command_line_argument</title>
+<g id="a_module~~julienne_test_diagnosis_m~~UsedByGraph_node16"><a xlink:href="../program/check_for_command_line_argument.html" xlink:title="check_for_command_line_argument">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="1486,-166 1280,-166 1280,-142 1486,-142 1486,-166"/>
+<text text-anchor="middle" x="1383" y="-151.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">check_for_command_line_argument</text>
+</a>
+</g>
+</g>
+<!-- program~check_for_command_line_argument&#45;&gt;module~julienne_m -->
+<g id="module~~julienne_test_diagnosis_m~~UsedByGraph_edge16" class="edge">
+<title>program~check_for_command_line_argument&#45;&gt;module~julienne_m</title>
+<path fill="none" stroke="#48ff00" stroke-dasharray="5,2" d="M1279.91,-154C1259.29,-154 1238.64,-154 1221.23,-154"/>
+<polygon fill="#48ff00" stroke="#48ff00" points="1220.84,-150.5 1210.84,-154 1220.84,-157.5 1220.84,-150.5"/>
+</g>
+<!-- program~get_command_line_flag_value -->
+<g id="module~~julienne_test_diagnosis_m~~UsedByGraph_node17" class="node">
+<title>program~get_command_line_flag_value</title>
+<g id="a_module~~julienne_test_diagnosis_m~~UsedByGraph_node17"><a xlink:href="../program/get_command_line_flag_value.html" xlink:title="get_command_line_flag_value">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="1470,-124 1296,-124 1296,-100 1470,-100 1470,-124"/>
+<text text-anchor="middle" x="1383" y="-109.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">get_command_line_flag_value</text>
+</a>
+</g>
+</g>
+<!-- program~get_command_line_flag_value&#45;&gt;module~julienne_m -->
+<g id="module~~julienne_test_diagnosis_m~~UsedByGraph_edge17" class="edge">
+<title>program~get_command_line_flag_value&#45;&gt;module~julienne_m</title>
+<path fill="none" stroke="#48ff00" stroke-dasharray="5,2" d="M1322.97,-124.04C1290.42,-130.67 1250.67,-138.78 1220.72,-144.88"/>
+<polygon fill="#48ff00" stroke="#48ff00" points="1219.66,-141.53 1210.56,-146.95 1221.06,-148.39 1219.66,-141.53"/>
+</g>
+<!-- program~scaffold -->
+<g id="module~~julienne_test_diagnosis_m~~UsedByGraph_node18" class="node">
+<title>program~scaffold</title>
+<g id="a_module~~julienne_test_diagnosis_m~~UsedByGraph_node18"><a xlink:href="../program/scaffold.html" xlink:title="scaffold">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="1410.5,-82 1355.5,-82 1355.5,-58 1410.5,-58 1410.5,-82"/>
+<text text-anchor="middle" x="1383" y="-67.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">scaffold</text>
+</a>
+</g>
+</g>
+<!-- program~scaffold&#45;&gt;module~julienne_m -->
+<g id="module~~julienne_test_diagnosis_m~~UsedByGraph_edge18" class="edge">
+<title>program~scaffold&#45;&gt;module~julienne_m</title>
+<path fill="none" stroke="#48ff00" stroke-dasharray="5,2" d="M1355.29,-72.93C1334.28,-75.84 1304.55,-81.31 1280,-91 1262.56,-97.88 1260.03,-103.27 1244,-113 1231.23,-120.75 1217.08,-129.29 1205.02,-136.56"/>
+<polygon fill="#48ff00" stroke="#48ff00" points="1203.01,-133.68 1196.25,-141.83 1206.62,-139.67 1203.01,-133.68"/>
+</g>
+<!-- module~julienne_test_fixture_m&#45;&gt;module~julienne_test_m -->
+<g id="module~~julienne_test_diagnosis_m~~UsedByGraph_edge28" class="edge">
+<title>module~julienne_test_fixture_m&#45;&gt;module~julienne_test_m</title>
+<path fill="none" stroke="#cbff00" stroke-dasharray="5,2" d="M787.56,-101.9C759.1,-92.04 718.74,-78.06 687.97,-67.4"/>
+<polygon fill="#cbff00" stroke="#cbff00" points="688.94,-64.04 678.35,-64.07 686.65,-70.65 688.94,-64.04"/>
+</g>
+<!-- module~julienne_test_fixture_s -->
+<g id="module~~julienne_test_diagnosis_m~~UsedByGraph_node20" class="node">
+<title>module~julienne_test_fixture_s</title>
+<g id="a_module~~julienne_test_diagnosis_m~~UsedByGraph_node20"><a xlink:href="../module/julienne_test_fixture_s.html" xlink:title="julienne_test_fixture_s">
+<polygon fill="#5bc0de" stroke="#5bc0de" points="1063.5,-146 933.5,-146 933.5,-122 1063.5,-122 1063.5,-146"/>
+<text text-anchor="middle" x="998.5" y="-131.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">julienne_test_fixture_s</text>
+</a>
+</g>
+</g>
+<!-- module~julienne_test_fixture_s&#45;&gt;module~julienne_test_fixture_m -->
+<g id="module~~julienne_test_diagnosis_m~~UsedByGraph_edge32" class="edge">
+<title>module~julienne_test_fixture_s&#45;&gt;module~julienne_test_fixture_m</title>
+<path fill="none" stroke="#ff0000" d="M933.08,-126.55C922.74,-125.36 911.95,-124.11 901.36,-122.89"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="901.62,-119.39 891.29,-121.72 900.82,-126.35 901.62,-119.39"/>
+</g>
+<!-- module~julienne_test_harness_m&#45;&gt;module~julienne_test_fixture_m -->
+<g id="module~~julienne_test_diagnosis_m~~UsedByGraph_edge31" class="edge">
+<title>module~julienne_test_harness_m&#45;&gt;module~julienne_test_fixture_m</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M926.64,-101.01C918.18,-102.09 909.53,-103.19 901,-104.27"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="900.55,-100.8 891.08,-105.53 901.44,-107.74 900.55,-100.8"/>
+</g>
+<!-- module~julienne_test_harness_s -->
+<g id="module~~julienne_test_diagnosis_m~~UsedByGraph_node22" class="node">
+<title>module~julienne_test_harness_s</title>
+<g id="a_module~~julienne_test_diagnosis_m~~UsedByGraph_node22"><a xlink:href="../module/julienne_test_harness_s.html" xlink:title="julienne_test_harness_s">
+<polygon fill="#5bc0de" stroke="#5bc0de" points="1244,-104 1106,-104 1106,-80 1244,-80 1244,-104"/>
+<text text-anchor="middle" x="1175" y="-89.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">julienne_test_harness_s</text>
+</a>
+</g>
+</g>
+<!-- module~julienne_test_harness_s&#45;&gt;module~julienne_test_harness_m -->
+<g id="module~~julienne_test_diagnosis_m~~UsedByGraph_edge34" class="edge">
+<title>module~julienne_test_harness_s&#45;&gt;module~julienne_test_harness_m</title>
+<path fill="none" stroke="#00ffff" d="M1105.78,-92C1097.49,-92 1088.96,-92 1080.51,-92"/>
+<polygon fill="#00ffff" stroke="#00ffff" points="1080.26,-88.5 1070.26,-92 1080.26,-95.5 1080.26,-88.5"/>
+</g>
+</g>
+</svg>
+</div>                <script>
+                  var panmodulejulienne_test_diagnosis_mUsedByGraph = svgPanZoom('#modulejulienne_test_diagnosis_mUsedByGraph',
+                    {zoomEnabled: true, controlIconsEnabled: true, fit: true, center: true,}
+                  );
+                </script>          <div>
+            <a type="button" class="graph-help" data-bs-toggle="modal" href="#UsedByGraph-help-text">Help</a>
+          </div>
+          <div class="modal fade" id="UsedByGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="518pt" height="32pt"
+ viewBox="0.00 0.00 517.50 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 513.5,-28 513.5,4 -4,4"/>
+<!-- Module -->
+<g id="node1" class="node">
+<title>Module</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="54,-24 0,-24 0,0 54,0 54,-24"/>
+<text text-anchor="middle" x="27" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Module</text>
+</g>
+<!-- Submodule -->
+<g id="node2" class="node">
+<title>Submodule</title>
+<polygon fill="#5bc0de" stroke="#5bc0de" points="145.5,-24 72.5,-24 72.5,0 145.5,0 145.5,-24"/>
+<text text-anchor="middle" x="109" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Submodule</text>
+</g>
+<!-- Subroutine -->
+<g id="node3" class="node">
+<title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="234,-24 164,-24 164,0 234,0 234,-24"/>
+<text text-anchor="middle" x="199" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node4" class="node">
+<title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="310,-24 252,-24 252,0 310,0 310,-24"/>
+<text text-anchor="middle" x="281" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Program -->
+<g id="node5" class="node">
+<title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="386,-24 328,-24 328,0 386,0 386,-24"/>
+<text text-anchor="middle" x="357" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node6" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="509.5,-24 404.5,-24 404.5,0 509.5,0 509.5,-24"/>
+<text text-anchor="middle" x="457" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+<p>Solid arrows point from a submodule to the (sub)module which it is
+descended from. Dashed arrows point from a module or program unit to 
+modules which it uses.
+</p>
+ Where possible, edges connecting nodes are
+given different colours to make them easier to distinguish in
+large graphs.</div>
+            </div>
+          </div>
+        </div>
+            </li>
+        </ul>
+      </div>
+    </div>
+
+      <br>
+
+
+        <section>
+          <h2>Variables</h2>
+            <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Visibility</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+<th></th><th scope="col">Initial</th>        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-default_real"></span>
+              integer,
+            </td>
+              <td>private,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>default_real</strong></td>
+<td> =</td>
+                <td>kind(1.)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-double_precision"></span>
+              integer,
+            </td>
+              <td>private,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>double_precision</strong></td>
+<td> =</td>
+                <td>kind(1D0)</td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+        </section>
+        <br>
+
+
+        <section>
+          <h2>Interfaces</h2>
+              <div class="card">
+    <div class="card-header bg-light codesum">
+      <span class="anchor" id="interface-operator%28.all.%29"></span>
+      <h3>public        interface <a href='../interface/operator(.all.).html'>operator(.all.)</a> 
+      </h3>
+    </div>
+    <ul class="list-group">
+          <li class="list-group-item">
+                <h3>
+    private pure module function aggregate_diagnosis(diagnoses) result(diagnosis)  
+    <a href="../proc/aggregate_diagnosis.html"><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
+
+    </h3>
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-diagnoses~2"></span>
+              type(<a href='../type/test_diagnosis_t.html'>test_diagnosis_t</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>diagnoses</strong>(..)</td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>type(<a href='../type/test_diagnosis_t.html'>test_diagnosis_t</a>)</small>
+    </h4>
+    
+
+          </li>
+          <li class="list-group-item">
+                <h3>
+    private pure module function aggregate_rank10_diagnosis(diagnoses) result(diagnosis)  
+    <a href="../proc/aggregate_rank10_diagnosis.html"><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
+
+    </h3>
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-diagnoses~13"></span>
+              type(<a href='../type/test_diagnosis_t.html'>test_diagnosis_t</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>diagnoses</strong>(:,:,:,:,:,:,:,:,:,:)</td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>type(<a href='../type/test_diagnosis_t.html'>test_diagnosis_t</a>)</small>
+    </h4>
+    
+
+          </li>
+          <li class="list-group-item">
+                <h3>
+    private pure module function aggregate_rank11_diagnosis(diagnoses) result(diagnosis)  
+    <a href="../proc/aggregate_rank11_diagnosis.html"><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
+
+    </h3>
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-diagnoses~14"></span>
+              type(<a href='../type/test_diagnosis_t.html'>test_diagnosis_t</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>diagnoses</strong>(:,:,:,:,:,:,:,:,:,:,:)</td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>type(<a href='../type/test_diagnosis_t.html'>test_diagnosis_t</a>)</small>
+    </h4>
+    
+
+          </li>
+          <li class="list-group-item">
+                <h3>
+    private pure module function aggregate_rank12_diagnosis(diagnoses) result(diagnosis)  
+    <a href="../proc/aggregate_rank12_diagnosis.html"><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
+
+    </h3>
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-diagnoses~15"></span>
+              type(<a href='../type/test_diagnosis_t.html'>test_diagnosis_t</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>diagnoses</strong>(:,:,:,:,:,:,:,:,:,:,:,:)</td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>type(<a href='../type/test_diagnosis_t.html'>test_diagnosis_t</a>)</small>
+    </h4>
+    
+
+          </li>
+          <li class="list-group-item">
+                <h3>
+    private pure module function aggregate_rank13_diagnosis(diagnoses) result(diagnosis)  
+    <a href="../proc/aggregate_rank13_diagnosis.html"><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
+
+    </h3>
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-diagnoses~16"></span>
+              type(<a href='../type/test_diagnosis_t.html'>test_diagnosis_t</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>diagnoses</strong>(:,:,:,:,:,:,:,:,:,:,:,:,:)</td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>type(<a href='../type/test_diagnosis_t.html'>test_diagnosis_t</a>)</small>
+    </h4>
+    
+
+          </li>
+          <li class="list-group-item">
+                <h3>
+    private pure module function aggregate_rank14_diagnosis(diagnoses) result(diagnosis)  
+    <a href="../proc/aggregate_rank14_diagnosis.html"><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
+
+    </h3>
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-diagnoses~17"></span>
+              type(<a href='../type/test_diagnosis_t.html'>test_diagnosis_t</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>diagnoses</strong>(:,:,:,:,:,:,:,:,:,:,:,:,:,:)</td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>type(<a href='../type/test_diagnosis_t.html'>test_diagnosis_t</a>)</small>
+    </h4>
+    
+
+          </li>
+          <li class="list-group-item">
+                <h3>
+    private pure module function aggregate_rank15_diagnosis(diagnoses) result(diagnosis)  
+    <a href="../proc/aggregate_rank15_diagnosis.html"><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
+
+    </h3>
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-diagnoses~18"></span>
+              type(<a href='../type/test_diagnosis_t.html'>test_diagnosis_t</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>diagnoses</strong>(:,:,:,:,:,:,:,:,:,:,:,:,:,:,:)</td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>type(<a href='../type/test_diagnosis_t.html'>test_diagnosis_t</a>)</small>
+    </h4>
+    
+
+          </li>
+          <li class="list-group-item">
+                <h3>
+    private pure module function aggregate_rank2_diagnosis(diagnoses) result(diagnosis)  
+    <a href="../proc/aggregate_rank2_diagnosis.html"><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
+
+    </h3>
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-diagnoses~5"></span>
+              type(<a href='../type/test_diagnosis_t.html'>test_diagnosis_t</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>diagnoses</strong>(:,:)</td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>type(<a href='../type/test_diagnosis_t.html'>test_diagnosis_t</a>)</small>
+    </h4>
+    
+
+          </li>
+          <li class="list-group-item">
+                <h3>
+    private pure module function aggregate_rank3_diagnosis(diagnoses) result(diagnosis)  
+    <a href="../proc/aggregate_rank3_diagnosis.html"><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
+
+    </h3>
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-diagnoses~6"></span>
+              type(<a href='../type/test_diagnosis_t.html'>test_diagnosis_t</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>diagnoses</strong>(:,:,:)</td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>type(<a href='../type/test_diagnosis_t.html'>test_diagnosis_t</a>)</small>
+    </h4>
+    
+
+          </li>
+          <li class="list-group-item">
+                <h3>
+    private pure module function aggregate_rank4_diagnosis(diagnoses) result(diagnosis)  
+    <a href="../proc/aggregate_rank4_diagnosis.html"><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
+
+    </h3>
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-diagnoses~7"></span>
+              type(<a href='../type/test_diagnosis_t.html'>test_diagnosis_t</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>diagnoses</strong>(:,:,:,:)</td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>type(<a href='../type/test_diagnosis_t.html'>test_diagnosis_t</a>)</small>
+    </h4>
+    
+
+          </li>
+          <li class="list-group-item">
+                <h3>
+    private pure module function aggregate_rank5_diagnosis(diagnoses) result(diagnosis)  
+    <a href="../proc/aggregate_rank5_diagnosis.html"><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
+
+    </h3>
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-diagnoses~8"></span>
+              type(<a href='../type/test_diagnosis_t.html'>test_diagnosis_t</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>diagnoses</strong>(:,:,:,:,:)</td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>type(<a href='../type/test_diagnosis_t.html'>test_diagnosis_t</a>)</small>
+    </h4>
+    
+
+          </li>
+          <li class="list-group-item">
+                <h3>
+    private pure module function aggregate_rank6_diagnosis(diagnoses) result(diagnosis)  
+    <a href="../proc/aggregate_rank6_diagnosis.html"><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
+
+    </h3>
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-diagnoses~9"></span>
+              type(<a href='../type/test_diagnosis_t.html'>test_diagnosis_t</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>diagnoses</strong>(:,:,:,:,:,:)</td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>type(<a href='../type/test_diagnosis_t.html'>test_diagnosis_t</a>)</small>
+    </h4>
+    
+
+          </li>
+          <li class="list-group-item">
+                <h3>
+    private pure module function aggregate_rank7_diagnosis(diagnoses) result(diagnosis)  
+    <a href="../proc/aggregate_rank7_diagnosis.html"><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
+
+    </h3>
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-diagnoses~10"></span>
+              type(<a href='../type/test_diagnosis_t.html'>test_diagnosis_t</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>diagnoses</strong>(:,:,:,:,:,:,:)</td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>type(<a href='../type/test_diagnosis_t.html'>test_diagnosis_t</a>)</small>
+    </h4>
+    
+
+          </li>
+          <li class="list-group-item">
+                <h3>
+    private pure module function aggregate_rank8_diagnosis(diagnoses) result(diagnosis)  
+    <a href="../proc/aggregate_rank8_diagnosis.html"><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
+
+    </h3>
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-diagnoses~11"></span>
+              type(<a href='../type/test_diagnosis_t.html'>test_diagnosis_t</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>diagnoses</strong>(:,:,:,:,:,:,:,:)</td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>type(<a href='../type/test_diagnosis_t.html'>test_diagnosis_t</a>)</small>
+    </h4>
+    
+
+          </li>
+          <li class="list-group-item">
+                <h3>
+    private pure module function aggregate_rank9_diagnosis(diagnoses) result(diagnosis)  
+    <a href="../proc/aggregate_rank9_diagnosis.html"><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
+
+    </h3>
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-diagnoses~12"></span>
+              type(<a href='../type/test_diagnosis_t.html'>test_diagnosis_t</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>diagnoses</strong>(:,:,:,:,:,:,:,:,:)</td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>type(<a href='../type/test_diagnosis_t.html'>test_diagnosis_t</a>)</small>
+    </h4>
+    
+
+          </li>
+          <li class="list-group-item">
+                <h3>
+    private pure module function aggregate_scalar_diagnosis(diagnoses) result(diagnosis)  
+    <a href="../proc/aggregate_scalar_diagnosis.html"><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
+
+    </h3>
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-diagnoses~3"></span>
+              type(<a href='../type/test_diagnosis_t.html'>test_diagnosis_t</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>diagnoses</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>type(<a href='../type/test_diagnosis_t.html'>test_diagnosis_t</a>)</small>
+    </h4>
+    
+
+          </li>
+          <li class="list-group-item">
+                <h3>
+    private pure module function aggregate_vector_diagnosis(diagnoses) result(diagnosis)  
+    <a href="../proc/aggregate_vector_diagnosis.html"><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
+
+    </h3>
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-diagnoses~4"></span>
+              type(<a href='../type/test_diagnosis_t.html'>test_diagnosis_t</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>diagnoses</strong>(:)</td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>type(<a href='../type/test_diagnosis_t.html'>test_diagnosis_t</a>)</small>
+    </h4>
+    
+
+          </li>
+    </ul>
+  </div>
+
+              <div class="card">
+    <div class="card-header bg-light codesum">
+      <span class="anchor" id="interface-operator%28.also.%29"></span>
+      <h3>public        interface <a href='../interface/operator(.also.).html'>operator(.also.)</a> 
+      </h3>
+    </div>
+    <ul class="list-group">
+          <li class="list-group-item">
+                <h3>
+    private elemental module function also(lhs, rhs) result(diagnosis)  
+    <a href="../proc/also.html"><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
+
+    </h3>
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lhs~15"></span>
+              type(<a href='../type/test_diagnosis_t.html'>test_diagnosis_t</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>lhs</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-rhs~15"></span>
+              type(<a href='../type/test_diagnosis_t.html'>test_diagnosis_t</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>rhs</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>type(<a href='../type/test_diagnosis_t.html'>test_diagnosis_t</a>)</small>
+    </h4>
+    
+
+          </li>
+    </ul>
+  </div>
+
+              <div class="card">
+    <div class="card-header bg-light codesum">
+      <span class="anchor" id="interface-operator%28.and.%29"></span>
+      <h3>public        interface <a href='../interface/operator(.and.).html'>operator(.and.)</a> 
+      </h3>
+    </div>
+    <ul class="list-group">
+          <li class="list-group-item">
+                <h3>
+    private elemental module function also(lhs, rhs) result(diagnosis)  
+    <a href="../proc/also.html"><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
+
+    </h3>
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lhs~15"></span>
+              type(<a href='../type/test_diagnosis_t.html'>test_diagnosis_t</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>lhs</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-rhs~15"></span>
+              type(<a href='../type/test_diagnosis_t.html'>test_diagnosis_t</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>rhs</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>type(<a href='../type/test_diagnosis_t.html'>test_diagnosis_t</a>)</small>
+    </h4>
+    
+
+          </li>
+    </ul>
+  </div>
+
+              <div class="card">
+    <div class="card-header bg-light codesum">
+      <span class="anchor" id="interface-operator%28.approximates.%29"></span>
+      <h3>public        interface <a href='../interface/operator(.approximates.).html'>operator(.approximates.)</a> 
+      </h3>
+    </div>
+    <ul class="list-group">
+          <li class="list-group-item">
+                <h3>
+    private elemental module function approximates_double_precision(actual, expected) result(operands)  
+    <a href="../proc/approximates_double_precision.html"><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
+
+    </h3>
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-actual~5"></span>
+              double precision,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>actual</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-expected~5"></span>
+              double precision,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>expected</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>type(<a href='../type/operands_t~2.html'>operands_t</a>(double_precision))</small>
+    </h4>
+    
+
+          </li>
+          <li class="list-group-item">
+                <h3>
+    private elemental module function approximates_real(actual, expected) result(operands)  
+    <a href="../proc/approximates_real.html"><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
+
+    </h3>
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-actual~4"></span>
+              real,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>actual</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-expected~4"></span>
+              real,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>expected</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>type(<a href='../type/operands_t~2.html'>operands_t</a>)</small>
+    </h4>
+    
+
+          </li>
+    </ul>
+  </div>
+
+              <div class="card">
+    <div class="card-header bg-light codesum">
+      <span class="anchor" id="interface-operator%28.equalsexpected.%29"></span>
+      <h3>public        interface <a href='../interface/operator(.equalsexpected.).html'>operator(.equalsExpected.)</a> 
+      </h3>
+    </div>
+    <ul class="list-group">
+          <li class="list-group-item">
+                <h3>
+    private elemental module function equals_expected_c_ptr(actual, expected) result(test_diagnosis)  
+    <a href="../proc/equals_expected_c_ptr.html"><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
+
+    </h3>
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-actual~6"></span>
+              type(c_ptr),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>actual</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-expected~6"></span>
+              type(c_ptr),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>expected</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>type(<a href='../type/test_diagnosis_t.html'>test_diagnosis_t</a>)</small>
+    </h4>
+    
+
+          </li>
+          <li class="list-group-item">
+                <h3>
+    private elemental module function equals_expected_character(actual, expected) result(test_diagnosis)  
+    <a href="../proc/equals_expected_character.html"><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
+
+    </h3>
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-actual~9"></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>actual</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-expected~9"></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>expected</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>type(<a href='../type/test_diagnosis_t.html'>test_diagnosis_t</a>)</small>
+    </h4>
+    
+
+          </li>
+          <li class="list-group-item">
+                <h3>
+    private elemental module function equals_expected_character_vs_string(actual, expected) result(test_diagnosis)  
+    <a href="../proc/equals_expected_character_vs_string.html"><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
+
+    </h3>
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-actual~11"></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>actual</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-expected~11"></span>
+              type(<a href='../type/string_t.html'>string_t</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>expected</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>type(<a href='../type/test_diagnosis_t.html'>test_diagnosis_t</a>)</small>
+    </h4>
+    
+
+          </li>
+          <li class="list-group-item">
+                <h3>
+    private elemental module function equals_expected_integer(actual, expected) result(test_diagnosis)  
+    <a href="../proc/equals_expected_integer.html"><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
+
+    </h3>
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-actual~7"></span>
+              integer,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>actual</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-expected~7"></span>
+              integer,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>expected</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>type(<a href='../type/test_diagnosis_t.html'>test_diagnosis_t</a>)</small>
+    </h4>
+    
+
+          </li>
+          <li class="list-group-item">
+                <h3>
+    private elemental module function equals_expected_integer_c_size_t(actual, expected) result(test_diagnosis)  
+    <a href="../proc/equals_expected_integer_c_size_t.html"><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
+
+    </h3>
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-actual~8"></span>
+              integer(kind=c_size_t),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>actual</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-expected~8"></span>
+              integer(kind=c_size_t),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>expected</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>type(<a href='../type/test_diagnosis_t.html'>test_diagnosis_t</a>)</small>
+    </h4>
+    
+
+          </li>
+          <li class="list-group-item">
+                <h3>
+    private elemental module function equals_expected_string(actual, expected) result(test_diagnosis)  
+    <a href="../proc/equals_expected_string.html"><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
+
+    </h3>
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-actual~10"></span>
+              type(<a href='../type/string_t.html'>string_t</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>actual</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-expected~10"></span>
+              type(<a href='../type/string_t.html'>string_t</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>expected</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>type(<a href='../type/test_diagnosis_t.html'>test_diagnosis_t</a>)</small>
+    </h4>
+    
+
+          </li>
+          <li class="list-group-item">
+                <h3>
+    private elemental module function equals_expected_string_vs_character(actual, expected) result(test_diagnosis)  
+    <a href="../proc/equals_expected_string_vs_character.html"><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
+
+    </h3>
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-actual~12"></span>
+              type(<a href='../type/string_t.html'>string_t</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>actual</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-expected~12"></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>expected</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>type(<a href='../type/test_diagnosis_t.html'>test_diagnosis_t</a>)</small>
+    </h4>
+    
+
+          </li>
+    </ul>
+  </div>
+
+              <div class="card">
+    <div class="card-header bg-light codesum">
+      <span class="anchor" id="interface-operator%28.expect.%29"></span>
+      <h3>public        interface <a href='../interface/operator(.expect.).html'>operator(.expect.)</a> 
+      </h3>
+    </div>
+    <ul class="list-group">
+          <li class="list-group-item">
+                <h3>
+    private elemental module function expect(expected_true) result(test_diagnosis)  
+    <a href="../proc/expect.html"><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
+
+    </h3>
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-expected_true"></span>
+              logical,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>expected_true</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>type(<a href='../type/test_diagnosis_t.html'>test_diagnosis_t</a>)</small>
+    </h4>
+    
+
+          </li>
+    </ul>
+  </div>
+
+              <div class="card">
+    <div class="card-header bg-light codesum">
+      <span class="anchor" id="interface-operator%28.greaterthan.%29"></span>
+      <h3>public        interface <a href='../interface/operator(.greaterthan.).html'>operator(.greaterThan.)</a> 
+      </h3>
+    </div>
+    <ul class="list-group">
+          <li class="list-group-item">
+                <h3>
+    private elemental module function greater_than_double(actual, expected_floor) result(test_diagnosis)  
+    <a href="../proc/greater_than_double.html"><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
+
+    </h3>
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-actual~23"></span>
+              double precision,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>actual</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-expected_floor~2"></span>
+              double precision,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>expected_floor</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>type(<a href='../type/test_diagnosis_t.html'>test_diagnosis_t</a>)</small>
+    </h4>
+    
+
+          </li>
+          <li class="list-group-item">
+                <h3>
+    private elemental module function greater_than_integer(actual, expected_floor) result(test_diagnosis)  
+    <a href="../proc/greater_than_integer.html"><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
+
+    </h3>
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-actual~24"></span>
+              integer,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>actual</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-expected_floor~3"></span>
+              integer,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>expected_floor</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>type(<a href='../type/test_diagnosis_t.html'>test_diagnosis_t</a>)</small>
+    </h4>
+    
+
+          </li>
+          <li class="list-group-item">
+                <h3>
+    private elemental module function greater_than_real(actual, expected_floor) result(test_diagnosis)  
+    <a href="../proc/greater_than_real.html"><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
+
+    </h3>
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-actual~22"></span>
+              real,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>actual</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-expected_floor"></span>
+              real,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>expected_floor</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>type(<a href='../type/test_diagnosis_t.html'>test_diagnosis_t</a>)</small>
+    </h4>
+    
+
+          </li>
+    </ul>
+  </div>
+
+              <div class="card">
+    <div class="card-header bg-light codesum">
+      <span class="anchor" id="interface-operator%28.greaterthanorequalto.%29"></span>
+      <h3>public        interface <a href='../interface/operator(.greaterthanorequalto.).html'>operator(.greaterThanOrEqualTo.)</a> 
+      </h3>
+    </div>
+    <ul class="list-group">
+          <li class="list-group-item">
+                <h3>
+    private elemental module function greater_than_or_equal_to_double_precision(actual, expected_min) result(test_diagnosis)  
+    <a href="../proc/greater_than_or_equal_to_double_precision.html"><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
+
+    </h3>
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-actual~21"></span>
+              double precision,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>actual</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-expected_min~3"></span>
+              double precision,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>expected_min</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>type(<a href='../type/test_diagnosis_t.html'>test_diagnosis_t</a>)</small>
+    </h4>
+    
+
+          </li>
+          <li class="list-group-item">
+                <h3>
+    private elemental module function greater_than_or_equal_to_integer(actual, expected_min) result(test_diagnosis)  
+    <a href="../proc/greater_than_or_equal_to_integer.html"><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
+
+    </h3>
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-actual~19"></span>
+              integer,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>actual</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-expected_min"></span>
+              integer,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>expected_min</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>type(<a href='../type/test_diagnosis_t.html'>test_diagnosis_t</a>)</small>
+    </h4>
+    
+
+          </li>
+          <li class="list-group-item">
+                <h3>
+    private elemental module function greater_than_or_equal_to_real(actual, expected_min) result(test_diagnosis)  
+    <a href="../proc/greater_than_or_equal_to_real.html"><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
+
+    </h3>
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-actual~20"></span>
+              real,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>actual</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-expected_min~2"></span>
+              real,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>expected_min</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>type(<a href='../type/test_diagnosis_t.html'>test_diagnosis_t</a>)</small>
+    </h4>
+    
+
+          </li>
+    </ul>
+  </div>
+
+              <div class="card">
+    <div class="card-header bg-light codesum">
+      <span class="anchor" id="interface-operator%28.isafter.%29"></span>
+      <h3>public        interface <a href='../interface/operator(.isafter.).html'>operator(.isAfter.)</a> 
+      </h3>
+    </div>
+    <ul class="list-group">
+          <li class="list-group-item">
+                <h3>
+    private elemental module function reverse_alphabetical_character_vs_character(lhs, rhs) result(test_diagnosis)  
+    <a href="../proc/reverse_alphabetical_character_vs_character.html"><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
+
+    </h3>
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lhs~20"></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>lhs</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-rhs~20"></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>rhs</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>type(<a href='../type/test_diagnosis_t.html'>test_diagnosis_t</a>)</small>
+    </h4>
+    
+
+          </li>
+          <li class="list-group-item">
+                <h3>
+    private elemental module function reverse_alphabetical_character_vs_string(lhs, rhs) result(test_diagnosis)  
+    <a href="../proc/reverse_alphabetical_character_vs_string.html"><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
+
+    </h3>
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lhs~22"></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>lhs</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-rhs~22"></span>
+              type(<a href='../type/string_t.html'>string_t</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>rhs</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>type(<a href='../type/test_diagnosis_t.html'>test_diagnosis_t</a>)</small>
+    </h4>
+    
+
+          </li>
+          <li class="list-group-item">
+                <h3>
+    private elemental module function reverse_alphabetical_string_vs_character(lhs, rhs) result(test_diagnosis)  
+    <a href="../proc/reverse_alphabetical_string_vs_character.html"><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
+
+    </h3>
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lhs~23"></span>
+              type(<a href='../type/string_t.html'>string_t</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>lhs</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-rhs~23"></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>rhs</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>type(<a href='../type/test_diagnosis_t.html'>test_diagnosis_t</a>)</small>
+    </h4>
+    
+
+          </li>
+          <li class="list-group-item">
+                <h3>
+    private elemental module function reverse_alphabetical_string_vs_string(lhs, rhs) result(test_diagnosis)  
+    <a href="../proc/reverse_alphabetical_string_vs_string.html"><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
+
+    </h3>
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lhs~21"></span>
+              type(<a href='../type/string_t.html'>string_t</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>lhs</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-rhs~21"></span>
+              type(<a href='../type/string_t.html'>string_t</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>rhs</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>type(<a href='../type/test_diagnosis_t.html'>test_diagnosis_t</a>)</small>
+    </h4>
+    
+
+          </li>
+    </ul>
+  </div>
+
+              <div class="card">
+    <div class="card-header bg-light codesum">
+      <span class="anchor" id="interface-operator%28.isatleast.%29"></span>
+      <h3>public        interface <a href='../interface/operator(.isatleast.).html'>operator(.isAtLeast.)</a> 
+      </h3>
+    </div>
+    <ul class="list-group">
+          <li class="list-group-item">
+                <h3>
+    private elemental module function greater_than_or_equal_to_integer(actual, expected_min) result(test_diagnosis)  
+    <a href="../proc/greater_than_or_equal_to_integer.html"><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
+
+    </h3>
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-actual~19"></span>
+              integer,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>actual</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-expected_min"></span>
+              integer,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>expected_min</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>type(<a href='../type/test_diagnosis_t.html'>test_diagnosis_t</a>)</small>
+    </h4>
+    
+
+          </li>
+          <li class="list-group-item">
+                <h3>
+    private elemental module function greater_than_or_equal_to_real(actual, expected_min) result(test_diagnosis)  
+    <a href="../proc/greater_than_or_equal_to_real.html"><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
+
+    </h3>
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-actual~20"></span>
+              real,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>actual</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-expected_min~2"></span>
+              real,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>expected_min</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>type(<a href='../type/test_diagnosis_t.html'>test_diagnosis_t</a>)</small>
+    </h4>
+    
+
+          </li>
+          <li class="list-group-item">
+                <h3>
+    private elemental module function greater_than_or_equal_to_double_precision(actual, expected_min) result(test_diagnosis)  
+    <a href="../proc/greater_than_or_equal_to_double_precision.html"><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
+
+    </h3>
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-actual~21"></span>
+              double precision,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>actual</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-expected_min~3"></span>
+              double precision,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>expected_min</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>type(<a href='../type/test_diagnosis_t.html'>test_diagnosis_t</a>)</small>
+    </h4>
+    
+
+          </li>
+    </ul>
+  </div>
+
+              <div class="card">
+    <div class="card-header bg-light codesum">
+      <span class="anchor" id="interface-operator%28.isatmost.%29"></span>
+      <h3>public        interface <a href='../interface/operator(.isatmost.).html'>operator(.isAtMost.)</a> 
+      </h3>
+    </div>
+    <ul class="list-group">
+          <li class="list-group-item">
+                <h3>
+    private elemental module function less_than_or_equal_to_integer(actual, expected_max) result(test_diagnosis)  
+    <a href="../proc/less_than_or_equal_to_integer.html"><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
+
+    </h3>
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-actual~16"></span>
+              integer,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>actual</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-expected_max"></span>
+              integer,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>expected_max</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>type(<a href='../type/test_diagnosis_t.html'>test_diagnosis_t</a>)</small>
+    </h4>
+    
+
+          </li>
+          <li class="list-group-item">
+                <h3>
+    private elemental module function less_than_or_equal_to_real(actual, expected_max) result(test_diagnosis)  
+    <a href="../proc/less_than_or_equal_to_real.html"><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
+
+    </h3>
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-actual~17"></span>
+              real,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>actual</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-expected_max~2"></span>
+              real,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>expected_max</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>type(<a href='../type/test_diagnosis_t.html'>test_diagnosis_t</a>)</small>
+    </h4>
+    
+
+          </li>
+          <li class="list-group-item">
+                <h3>
+    private elemental module function less_than_or_equal_to_double_precision(actual, expected_max) result(test_diagnosis)  
+    <a href="../proc/less_than_or_equal_to_double_precision.html"><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
+
+    </h3>
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-actual~18"></span>
+              double precision,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>actual</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-expected_max~3"></span>
+              double precision,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>expected_max</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>type(<a href='../type/test_diagnosis_t.html'>test_diagnosis_t</a>)</small>
+    </h4>
+    
+
+          </li>
+    </ul>
+  </div>
+
+              <div class="card">
+    <div class="card-header bg-light codesum">
+      <span class="anchor" id="interface-operator%28.isbefore.%29"></span>
+      <h3>public        interface <a href='../interface/operator(.isbefore.).html'>operator(.isBefore.)</a> 
+      </h3>
+    </div>
+    <ul class="list-group">
+          <li class="list-group-item">
+                <h3>
+    private elemental module function alphabetical_character_vs_character(lhs, rhs) result(test_diagnosis)  
+    <a href="../proc/alphabetical_character_vs_character.html"><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
+
+    </h3>
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lhs~16"></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>lhs</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-rhs~16"></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>rhs</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>type(<a href='../type/test_diagnosis_t.html'>test_diagnosis_t</a>)</small>
+    </h4>
+    
+
+          </li>
+          <li class="list-group-item">
+                <h3>
+    private elemental module function alphabetical_character_vs_string(lhs, rhs) result(test_diagnosis)  
+    <a href="../proc/alphabetical_character_vs_string.html"><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
+
+    </h3>
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lhs~18"></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>lhs</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-rhs~18"></span>
+              type(<a href='../type/string_t.html'>string_t</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>rhs</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>type(<a href='../type/test_diagnosis_t.html'>test_diagnosis_t</a>)</small>
+    </h4>
+    
+
+          </li>
+          <li class="list-group-item">
+                <h3>
+    private elemental module function alphabetical_string_vs_character(lhs, rhs) result(test_diagnosis)  
+    <a href="../proc/alphabetical_string_vs_character.html"><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
+
+    </h3>
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lhs~19"></span>
+              type(<a href='../type/string_t.html'>string_t</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>lhs</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-rhs~19"></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>rhs</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>type(<a href='../type/test_diagnosis_t.html'>test_diagnosis_t</a>)</small>
+    </h4>
+    
+
+          </li>
+          <li class="list-group-item">
+                <h3>
+    private elemental module function alphabetical_string_vs_string(lhs, rhs) result(test_diagnosis)  
+    <a href="../proc/alphabetical_string_vs_string.html"><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
+
+    </h3>
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lhs~17"></span>
+              type(<a href='../type/string_t.html'>string_t</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>lhs</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-rhs~17"></span>
+              type(<a href='../type/string_t.html'>string_t</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>rhs</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>type(<a href='../type/test_diagnosis_t.html'>test_diagnosis_t</a>)</small>
+    </h4>
+    
+
+          </li>
+    </ul>
+  </div>
+
+              <div class="card">
+    <div class="card-header bg-light codesum">
+      <span class="anchor" id="interface-operator%28.lessthan.%29"></span>
+      <h3>public        interface <a href='../interface/operator(.lessthan.).html'>operator(.lessThan.)</a> 
+      </h3>
+    </div>
+    <ul class="list-group">
+          <li class="list-group-item">
+                <h3>
+    private elemental module function less_than_double(actual, expected_ceiling) result(test_diagnosis)  
+    <a href="../proc/less_than_double.html"><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
+
+    </h3>
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-actual~14"></span>
+              double precision,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>actual</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-expected_ceiling~2"></span>
+              double precision,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>expected_ceiling</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>type(<a href='../type/test_diagnosis_t.html'>test_diagnosis_t</a>)</small>
+    </h4>
+    
+
+          </li>
+          <li class="list-group-item">
+                <h3>
+    private elemental module function less_than_integer(actual, expected_ceiling) result(test_diagnosis)  
+    <a href="../proc/less_than_integer.html"><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
+
+    </h3>
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-actual~15"></span>
+              integer,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>actual</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-expected_ceiling~3"></span>
+              integer,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>expected_ceiling</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>type(<a href='../type/test_diagnosis_t.html'>test_diagnosis_t</a>)</small>
+    </h4>
+    
+
+          </li>
+          <li class="list-group-item">
+                <h3>
+    private elemental module function less_than_real(actual, expected_ceiling) result(test_diagnosis)  
+    <a href="../proc/less_than_real.html"><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
+
+    </h3>
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-actual~13"></span>
+              real,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>actual</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-expected_ceiling"></span>
+              real,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>expected_ceiling</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>type(<a href='../type/test_diagnosis_t.html'>test_diagnosis_t</a>)</small>
+    </h4>
+    
+
+          </li>
+    </ul>
+  </div>
+
+              <div class="card">
+    <div class="card-header bg-light codesum">
+      <span class="anchor" id="interface-operator%28.lessthanorequalto.%29"></span>
+      <h3>public        interface <a href='../interface/operator(.lessthanorequalto.).html'>operator(.lessThanOrEqualTo.)</a> 
+      </h3>
+    </div>
+    <ul class="list-group">
+          <li class="list-group-item">
+                <h3>
+    private elemental module function less_than_or_equal_to_double_precision(actual, expected_max) result(test_diagnosis)  
+    <a href="../proc/less_than_or_equal_to_double_precision.html"><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
+
+    </h3>
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-actual~18"></span>
+              double precision,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>actual</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-expected_max~3"></span>
+              double precision,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>expected_max</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>type(<a href='../type/test_diagnosis_t.html'>test_diagnosis_t</a>)</small>
+    </h4>
+    
+
+          </li>
+          <li class="list-group-item">
+                <h3>
+    private elemental module function less_than_or_equal_to_integer(actual, expected_max) result(test_diagnosis)  
+    <a href="../proc/less_than_or_equal_to_integer.html"><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
+
+    </h3>
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-actual~16"></span>
+              integer,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>actual</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-expected_max"></span>
+              integer,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>expected_max</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>type(<a href='../type/test_diagnosis_t.html'>test_diagnosis_t</a>)</small>
+    </h4>
+    
+
+          </li>
+          <li class="list-group-item">
+                <h3>
+    private elemental module function less_than_or_equal_to_real(actual, expected_max) result(test_diagnosis)  
+    <a href="../proc/less_than_or_equal_to_real.html"><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
+
+    </h3>
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-actual~17"></span>
+              real,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>actual</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-expected_max~2"></span>
+              real,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>expected_max</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>type(<a href='../type/test_diagnosis_t.html'>test_diagnosis_t</a>)</small>
+    </h4>
+    
+
+          </li>
+    </ul>
+  </div>
+
+              <div class="card">
+    <div class="card-header bg-light codesum">
+      <span class="anchor" id="interface-operator%28.within.%29"></span>
+      <h3>public        interface <a href='../interface/operator(.within.).html'>operator(.within.)</a> 
+      </h3>
+    </div>
+    <ul class="list-group">
+          <li class="list-group-item">
+                <h3>
+    private elemental module function within_double_precision(operands, tolerance) result(test_diagnosis)  
+    <a href="../proc/within_double_precision.html"><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
+
+    </h3>
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-operands~5"></span>
+              type(<a href='../type/operands_t~2.html'>operands_t</a>(double_precision)),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>operands</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-tolerance~2"></span>
+              double precision,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>tolerance</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>type(<a href='../type/test_diagnosis_t.html'>test_diagnosis_t</a>)</small>
+    </h4>
+    
+
+          </li>
+          <li class="list-group-item">
+                <h3>
+    private elemental module function within_real(operands, tolerance) result(test_diagnosis)  
+    <a href="../proc/within_real.html"><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
+
+    </h3>
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-operands~4"></span>
+              type(<a href='../type/operands_t~2.html'>operands_t</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>operands</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-tolerance"></span>
+              real,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>tolerance</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>type(<a href='../type/test_diagnosis_t.html'>test_diagnosis_t</a>)</small>
+    </h4>
+    
+
+          </li>
+    </ul>
+  </div>
+
+              <div class="card">
+    <div class="card-header bg-light codesum">
+      <span class="anchor" id="interface-operator%28.withinfraction.%29"></span>
+      <h3>public        interface <a href='../interface/operator(.withinfraction.).html'>operator(.withinFraction.)</a> 
+      </h3>
+    </div>
+    <ul class="list-group">
+          <li class="list-group-item">
+                <h3>
+    private elemental module function within_double_precision_fraction(operands, fractional_tolerance) result(test_diagnosis)  
+    <a href="../proc/within_double_precision_fraction.html"><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
+
+    </h3>
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-operands~8"></span>
+              type(<a href='../type/operands_t~2.html'>operands_t</a>(double_precision)),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>operands</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-fractional_tolerance~2"></span>
+              double precision,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>fractional_tolerance</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>type(<a href='../type/test_diagnosis_t.html'>test_diagnosis_t</a>)</small>
+    </h4>
+    
+
+          </li>
+          <li class="list-group-item">
+                <h3>
+    private elemental module function within_real_fraction(operands, fractional_tolerance) result(test_diagnosis)  
+    <a href="../proc/within_real_fraction.html"><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
+
+    </h3>
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-operands~7"></span>
+              type(<a href='../type/operands_t~2.html'>operands_t</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>operands</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-fractional_tolerance"></span>
+              real,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>fractional_tolerance</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>type(<a href='../type/test_diagnosis_t.html'>test_diagnosis_t</a>)</small>
+    </h4>
+    
+
+          </li>
+    </ul>
+  </div>
+
+              <div class="card">
+    <div class="card-header bg-light codesum">
+      <span class="anchor" id="interface-operator%28.withinpercentage.%29"></span>
+      <h3>public        interface <a href='../interface/operator(.withinpercentage.).html'>operator(.withinPercentage.)</a> 
+      </h3>
+    </div>
+    <ul class="list-group">
+          <li class="list-group-item">
+                <h3>
+    private elemental module function within_double_precision_percentage(operands, percentage_tolerance) result(test_diagnosis)  
+    <a href="../proc/within_double_precision_percentage.html"><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
+
+    </h3>
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-operands~11"></span>
+              type(<a href='../type/operands_t~2.html'>operands_t</a>(double_precision)),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>operands</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-percentage_tolerance~2"></span>
+              double precision,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>percentage_tolerance</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>type(<a href='../type/test_diagnosis_t.html'>test_diagnosis_t</a>)</small>
+    </h4>
+    
+
+          </li>
+          <li class="list-group-item">
+                <h3>
+    private elemental module function within_real_percentage(operands, percentage_tolerance) result(test_diagnosis)  
+    <a href="../proc/within_real_percentage.html"><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
+
+    </h3>
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-operands~10"></span>
+              type(<a href='../type/operands_t~2.html'>operands_t</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>operands</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-percentage_tolerance"></span>
+              real,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>percentage_tolerance</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>type(<a href='../type/test_diagnosis_t.html'>test_diagnosis_t</a>)</small>
+    </h4>
+    
+
+          </li>
+    </ul>
+  </div>
+
+              <div class="card">
+    <div class="card-header bg-light codesum">
+      <span class="anchor" id="interface-operator%28SLASHSLASH%29"></span>
+      <h3>public        interface <a href='../interface/operator(SLASHSLASH).html'>operator(//)</a> 
+      </h3>
+    </div>
+    <ul class="list-group">
+          <li class="list-group-item">
+                <h3>
+    private elemental module function append_character_if_test_failed(lhs, rhs) result(lhs_cat_rhs)  
+    <a href="../proc/append_character_if_test_failed.html"><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
+
+    </h3>
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lhs~14"></span>
+              class(<a href='../type/test_diagnosis_t.html'>test_diagnosis_t</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>lhs</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-rhs~14"></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>rhs</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>type(<a href='../type/test_diagnosis_t.html'>test_diagnosis_t</a>)</small>
+    </h4>
+    
+
+          </li>
+          <li class="list-group-item">
+                <h3>
+    private elemental module function append_string_if_test_failed(lhs, rhs) result(lhs_cat_rhs)  
+    <a href="../proc/append_string_if_test_failed.html"><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
+
+    </h3>
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lhs~13"></span>
+              class(<a href='../type/test_diagnosis_t.html'>test_diagnosis_t</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>lhs</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-rhs~13"></span>
+              type(<a href='../type/string_t.html'>string_t</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>rhs</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>type(<a href='../type/test_diagnosis_t.html'>test_diagnosis_t</a>)</small>
+    </h4>
+    
+
+          </li>
+    </ul>
+  </div>
+
+              <div class="card">
+    <div class="card-header bg-light codesum">
+      <span class="anchor" id="interface-test_diagnosis_t"></span>
+      <h3>public        interface <a href='../interface/test_diagnosis_t.html'>test_diagnosis_t</a> 
+      </h3>
+    </div>
+    <ul class="list-group">
+          <li class="list-group-item">
+                <h3>
+    private elemental module function construct_from_character(test_passed, diagnostics_string) result(test_diagnosis)  
+    <a href="../proc/construct_from_character.html"><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
+
+    </h3>
+  <p>The result is a test_diagnosis_t object with the components defined by the dummy arguments</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-test_passed~4"></span>
+              logical,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>test_passed</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-diagnostics_string~3"></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>diagnostics_string</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>type(<a href='../type/test_diagnosis_t.html'>test_diagnosis_t</a>)</small>
+    </h4>
+    
+
+          </li>
+          <li class="list-group-item">
+                <h3>
+    private elemental module function construct_from_string_t(test_passed, diagnostics_string) result(test_diagnosis)  
+    <a href="../proc/construct_from_string_t.html"><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
+
+    </h3>
+  <p>The result is a test_diagnosis_t object with the components defined by the dummy arguments</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-test_passed~3"></span>
+              logical,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>test_passed</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-diagnostics_string~2"></span>
+              type(<a href='../type/string_t.html'>string_t</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>diagnostics_string</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>type(<a href='../type/test_diagnosis_t.html'>test_diagnosis_t</a>)</small>
+    </h4>
+    
+
+          </li>
+    </ul>
+  </div>
+
+              <div class="card">
+    <div class="card-header bg-light codesum">
+      <span class="anchor" id="interface-diagnostics_string"></span>
+      <h3>        interface
+      </h3>
+    </div>
+    <ul class="list-group">
+        <li class="list-group-item">
+              <h3>
+    private pure module function diagnostics_string(self) result(string)  
+    <a href="../proc/diagnostics_string.html"><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
+
+    </h3>
+  <p>The result is a string describing the condition(s) that caused a test failure or is a zero-length string if no failure</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-self~47"></span>
+              class(<a href='../type/test_diagnosis_t.html'>test_diagnosis_t</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>self</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>character(len=:), allocatable</small>
+    </h4>
+    
+
+        </li>
+    </ul>
+  </div>
+
+              <div class="card">
+    <div class="card-header bg-light codesum">
+      <span class="anchor" id="interface-test_passed"></span>
+      <h3>        interface
+      </h3>
+    </div>
+    <ul class="list-group">
+        <li class="list-group-item">
+              <h3>
+    private elemental module function test_passed(self) result(passed)  
+    <a href="../proc/test_passed.html"><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
+
+    </h3>
+  <p>The result is .true. if the test passed on the executing image and false otherwise</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-self~46"></span>
+              class(<a href='../type/test_diagnosis_t.html'>test_diagnosis_t</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>self</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>logical</small>
+    </h4>
+    
+
+        </li>
+    </ul>
+  </div>
+
+        </section>
+        <br>
+
+        <section>
+          <h2>Abstract Interfaces</h2>
+              <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="interface-diagnosis_function_i"></span><h3>abstract interface
+        
+    </h3></div>
+    <ul class="list-group">
+      <li class="list-group-item">
+            <h3>
+    public  function diagnosis_function_i() result(test_diagnosis)  
+
+    </h3>
+  
+
+  <h4>Arguments</h4>
+    <em>None</em>
+    <h4>
+    Return Value
+    <small>type(<a href='../type/test_diagnosis_t.html'>test_diagnosis_t</a>)</small>
+    </h4>
+    
+
+      </li>
+    </ul>
+  </div>
+
+        </section>
+        <br>
+
+        <section>
+          <h2>Derived Types</h2>
+              <div class="card">
+    <div class="card-header codesum">
+      <span class="anchor" id="type-test_diagnosis_t"></span>
+      <h3>
+        type, public&nbsp;::&nbsp;
+        <a href='../type/test_diagnosis_t.html'>test_diagnosis_t</a>
+        
+      </h3>
+    </div>
+    <div class="card-body">
+      <p>Encapsulate test outcome and diagnostic information</p>
+
+        <h4>Components</h4>
+          <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Visibility</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+<th></th><th scope="col">Initial</th>        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-diagnostics_string_"></span>
+              character(len=:),
+            </td>
+              <td>private,</td>
+            <td>
+              allocatable
+            </td>
+            <td>::</td>
+            <td><strong>diagnostics_string_</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-test_passed_"></span>
+              logical,
+            </td>
+              <td>private</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>test_passed_</strong></td>
+<td> =</td>
+                <td>.false.</td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+        <h4>Constructor</h4>
+          
+        <table class="table table-striped varlist">
+          <tbody>
+                <tr>
+                  <td>
+                        private
+
+                    elemental, module
+                    function
+                    <strong>construct_from_character</strong>
+                    (test_passed, diagnostics_string)
+                  </td>
+                  <td><p>The result is a test_diagnosis_t object with the components defined by the dummy arguments</p></td>
+                </tr>
+                <tr>
+                  <td>
+                        private
+
+                    elemental, module
+                    function
+                    <strong>construct_from_string_t</strong>
+                    (test_passed, diagnostics_string)
+                  </td>
+                  <td><p>The result is a test_diagnosis_t object with the components defined by the dummy arguments</p></td>
+                </tr>
+          </tbody>
+        </table>
+
+
+        <h4>Type-Bound Procedures</h4>
+        <table class="table table-striped varlist">
+          <tbody>
+              <tr>
+                <td>  procedure, public, non_overridable ::
+  <strong><a href='../type/test_diagnosis_t.html#boundprocedure-diagnostics_string'>diagnostics_string</a></strong></td>
+                  <td></td>
+              </tr>
+              <tr>
+                <td>  procedure, public, non_overridable ::
+  <strong><a href='../type/test_diagnosis_t.html#boundprocedure-test_passed~2'>test_passed</a></strong></td>
+                  <td></td>
+              </tr>
+          </tbody>
+        </table>
+    </div>
+  </div>
+
+              <div class="card">
+    <div class="card-header codesum">
+      <span class="anchor" id="type-double_precision_operands_t"></span>
+      <h3>
+        type, private&nbsp;::&nbsp;
+        <a href='../type/double_precision_operands_t.html'>double_precision_operands_t</a>
+        
+      </h3>
+    </div>
+    <div class="card-body">
+      
+
+        <h4>Components</h4>
+          <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Visibility</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+<th></th><th scope="col">Initial</th>        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-actual~3"></span>
+              double precision,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>actual</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-expected~3"></span>
+              double precision,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>expected</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+
+
+    </div>
+  </div>
+
+              <div class="card">
+    <div class="card-header codesum">
+      <span class="anchor" id="type-operands_t"></span>
+      <h3>
+        type, private&nbsp;::&nbsp;
+        <a href='../type/operands_t.html'>operands_t</a>
+        
+      </h3>
+    </div>
+    <div class="card-body">
+      
+
+        <h4>Components</h4>
+          <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Visibility</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+<th></th><th scope="col">Initial</th>        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-actual"></span>
+              real(kind=k),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>actual</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-expected"></span>
+              real(kind=k),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>expected</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-k"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              kind
+            </td>
+            <td>::</td>
+            <td><strong>k</strong></td>
+<td> =</td>
+                <td>default_real</td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+
+
+    </div>
+  </div>
+
+              <div class="card">
+    <div class="card-header codesum">
+      <span class="anchor" id="type-operands_t~2"></span>
+      <h3>
+        type, private&nbsp;::&nbsp;
+        <a href='../type/operands_t~2.html'>operands_t</a>
+        
+      </h3>
+    </div>
+    <div class="card-body">
+      
+
+        <h4>Components</h4>
+          <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Visibility</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+<th></th><th scope="col">Initial</th>        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-actual~2"></span>
+              real,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>actual</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-expected~2"></span>
+              real,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>expected</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+
+
+    </div>
+  </div>
+
+        </section>
+        <br>
+
+
+
+
+
+    </div>
+  </div>
+
+      <hr>
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col">
+            <p>
+              Julienne
+ was developed by Berkeley Lab<br>              &copy; 2025 
+</p>
+          </div>
+          <div class="col">
+            <p class="text-end">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+ on 2025-10-12 20:01 +0000             </p>
+          </div>
+        </div>
+        <br>
+      </div> <!-- /container -->
+    </footer>
+  </body>
+</html>

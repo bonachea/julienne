@@ -1,0 +1,1107 @@
+<!-- -*- mode: jinja2 -*- -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="A Fortran 2023 correctness-checking framework supporting expressive idioms for writing assertions and tests">
+    <meta name="author" content="Berkeley Lab" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>scaffold &ndash; Julienne</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!-- Font Awesome -->
+    <link href="../css/fontawesome.min.css" rel="stylesheet">
+    <link href="../css/brands.min.css" rel="stylesheet">
+    <link href="../css/regular.min.css" rel="stylesheet">
+    <link href="../css/solid.min.css" rel="stylesheet">
+    <link href="../css/v4-font-face.min.css" rel="stylesheet">
+    <link href="../css/v4-shims.min.css" rel="stylesheet">
+    <!-- MathJax -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: { equationNumbers: { autoNumber: "AMS" } }
+      });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async
+            integrity="sha256-DViIOMYdwlM/axqoGDPeUyf0urLoHMN4QACBKyB58Uw=" crossorigin="anonymous"></script>
+    <!-- Other scripts and stylesheets -->
+    <link href="../css/local.css" rel="stylesheet">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <script src="../js/svg-pan-zoom.min.js"></script>
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="container-fluid mb-sm-4 mb-xl-2">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="../index.html">Julienne </a>
+          <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
+                  aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon">
+          </button>
+
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="../lists/files.html">Source Files</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/modules.html">Modules</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/procedures.html">Procedures</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/absint.html">Abstract Interfaces</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/types.html">Derived Types</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/programs.html">Programs</a>
+                </li>
+            </ul>
+              <div class="d-flex align-items-end flex-grow-1">
+                <form action="../search.html" role="search" class="ms-auto">
+                  <input type="text" class="form-control" aria-label="Search" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+                </form>
+              </div>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+    </div>
+
+    <div class="container">
+  <div class="row">
+    <h1>scaffold      <small>Program</small>
+      
+    </h1>
+      <div class="container p-2 mb-4 bg-light border rounded-3">
+    <div class="row align-items-center justify-content-between" id="info-bar">
+      <div class="col">
+        <ul class="list-inline" style="margin-bottom:0px;display:inline">
+
+            <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
+              <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
+                 title="27.4% of total for programs.">37 statements</a>
+            </li>
+
+            <li class="list-inline-item" id="source-file">
+              <i class="fa fa-code"></i>
+              <a href="../src/scaffold.F90"> Source File</a>
+            </li>
+        </ul>
+      </div>
+      <div class="col">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-end mb-0">
+                <li class="breadcrumb-item"><a href='../sourcefile/scaffold.f90.html'>scaffold.F90</a></li>
+            <li class="breadcrumb-item active" aria-current="page">scaffold</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <script>
+    // Enable Bootstrap tooltips
+    (function () {
+      const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+      const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+    })();
+  </script>
+
+  </div>
+  
+  <div class="row">
+    <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">
+      <div id="sidebar">
+      <h3>Contents</h3>
+  
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#vars-0"
+         aria-expanded="false" aria-controls="vars-0">
+         <h4 class="card-header bg-primary text-white">Variables</h4>
+      </a>
+      <div id="vars-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../program/scaffold.html#variable-command_line~4">command_line</a>
+            <a class="list-group-item" href="../program/scaffold.html#variable-i~11">i</a>
+        </div>
+      </div>
+    </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#funcs-0"
+         aria-expanded="false" aria-controls="funcs-0">
+         <h4 class="card-header bg-primary text-white">Functions</h4>
+      </a>
+      <div id="funcs-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../program/scaffold.html#proc-help_requested">help_requested</a>
+        </div>
+      </div>
+    </div>
+
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#subs-0"
+         aria-expanded="false" aria-controls="subs-0">
+         <h4 class="card-header bg-primary text-white">Subroutines</h4>
+      </a>
+      <div id="subs-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../program/scaffold.html#proc-print_usage_info_and_stop">print_usage_info_and_stop</a>
+        </div>
+      </div>
+    </div>
+
+  
+  
+  
+  
+  
+  
+  
+    <div class="card card-primary">
+      <div class="card-header text-left"><h3 class="card-title">Source Code</h3></div>
+      <div class="list-group">
+        <a class="list-group-item" href="../program/scaffold.html#src">scaffold</a>
+      </div>
+    </div>
+
+
+  </div>
+
+    </div>
+    
+    <div class="col-md-9" id='text'>
+        <div class="card mb-4">
+      <h3 class="card-header card-title bg-light">Uses</h3>
+      <div class="card-body">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <ul class="list-inline">
+                  <li class="list-inline-item"><a href='../module/julienne_m.html'>julienne_m</a></li>
+              </ul>
+            </li>
+            <li class="list-group-item">
+              <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: program~~scaffold~~UsesGraph Pages: 1 -->
+<svg id="programscaffoldUsesGraph" width="641pt" height="152pt"
+ viewBox="0.00 0.00 641.00 151.84" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="program~~scaffold~~UsesGraph" class="graph" transform="scale(0.42 0.42) rotate(0) translate(4 355.35)">
+<title>program~~scaffold~~UsesGraph</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-355.35 1513,-355.35 1513,4 -4,4"/>
+<!-- program~scaffold -->
+<g id="program~~scaffold~~UsesGraph_node1" class="node">
+<title>program~scaffold</title>
+<polygon fill="none" stroke="black" points="1509,-168 1454,-168 1454,-144 1509,-144 1509,-168"/>
+<text text-anchor="middle" x="1481.5" y="-153.6" font-family="Helvetica,sans-Serif" font-size="10.50">scaffold</text>
+</g>
+<!-- module~julienne_m -->
+<g id="program~~scaffold~~UsesGraph_node2" class="node">
+<title>module~julienne_m</title>
+<g id="a_program~~scaffold~~UsesGraph_node2"><a xlink:href="../module/julienne_m.html" xlink:title="julienne_m">
+<polygon fill="#337ab7" stroke="#337ab7" points="1418,-168 1347,-168 1347,-144 1418,-144 1418,-168"/>
+<text text-anchor="middle" x="1382.5" y="-153.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">julienne_m</text>
+</a>
+</g>
+</g>
+<!-- program~scaffold&#45;&gt;module~julienne_m -->
+<g id="program~~scaffold~~UsesGraph_edge1" class="edge">
+<title>program~scaffold&#45;&gt;module~julienne_m</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M1453.99,-156C1446.09,-156 1437.2,-156 1428.46,-156"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="1428.35,-152.5 1418.35,-156 1428.35,-159.5 1428.35,-152.5"/>
+</g>
+<!-- module~julienne_assert_m -->
+<g id="program~~scaffold~~UsesGraph_node3" class="node">
+<title>module~julienne_assert_m</title>
+<g id="a_program~~scaffold~~UsesGraph_node3"><a xlink:href="../module/julienne_assert_m.html" xlink:title="julienne_assert_m">
+<polygon fill="#337ab7" stroke="#337ab7" points="961,-108 852,-108 852,-84 961,-84 961,-108"/>
+<text text-anchor="middle" x="906.5" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">julienne_assert_m</text>
+</a>
+</g>
+</g>
+<!-- module~julienne_m&#45;&gt;module~julienne_assert_m -->
+<g id="program~~scaffold~~UsesGraph_edge2" class="edge">
+<title>module~julienne_m&#45;&gt;module~julienne_assert_m</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M1063.5,-136C1023.97,-133.51 980.42,-121.52 949.4,-111.32"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="950.38,-107.96 939.79,-108.08 948.15,-114.59 950.38,-107.96"/>
+</g>
+<!-- module~julienne_bin_m -->
+<g id="program~~scaffold~~UsesGraph_node4" class="node">
+<title>module~julienne_bin_m</title>
+<g id="a_program~~scaffold~~UsesGraph_node4"><a xlink:href="../module/julienne_bin_m.html" xlink:title="julienne_bin_m">
+<polygon fill="#337ab7" stroke="#337ab7" points="1286,-108 1193,-108 1193,-84 1286,-84 1286,-108"/>
+<text text-anchor="middle" x="1239.5" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">julienne_bin_m</text>
+</a>
+</g>
+</g>
+<!-- module~julienne_m&#45;&gt;module~julienne_bin_m -->
+<g id="program~~scaffold~~UsesGraph_edge3" class="edge">
+<title>module~julienne_m&#45;&gt;module~julienne_bin_m</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M1357.94,-143.94C1344.36,-137.16 1326.89,-128.74 1311,-122 1302.53,-118.41 1293.38,-114.82 1284.57,-111.51"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="1285.78,-108.23 1275.18,-108.04 1283.35,-114.79 1285.78,-108.23"/>
+</g>
+<!-- module~julienne_command_line_m -->
+<g id="program~~scaffold~~UsesGraph_node5" class="node">
+<title>module~julienne_command_line_m</title>
+<g id="a_program~~scaffold~~UsesGraph_node5"><a xlink:href="../module/julienne_command_line_m.html" xlink:title="julienne_command_line_m">
+<polygon fill="#337ab7" stroke="#337ab7" points="813.5,-108 658.5,-108 658.5,-84 813.5,-84 813.5,-108"/>
+<text text-anchor="middle" x="736" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">julienne_command_line_m</text>
+</a>
+</g>
+</g>
+<!-- module~julienne_m&#45;&gt;module~julienne_command_line_m -->
+<g id="program~~scaffold~~UsesGraph_edge4" class="edge">
+<title>module~julienne_m&#45;&gt;module~julienne_command_line_m</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M1063.5,-136C994.3,-131.64 976.73,-139.85 907.5,-136"/>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M905.5,-136C894.23,-135.37 838.22,-121.72 793.82,-110.54"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="794.53,-107.11 783.98,-108.05 792.81,-113.9 794.53,-107.11"/>
+</g>
+<!-- module~julienne_file_m -->
+<g id="program~~scaffold~~UsesGraph_node6" class="node">
+<title>module~julienne_file_m</title>
+<g id="a_program~~scaffold~~UsesGraph_node6"><a xlink:href="../module/julienne_file_m.html" xlink:title="julienne_file_m">
+<polygon fill="#337ab7" stroke="#337ab7" points="1111,-306 1018,-306 1018,-282 1111,-282 1111,-306"/>
+<text text-anchor="middle" x="1064.5" y="-291.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">julienne_file_m</text>
+</a>
+</g>
+</g>
+<!-- module~julienne_m&#45;&gt;module~julienne_file_m -->
+<g id="program~~scaffold~~UsesGraph_edge5" class="edge">
+<title>module~julienne_m&#45;&gt;module~julienne_file_m</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M1376.9,-168.13C1362.9,-202.91 1317.07,-302.52 1240.5,-334"/>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M1238.5,-334C1215.09,-343.63 1150.53,-324.44 1107.25,-309.45"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="1108.14,-306.06 1097.55,-306.04 1105.82,-312.66 1108.14,-306.06"/>
+</g>
+<!-- module~julienne_formats_m -->
+<g id="program~~scaffold~~UsesGraph_node7" class="node">
+<title>module~julienne_formats_m</title>
+<g id="a_program~~scaffold~~UsesGraph_node7"><a xlink:href="../module/julienne_formats_m.html" xlink:title="julienne_formats_m">
+<polygon fill="#337ab7" stroke="#337ab7" points="1298.5,-66 1180.5,-66 1180.5,-42 1298.5,-42 1298.5,-66"/>
+<text text-anchor="middle" x="1239.5" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">julienne_formats_m</text>
+</a>
+</g>
+</g>
+<!-- module~julienne_m&#45;&gt;module~julienne_formats_m -->
+<g id="program~~scaffold~~UsesGraph_edge6" class="edge">
+<title>module~julienne_m&#45;&gt;module~julienne_formats_m</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M1374.2,-143.92C1362.87,-126.19 1339.37,-93.27 1311,-75 1308.26,-73.24 1305.37,-71.62 1302.38,-70.13"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="1303.75,-66.91 1293.19,-66.05 1300.91,-73.3 1303.75,-66.91"/>
+</g>
+<!-- module~julienne_github_ci_m -->
+<g id="program~~scaffold~~UsesGraph_node8" class="node">
+<title>module~julienne_github_ci_m</title>
+<g id="a_program~~scaffold~~UsesGraph_node8"><a xlink:href="../module/julienne_github_ci_m.html" xlink:title="julienne_github_ci_m">
+<polygon fill="#337ab7" stroke="#337ab7" points="1301.5,-24 1177.5,-24 1177.5,0 1301.5,0 1301.5,-24"/>
+<text text-anchor="middle" x="1239.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">julienne_github_ci_m</text>
+</a>
+</g>
+</g>
+<!-- module~julienne_m&#45;&gt;module~julienne_github_ci_m -->
+<g id="program~~scaffold~~UsesGraph_edge7" class="edge">
+<title>module~julienne_m&#45;&gt;module~julienne_github_ci_m</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M1377.93,-143.83C1370.05,-119.14 1348.82,-62.95 1311,-33 1309.17,-31.55 1307.24,-30.2 1305.24,-28.94"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="1306.52,-25.66 1296.05,-24.01 1303.2,-31.82 1306.52,-25.66"/>
+</g>
+<!-- module~julienne_one_image_prints_m -->
+<g id="program~~scaffold~~UsesGraph_node9" class="node">
+<title>module~julienne_one_image_prints_m</title>
+<g id="a_program~~scaffold~~UsesGraph_node9"><a xlink:href="../module/julienne_one_image_prints_m.html" xlink:title="julienne_one_image_prints_m">
+<polygon fill="#337ab7" stroke="#337ab7" points="620,-230 449,-230 449,-206 620,-206 620,-230"/>
+<text text-anchor="middle" x="534.5" y="-215.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">julienne_one_image_prints_m</text>
+</a>
+</g>
+</g>
+<!-- module~julienne_m&#45;&gt;module~julienne_one_image_prints_m -->
+<g id="program~~scaffold~~UsesGraph_edge8" class="edge">
+<title>module~julienne_m&#45;&gt;module~julienne_one_image_prints_m</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M735,-218C700.92,-215.03 663.43,-214.35 630.25,-214.63"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="630.05,-211.14 620.09,-214.75 630.13,-218.14 630.05,-211.14"/>
+</g>
+<!-- module~julienne_string_m -->
+<g id="program~~scaffold~~UsesGraph_node10" class="node">
+<title>module~julienne_string_m</title>
+<g id="a_program~~scaffold~~UsesGraph_node10"><a xlink:href="../module/julienne_string_m.html" xlink:title="julienne_string_m">
+<polygon fill="#337ab7" stroke="#337ab7" points="226,-188 120,-188 120,-164 226,-164 226,-188"/>
+<text text-anchor="middle" x="173" y="-173.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">julienne_string_m</text>
+</a>
+</g>
+</g>
+<!-- module~julienne_m&#45;&gt;module~julienne_string_m -->
+<g id="program~~scaffold~~UsesGraph_edge9" class="edge">
+<title>module~julienne_m&#45;&gt;module~julienne_string_m</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M1238.5,-334C1138.92,-374.94 1103.38,-331.57 997,-315 956.63,-308.71 948.34,-295.36 907.5,-294"/>
+</g>
+<!-- module~julienne_test_description_m -->
+<g id="program~~scaffold~~UsesGraph_node11" class="node">
+<title>module~julienne_test_description_m</title>
+<g id="a_program~~scaffold~~UsesGraph_node11"><a xlink:href="../module/julienne_test_description_m.html" xlink:title="julienne_test_description_m">
+<polygon fill="#337ab7" stroke="#337ab7" points="816,-150 656,-150 656,-126 816,-126 816,-150"/>
+<text text-anchor="middle" x="736" y="-135.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">julienne_test_description_m</text>
+</a>
+</g>
+</g>
+<!-- module~julienne_m&#45;&gt;module~julienne_test_description_m -->
+<g id="program~~scaffold~~UsesGraph_edge10" class="edge">
+<title>module~julienne_m&#45;&gt;module~julienne_test_description_m</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M905.5,-136C879.84,-134.57 851.95,-134.36 826.39,-134.7"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="826.28,-131.2 816.34,-134.86 826.39,-138.2 826.28,-131.2"/>
+</g>
+<!-- module~julienne_test_diagnosis_m -->
+<g id="program~~scaffold~~UsesGraph_node12" class="node">
+<title>module~julienne_test_diagnosis_m</title>
+<g id="a_program~~scaffold~~UsesGraph_node12"><a xlink:href="../module/julienne_test_diagnosis_m.html" xlink:title="julienne_test_diagnosis_m">
+<polygon fill="#337ab7" stroke="#337ab7" points="413,-148 262,-148 262,-124 413,-124 413,-148"/>
+<text text-anchor="middle" x="337.5" y="-133.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">julienne_test_diagnosis_m</text>
+</a>
+</g>
+</g>
+<!-- module~julienne_m&#45;&gt;module~julienne_test_diagnosis_m -->
+<g id="program~~scaffold~~UsesGraph_edge11" class="edge">
+<title>module~julienne_m&#45;&gt;module~julienne_test_diagnosis_m</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M1346.93,-148.57C1318.5,-143.07 1277.09,-136.46 1240.5,-136"/>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M1238.5,-136C1161.62,-135.03 1142.24,-140.84 1065.5,-136"/>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M1063.5,-136C1010.59,-132.66 1011.47,-91.21 961,-75 865.87,-44.45 836.74,-61.83 737,-56"/>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M735,-56C602.71,-46.54 449.8,-94.58 378.71,-120.43"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="377.4,-117.18 369.23,-123.92 379.82,-123.75 377.4,-117.18"/>
+</g>
+<!-- module~julienne_test_fixture_m -->
+<g id="program~~scaffold~~UsesGraph_node13" class="node">
+<title>module~julienne_test_fixture_m</title>
+<g id="a_program~~scaffold~~UsesGraph_node13"><a xlink:href="../module/julienne_test_fixture_m.html" xlink:title="julienne_test_fixture_m">
+<polygon fill="#337ab7" stroke="#337ab7" points="1132,-188 997,-188 997,-164 1132,-164 1132,-188"/>
+<text text-anchor="middle" x="1064.5" y="-173.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">julienne_test_fixture_m</text>
+</a>
+</g>
+</g>
+<!-- module~julienne_m&#45;&gt;module~julienne_test_fixture_m -->
+<g id="program~~scaffold~~UsesGraph_edge12" class="edge">
+<title>module~julienne_m&#45;&gt;module~julienne_test_fixture_m</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M1238.5,-136C1192.49,-135.42 1141.32,-149.12 1106.65,-160.64"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="1105.22,-157.43 1096.88,-163.97 1107.48,-164.05 1105.22,-157.43"/>
+</g>
+<!-- module~julienne_test_harness_m -->
+<g id="program~~scaffold~~UsesGraph_node14" class="node">
+<title>module~julienne_test_harness_m</title>
+<g id="a_program~~scaffold~~UsesGraph_node14"><a xlink:href="../module/julienne_test_harness_m.html" xlink:title="julienne_test_harness_m">
+<polygon fill="#337ab7" stroke="#337ab7" points="1311,-188 1168,-188 1168,-164 1311,-164 1311,-188"/>
+<text text-anchor="middle" x="1239.5" y="-173.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">julienne_test_harness_m</text>
+</a>
+</g>
+</g>
+<!-- module~julienne_m&#45;&gt;module~julienne_test_harness_m -->
+<g id="program~~scaffold~~UsesGraph_edge13" class="edge">
+<title>module~julienne_m&#45;&gt;module~julienne_test_harness_m</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M1346.65,-160.94C1338.77,-162.06 1330.08,-163.29 1321.17,-164.56"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="1320.46,-161.12 1311.05,-165.99 1321.44,-168.05 1320.46,-161.12"/>
+</g>
+<!-- module~julienne_test_m -->
+<g id="program~~scaffold~~UsesGraph_node15" class="node">
+<title>module~julienne_test_m</title>
+<g id="a_program~~scaffold~~UsesGraph_node15"><a xlink:href="../module/julienne_test_m.html" xlink:title="julienne_test_m">
+<polygon fill="#337ab7" stroke="#337ab7" points="954.5,-188 858.5,-188 858.5,-164 954.5,-164 954.5,-188"/>
+<text text-anchor="middle" x="906.5" y="-173.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">julienne_test_m</text>
+</a>
+</g>
+</g>
+<!-- module~julienne_m&#45;&gt;module~julienne_test_m -->
+<g id="program~~scaffold~~UsesGraph_edge14" class="edge">
+<title>module~julienne_m&#45;&gt;module~julienne_test_m</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M1063.5,-136C1021.33,-133.34 974.57,-147.76 943.35,-160.03"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="941.73,-156.91 933.78,-163.91 944.37,-163.39 941.73,-156.91"/>
+</g>
+<!-- module~julienne_test_result_m -->
+<g id="program~~scaffold~~UsesGraph_node16" class="node">
+<title>module~julienne_test_result_m</title>
+<g id="a_program~~scaffold~~UsesGraph_node16"><a xlink:href="../module/julienne_test_result_m.html" xlink:title="julienne_test_result_m">
+<polygon fill="#337ab7" stroke="#337ab7" points="599.5,-188 469.5,-188 469.5,-164 599.5,-164 599.5,-188"/>
+<text text-anchor="middle" x="534.5" y="-173.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">julienne_test_result_m</text>
+</a>
+</g>
+</g>
+<!-- module~julienne_m&#45;&gt;module~julienne_test_result_m -->
+<g id="program~~scaffold~~UsesGraph_edge15" class="edge">
+<title>module~julienne_m&#45;&gt;module~julienne_test_result_m</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M1366.01,-168.03C1352.38,-177.86 1331.54,-191.06 1311,-197 1065.78,-267.96 991.98,-230.5 737,-218"/>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M735,-218C708.44,-215.68 644.08,-201.55 595.58,-190.31"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="596.34,-186.89 585.8,-188.04 594.75,-193.71 596.34,-186.89"/>
+</g>
+<!-- module~julienne_test_suite_m -->
+<g id="program~~scaffold~~UsesGraph_node17" class="node">
+<title>module~julienne_test_suite_m</title>
+<g id="a_program~~scaffold~~UsesGraph_node17"><a xlink:href="../module/julienne_test_suite_m.html" xlink:title="julienne_test_suite_m">
+<polygon fill="#337ab7" stroke="#337ab7" points="1303,-268 1176,-268 1176,-244 1303,-244 1303,-268"/>
+<text text-anchor="middle" x="1239.5" y="-253.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">julienne_test_suite_m</text>
+</a>
+</g>
+</g>
+<!-- module~julienne_m&#45;&gt;module~julienne_test_suite_m -->
+<g id="program~~scaffold~~UsesGraph_edge16" class="edge">
+<title>module~julienne_m&#45;&gt;module~julienne_test_suite_m</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M1372.79,-168.14C1360.63,-184.3 1337.1,-212.85 1311,-230 1305.29,-233.76 1298.96,-237.06 1292.51,-239.95"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="1290.92,-236.82 1283.02,-243.88 1293.6,-243.28 1290.92,-236.82"/>
+</g>
+<!-- module~julienne_assert_m&#45;&gt;module~julienne_test_diagnosis_m -->
+<g id="program~~scaffold~~UsesGraph_edge17" class="edge">
+<title>module~julienne_assert_m&#45;&gt;module~julienne_test_diagnosis_m</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M870.53,-83.92C836.82,-73.17 784.12,-58.75 737,-56"/>
+</g>
+<!-- module~julienne_file_m&#45;&gt;module~julienne_string_m -->
+<g id="program~~scaffold~~UsesGraph_edge18" class="edge">
+<title>module~julienne_file_m&#45;&gt;module~julienne_string_m</title>
+<path fill="none" stroke="#cbff00" stroke-dasharray="5,2" d="M1017.73,-295.26C986.62,-295.81 944.55,-295.95 907.5,-294"/>
+</g>
+<!-- module~julienne_one_image_prints_m&#45;&gt;module~julienne_string_m -->
+<g id="program~~scaffold~~UsesGraph_edge19" class="edge">
+<title>module~julienne_one_image_prints_m&#45;&gt;module~julienne_string_m</title>
+<path fill="none" stroke="#00ff66" stroke-dasharray="5,2" d="M486.15,-205.99C438.03,-194.12 366.68,-177.5 338.5,-176"/>
+</g>
+<!-- iso_c_binding -->
+<g id="program~~scaffold~~UsesGraph_node18" class="node">
+<title>iso_c_binding</title>
+<g id="a_program~~scaffold~~UsesGraph_node18"><a xlink:href="http://fortranwiki.org/fortran/show/iso_c_binding" xlink:title="iso_c_binding">
+<polygon fill="#337ab7" stroke="#337ab7" points="84,-168 0,-168 0,-144 84,-144 84,-168"/>
+<text text-anchor="middle" x="42" y="-153.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">iso_c_binding</text>
+</a>
+</g>
+</g>
+<!-- module~julienne_string_m&#45;&gt;iso_c_binding -->
+<g id="program~~scaffold~~UsesGraph_edge20" class="edge">
+<title>module~julienne_string_m&#45;&gt;iso_c_binding</title>
+<path fill="none" stroke="#00ffcb" stroke-dasharray="5,2" d="M119.9,-167.92C111.45,-166.61 102.7,-165.26 94.27,-163.95"/>
+<polygon fill="#00ffcb" stroke="#00ffcb" points="94.6,-160.46 84.19,-162.39 93.53,-167.38 94.6,-160.46"/>
+</g>
+<!-- module~julienne_test_description_m&#45;&gt;module~julienne_string_m -->
+<g id="program~~scaffold~~UsesGraph_edge21" class="edge">
+<title>module~julienne_test_description_m&#45;&gt;module~julienne_string_m</title>
+<path fill="none" stroke="#00cbff" stroke-dasharray="5,2" d="M533.5,-136C445.12,-140.04 426.85,-180.7 338.5,-176"/>
+<path fill="none" stroke="#00cbff" stroke-dasharray="5,2" d="M336.5,-176C303.61,-174.25 266.93,-174.1 236.75,-174.45"/>
+<polygon fill="#00cbff" stroke="#00cbff" points="236.31,-170.95 226.36,-174.59 236.41,-177.95 236.31,-170.95"/>
+</g>
+<!-- module~julienne_test_description_m&#45;&gt;module~julienne_test_diagnosis_m -->
+<g id="program~~scaffold~~UsesGraph_edge22" class="edge">
+<title>module~julienne_test_description_m&#45;&gt;module~julienne_test_diagnosis_m</title>
+<path fill="none" stroke="#00cbff" stroke-dasharray="5,2" d="M655.84,-135.18C619.21,-134.4 575.12,-134.19 535.5,-136"/>
+<path fill="none" stroke="#00cbff" stroke-dasharray="5,2" d="M533.5,-136C497.49,-137.64 457.7,-137.92 423.5,-137.68"/>
+<polygon fill="#00cbff" stroke="#00cbff" points="423.11,-134.18 413.08,-137.59 423.05,-141.18 423.11,-134.18"/>
+</g>
+<!-- module~julienne_test_description_m&#45;&gt;module~julienne_test_result_m -->
+<g id="program~~scaffold~~UsesGraph_edge23" class="edge">
+<title>module~julienne_test_description_m&#45;&gt;module~julienne_test_result_m</title>
+<path fill="none" stroke="#00cbff" stroke-dasharray="5,2" d="M671.88,-150.02C651.77,-153.85 629.35,-158.12 608.59,-162.08"/>
+<polygon fill="#00cbff" stroke="#00cbff" points="607.72,-158.68 598.55,-163.99 609.03,-165.56 607.72,-158.68"/>
+</g>
+<!-- module~julienne_test_diagnosis_m&#45;&gt;module~julienne_string_m -->
+<g id="program~~scaffold~~UsesGraph_edge25" class="edge">
+<title>module~julienne_test_diagnosis_m&#45;&gt;module~julienne_string_m</title>
+<path fill="none" stroke="#0066ff" stroke-dasharray="5,2" d="M287.74,-148C270.47,-152.25 250.85,-157.08 232.83,-161.52"/>
+<polygon fill="#0066ff" stroke="#0066ff" points="231.88,-158.15 223,-163.94 233.55,-164.95 231.88,-158.15"/>
+</g>
+<!-- module~julienne_test_diagnosis_m&#45;&gt;iso_c_binding -->
+<g id="program~~scaffold~~UsesGraph_edge24" class="edge">
+<title>module~julienne_test_diagnosis_m&#45;&gt;iso_c_binding</title>
+<path fill="none" stroke="#0066ff" stroke-dasharray="5,2" d="M261.68,-141.1C209.26,-144.67 140.57,-149.35 94.27,-152.51"/>
+<polygon fill="#0066ff" stroke="#0066ff" points="93.91,-149.02 84.17,-153.19 94.39,-156.01 93.91,-149.02"/>
+</g>
+<!-- module~julienne_test_fixture_m&#45;&gt;module~julienne_test_m -->
+<g id="program~~scaffold~~UsesGraph_edge26" class="edge">
+<title>module~julienne_test_fixture_m&#45;&gt;module~julienne_test_m</title>
+<path fill="none" stroke="#0000ff" stroke-dasharray="5,2" d="M996.89,-176C986.21,-176 975.23,-176 964.79,-176"/>
+<polygon fill="#0000ff" stroke="#0000ff" points="964.56,-172.5 954.56,-176 964.56,-179.5 964.56,-172.5"/>
+</g>
+<!-- module~julienne_test_harness_m&#45;&gt;module~julienne_test_fixture_m -->
+<g id="program~~scaffold~~UsesGraph_edge27" class="edge">
+<title>module~julienne_test_harness_m&#45;&gt;module~julienne_test_fixture_m</title>
+<path fill="none" stroke="#6500ff" stroke-dasharray="5,2" d="M1167.64,-176C1159.28,-176 1150.72,-176 1142.28,-176"/>
+<polygon fill="#6500ff" stroke="#6500ff" points="1142.08,-172.5 1132.08,-176 1142.08,-179.5 1142.08,-172.5"/>
+</g>
+<!-- module~julienne_test_m&#45;&gt;module~julienne_command_line_m -->
+<g id="program~~scaffold~~UsesGraph_edge28" class="edge">
+<title>module~julienne_test_m&#45;&gt;module~julienne_command_line_m</title>
+<path fill="none" stroke="#cc00ff" stroke-dasharray="5,2" d="M876.88,-163.97C868.58,-159.99 859.69,-155.23 852,-150 834.05,-137.8 835.04,-127.42 816,-117 812.36,-115.01 808.52,-113.19 804.57,-111.55"/>
+<polygon fill="#cc00ff" stroke="#cc00ff" points="805.81,-108.27 795.21,-108 803.32,-114.82 805.81,-108.27"/>
+</g>
+<!-- module~julienne_test_m&#45;&gt;module~julienne_test_description_m -->
+<g id="program~~scaffold~~UsesGraph_edge29" class="edge">
+<title>module~julienne_test_m&#45;&gt;module~julienne_test_description_m</title>
+<path fill="none" stroke="#cc00ff" stroke-dasharray="5,2" d="M858.11,-165.31C840.13,-161.26 819.35,-156.57 800.13,-152.24"/>
+<polygon fill="#cc00ff" stroke="#cc00ff" points="800.78,-148.8 790.25,-150.01 799.24,-155.62 800.78,-148.8"/>
+</g>
+<!-- module~julienne_test_m&#45;&gt;module~julienne_test_result_m -->
+<g id="program~~scaffold~~UsesGraph_edge30" class="edge">
+<title>module~julienne_test_m&#45;&gt;module~julienne_test_result_m</title>
+<path fill="none" stroke="#cc00ff" stroke-dasharray="5,2" d="M858.26,-176C795.47,-176 683.81,-176 609.7,-176"/>
+<polygon fill="#cc00ff" stroke="#cc00ff" points="609.51,-172.5 599.51,-176 609.51,-179.5 609.51,-172.5"/>
+</g>
+<!-- module~julienne_test_result_m&#45;&gt;module~julienne_string_m -->
+<g id="program~~scaffold~~UsesGraph_edge31" class="edge">
+<title>module~julienne_test_result_m&#45;&gt;module~julienne_string_m</title>
+<path fill="none" stroke="#ff00cb" stroke-dasharray="5,2" d="M469.34,-177.71C431.28,-178.3 382.11,-178.32 338.5,-176"/>
+</g>
+<!-- module~julienne_test_result_m&#45;&gt;module~julienne_test_diagnosis_m -->
+<g id="program~~scaffold~~UsesGraph_edge32" class="edge">
+<title>module~julienne_test_result_m&#45;&gt;module~julienne_test_diagnosis_m</title>
+<path fill="none" stroke="#ff00cb" stroke-dasharray="5,2" d="M474.99,-164C453.69,-159.63 429.41,-154.65 407.29,-150.11"/>
+<polygon fill="#ff00cb" stroke="#ff00cb" points="407.8,-146.64 397.3,-148.06 406.39,-153.5 407.8,-146.64"/>
+</g>
+<!-- module~julienne_test_suite_m&#45;&gt;module~julienne_file_m -->
+<g id="program~~scaffold~~UsesGraph_edge33" class="edge">
+<title>module~julienne_test_suite_m&#45;&gt;module~julienne_file_m</title>
+<path fill="none" stroke="#ff0066" stroke-dasharray="5,2" d="M1183.76,-268.02C1163.78,-272.41 1141.16,-277.38 1121.1,-281.79"/>
+<polygon fill="#ff0066" stroke="#ff0066" points="1120.2,-278.4 1111.18,-283.97 1121.7,-285.24 1120.2,-278.4"/>
+</g>
+<!-- module~julienne_test_suite_m&#45;&gt;module~julienne_string_m -->
+<g id="program~~scaffold~~UsesGraph_edge34" class="edge">
+<title>module~julienne_test_suite_m&#45;&gt;module~julienne_string_m</title>
+<path fill="none" stroke="#ff0066" stroke-dasharray="5,2" d="M1175.9,-257.66C1126.97,-259.61 1057.36,-263.85 997,-273 956.6,-279.12 948.3,-296.15 907.5,-294"/>
+<path fill="none" stroke="#ff0066" stroke-dasharray="5,2" d="M905.5,-294C701.58,-280.68 643.04,-303.1 449,-239 395.32,-221.27 394.95,-179 338.5,-176"/>
+</g>
+</g>
+</svg>
+</div>                <script>
+                  var panprogramscaffoldUsesGraph = svgPanZoom('#programscaffoldUsesGraph',
+                    {zoomEnabled: true, controlIconsEnabled: true, fit: true, center: true,}
+                  );
+                </script>          <div>
+            <a type="button" class="graph-help" data-bs-toggle="modal" href="#UsesGraph-help-text">Help</a>
+          </div>
+          <div class="modal fade" id="UsesGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="518pt" height="32pt"
+ viewBox="0.00 0.00 517.50 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 513.5,-28 513.5,4 -4,4"/>
+<!-- Module -->
+<g id="node1" class="node">
+<title>Module</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="54,-24 0,-24 0,0 54,0 54,-24"/>
+<text text-anchor="middle" x="27" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Module</text>
+</g>
+<!-- Submodule -->
+<g id="node2" class="node">
+<title>Submodule</title>
+<polygon fill="#5bc0de" stroke="#5bc0de" points="145.5,-24 72.5,-24 72.5,0 145.5,0 145.5,-24"/>
+<text text-anchor="middle" x="109" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Submodule</text>
+</g>
+<!-- Subroutine -->
+<g id="node3" class="node">
+<title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="234,-24 164,-24 164,0 234,0 234,-24"/>
+<text text-anchor="middle" x="199" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node4" class="node">
+<title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="310,-24 252,-24 252,0 310,0 310,-24"/>
+<text text-anchor="middle" x="281" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Program -->
+<g id="node5" class="node">
+<title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="386,-24 328,-24 328,0 386,0 386,-24"/>
+<text text-anchor="middle" x="357" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node6" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="509.5,-24 404.5,-24 404.5,0 509.5,0 509.5,-24"/>
+<text text-anchor="middle" x="457" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+<p>Solid arrows point from a submodule to the (sub)module which it is
+descended from. Dashed arrows point from a module or program unit to 
+modules which it uses.
+</p>
+ Where possible, edges connecting nodes are
+given different colours to make them easier to distinguish in
+large graphs.</div>
+            </div>
+          </div>
+        </div>
+            </li>
+        </ul>
+      </div>
+    </div>
+
+    
+    <br>
+    <div class="card">
+      <div class="card-header">
+  <h3 class="card-title">Calls</h3>
+      </div>
+      <div class="card-body">
+  <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: program~~scaffold~~CallsGraph Pages: 1 -->
+<svg id="programscaffoldCallsGraph" width="508pt" height="326pt"
+ viewBox="0.00 0.00 508.00 326.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="program~~scaffold~~CallsGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 322)">
+<title>program~~scaffold~~CallsGraph</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-322 504,-322 504,4 -4,4"/>
+<!-- program~scaffold -->
+<g id="program~~scaffold~~CallsGraph_node1" class="node">
+<title>program~scaffold</title>
+<polygon fill="none" stroke="black" points="55,-171 0,-171 0,-147 55,-147 55,-171"/>
+<text text-anchor="middle" x="27.5" y="-156.6" font-family="Helvetica,sans-Serif" font-size="10.50">scaffold</text>
+</g>
+<!-- interface~flag_value -->
+<g id="program~~scaffold~~CallsGraph_node2" class="node">
+<title>interface~flag_value</title>
+<g id="a_program~~scaffold~~CallsGraph_node2"><a xlink:href="../interface/flag_value.html" xlink:title="command_line_t%flag_value">
+<polygon fill="#a7506f" stroke="#a7506f" points="256,-318 91,-318 91,-294 256,-294 256,-318"/>
+<text text-anchor="middle" x="173.5" y="-303.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">command_line_t%flag_value</text>
+</a>
+</g>
+</g>
+<!-- program~scaffold&#45;&gt;interface~flag_value -->
+<g id="program~~scaffold~~CallsGraph_edge1" class="edge">
+<title>program~scaffold&#45;&gt;interface~flag_value</title>
+<path fill="none" stroke="#ff0000" d="M30.97,-171.17C36.77,-196.42 53.63,-254.71 91,-285 92.75,-286.42 94.59,-287.75 96.49,-288.98"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="94.8,-292.04 105.24,-293.86 98.21,-285.93 94.8,-292.04"/>
+</g>
+<!-- interface~stub_file -->
+<g id="program~~scaffold~~CallsGraph_node3" class="node">
+<title>interface~stub_file</title>
+<g id="a_program~~scaffold~~CallsGraph_node3"><a xlink:href="../interface/stub_file.html" xlink:title="test_suite_t%stub_file">
+<polygon fill="#a7506f" stroke="#a7506f" points="236.5,-276 110.5,-276 110.5,-252 236.5,-252 236.5,-276"/>
+<text text-anchor="middle" x="173.5" y="-261.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">test_suite_t%stub_file</text>
+</a>
+</g>
+</g>
+<!-- program~scaffold&#45;&gt;interface~stub_file -->
+<g id="program~~scaffold~~CallsGraph_edge2" class="edge">
+<title>program~scaffold&#45;&gt;interface~stub_file</title>
+<path fill="none" stroke="#ff0000" d="M34.11,-171.07C43.32,-189.5 63.39,-224.45 91,-243 94.16,-245.12 97.51,-247.03 101,-248.74"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="99.9,-252.08 110.47,-252.85 102.69,-245.66 99.9,-252.08"/>
+</g>
+<!-- interface~test_modules -->
+<g id="program~~scaffold~~CallsGraph_node4" class="node">
+<title>interface~test_modules</title>
+<g id="a_program~~scaffold~~CallsGraph_node4"><a xlink:href="../interface/test_modules.html" xlink:title="test_suite_t%test_modules">
+<polygon fill="#a7506f" stroke="#a7506f" points="249.5,-234 97.5,-234 97.5,-210 249.5,-210 249.5,-234"/>
+<text text-anchor="middle" x="173.5" y="-219.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">test_suite_t%test_modules</text>
+</a>
+</g>
+</g>
+<!-- program~scaffold&#45;&gt;interface~test_modules -->
+<g id="program~~scaffold~~CallsGraph_edge3" class="edge">
+<title>program~scaffold&#45;&gt;interface~test_modules</title>
+<path fill="none" stroke="#ff0000" d="M43.56,-171.27C55.71,-180.62 73.59,-193.18 91,-201 95.71,-203.11 100.68,-205.05 105.73,-206.8"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="104.94,-210.23 115.53,-209.97 107.09,-203.57 104.94,-210.23"/>
+</g>
+<!-- interface~test_subjects -->
+<g id="program~~scaffold~~CallsGraph_node5" class="node">
+<title>interface~test_subjects</title>
+<g id="a_program~~scaffold~~CallsGraph_node5"><a xlink:href="../interface/test_subjects.html" xlink:title="test_suite_t%test_subjects">
+<polygon fill="#a7506f" stroke="#a7506f" points="248.5,-192 98.5,-192 98.5,-168 248.5,-168 248.5,-192"/>
+<text text-anchor="middle" x="173.5" y="-177.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">test_suite_t%test_subjects</text>
+</a>
+</g>
+</g>
+<!-- program~scaffold&#45;&gt;interface~test_subjects -->
+<g id="program~~scaffold~~CallsGraph_edge4" class="edge">
+<title>program~scaffold&#45;&gt;interface~test_subjects</title>
+<path fill="none" stroke="#ff0000" d="M55.25,-162.9C64.91,-164.31 76.39,-165.98 88.34,-167.73"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="88.05,-171.22 98.45,-169.2 89.06,-164.29 88.05,-171.22"/>
+</g>
+<!-- interface~write_driver -->
+<g id="program~~scaffold~~CallsGraph_node6" class="node">
+<title>interface~write_driver</title>
+<g id="a_program~~scaffold~~CallsGraph_node6"><a xlink:href="../interface/write_driver.html" xlink:title="test_suite_t%write_driver">
+<polygon fill="#a7506f" stroke="#a7506f" points="246,-150 101,-150 101,-126 246,-126 246,-150"/>
+<text text-anchor="middle" x="173.5" y="-135.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">test_suite_t%write_driver</text>
+</a>
+</g>
+</g>
+<!-- program~scaffold&#45;&gt;interface~write_driver -->
+<g id="program~~scaffold~~CallsGraph_edge5" class="edge">
+<title>program~scaffold&#45;&gt;interface~write_driver</title>
+<path fill="none" stroke="#ff0000" d="M55.25,-155.1C65.62,-153.59 78.09,-151.77 90.99,-149.89"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="91.51,-153.35 100.9,-148.44 90.5,-146.42 91.51,-153.35"/>
+</g>
+<!-- proc~help_requested -->
+<g id="program~~scaffold~~CallsGraph_node7" class="node">
+<title>proc~help_requested</title>
+<g id="a_program~~scaffold~~CallsGraph_node7"><a xlink:href="../proc/help_requested.html" xlink:title="help_requested">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="220.5,-108 126.5,-108 126.5,-84 220.5,-84 220.5,-108"/>
+<text text-anchor="middle" x="173.5" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">help_requested</text>
+</a>
+</g>
+</g>
+<!-- program~scaffold&#45;&gt;proc~help_requested -->
+<g id="program~~scaffold~~CallsGraph_edge6" class="edge">
+<title>program~scaffold&#45;&gt;proc~help_requested</title>
+<path fill="none" stroke="#ff0000" d="M43.56,-146.73C55.71,-137.38 73.59,-124.82 91,-117 99.04,-113.39 107.81,-110.32 116.53,-107.73"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="117.61,-111.06 126.3,-105 115.73,-104.32 117.61,-111.06"/>
+</g>
+<!-- proc~print_usage_info_and_stop -->
+<g id="program~~scaffold~~CallsGraph_node8" class="node">
+<title>proc~print_usage_info_and_stop</title>
+<g id="a_program~~scaffold~~CallsGraph_node8"><a xlink:href="../proc/print_usage_info_and_stop.html" xlink:title="print_usage_info_and_stop">
+<polygon fill="#d9534f" stroke="#d9534f" points="250.5,-66 96.5,-66 96.5,-42 250.5,-42 250.5,-66"/>
+<text text-anchor="middle" x="173.5" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">print_usage_info_and_stop</text>
+</a>
+</g>
+</g>
+<!-- program~scaffold&#45;&gt;proc~print_usage_info_and_stop -->
+<g id="program~~scaffold~~CallsGraph_edge7" class="edge">
+<title>program~scaffold&#45;&gt;proc~print_usage_info_and_stop</title>
+<path fill="none" stroke="#ff0000" d="M34.11,-146.93C43.32,-128.5 63.39,-93.55 91,-75 93.44,-73.36 96.01,-71.84 98.66,-70.45"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="100.35,-73.52 107.96,-66.14 97.41,-67.17 100.35,-73.52"/>
+</g>
+<!-- write_lines -->
+<g id="program~~scaffold~~CallsGraph_node9" class="node">
+<title>write_lines</title>
+<polygon fill="#777777" stroke="#777777" points="208,-24 139,-24 139,0 208,0 208,-24"/>
+<text text-anchor="middle" x="173.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">write_lines</text>
+</g>
+<!-- program~scaffold&#45;&gt;write_lines -->
+<g id="program~~scaffold~~CallsGraph_edge8" class="edge">
+<title>program~scaffold&#45;&gt;write_lines</title>
+<path fill="none" stroke="#ff0000" d="M30.97,-146.83C36.77,-121.58 53.63,-63.29 91,-33 101.67,-24.35 115.5,-19.22 128.73,-16.19"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="129.51,-19.6 138.66,-14.26 128.18,-12.73 129.51,-19.6"/>
+</g>
+<!-- interface~argument_present -->
+<g id="program~~scaffold~~CallsGraph_node10" class="node">
+<title>interface~argument_present</title>
+<g id="a_program~~scaffold~~CallsGraph_node10"><a xlink:href="../interface/argument_present.html" xlink:title="command_line_t%argument_present">
+<polygon fill="#a7506f" stroke="#a7506f" points="500,-108 292,-108 292,-84 500,-84 500,-108"/>
+<text text-anchor="middle" x="396" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">command_line_t%argument_present</text>
+</a>
+</g>
+</g>
+<!-- proc~help_requested&#45;&gt;interface~argument_present -->
+<g id="program~~scaffold~~CallsGraph_edge9" class="edge">
+<title>proc~help_requested&#45;&gt;interface~argument_present</title>
+<path fill="none" stroke="#003fff" d="M220.72,-96C238.6,-96 259.92,-96 281.41,-96"/>
+<polygon fill="#003fff" stroke="#003fff" points="281.61,-99.5 291.61,-96 281.61,-92.5 281.61,-99.5"/>
+</g>
+</g>
+</svg>
+</div>          <div>
+            <a type="button" class="graph-help" data-bs-toggle="modal" href="#CallsGraph-help-text">Help</a>
+          </div>
+          <div class="modal fade" id="CallsGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="641pt" height="28pt"
+ viewBox="0.00 0.00 641.00 27.51" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(0.86 0.86) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 741.5,-28 741.5,4 -4,4"/>
+<!-- Subroutine -->
+<g id="node1" class="node">
+<title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="70,-24 0,-24 0,0 70,0 70,-24"/>
+<text text-anchor="middle" x="35" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node2" class="node">
+<title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="146,-24 88,-24 88,0 146,0 146,-24"/>
+<text text-anchor="middle" x="117" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Interface -->
+<g id="node3" class="node">
+<title>Interface</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="225.5,-24 164.5,-24 164.5,0 225.5,0 225.5,-24"/>
+<text text-anchor="middle" x="195" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Interface</text>
+</g>
+<!-- Type Bound Procedure -->
+<g id="node4" class="node">
+<title>Type Bound Procedure</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="374,-24 244,-24 244,0 374,0 374,-24"/>
+<text text-anchor="middle" x="309" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Type Bound Procedure</text>
+</g>
+<!-- Unknown Procedure Type -->
+<g id="node5" class="node">
+<title>Unknown Procedure Type</title>
+<polygon fill="#777777" stroke="#777777" points="537.5,-24 392.5,-24 392.5,0 537.5,0 537.5,-24"/>
+<text text-anchor="middle" x="465" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Unknown Procedure Type</text>
+</g>
+<!-- Program -->
+<g id="node6" class="node">
+<title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="614,-24 556,-24 556,0 614,0 614,-24"/>
+<text text-anchor="middle" x="585" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node7" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="737.5,-24 632.5,-24 632.5,0 737.5,0 737.5,-24"/>
+<text text-anchor="middle" x="685" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+<p>Solid arrows point from a procedure to one which it calls. Dashed 
+arrows point from an interface to procedures which implement that interface.
+This could include the module procedures in a generic interface or the
+implementation in a submodule of an interface in a parent module.
+</p>
+ Where possible, edges connecting nodes are
+given different colours to make them easier to distinguish in
+large graphs.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+<br>
+
+    <section>
+    <h2>Variables</h2>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+<th></th><th scope="col">Initial</th>        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-command_line~4"></span>
+              type(<a href='../type/command_line_t.html'>command_line_t</a>)
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>command_line</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-i~11"></span>
+              integer
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>i</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    </section>
+    <br>
+    
+    
+    
+
+    
+ 
+    <section>
+    <h2>Functions</h2>
+      <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-help_requested"></span> <h3> function <a href='../proc/help_requested.html'>help_requested</a>()  
+</h3></div>
+    <div class="card-body">
+          
+  
+
+  <h4>Arguments</h4>
+    <em>None</em>
+    <h4>
+    Return Value
+    <small>logical</small>
+    </h4>
+    
+
+    </div>
+  </div>
+
+    </section>
+    <br>
+
+
+    <section>
+    <h2>Subroutines</h2>
+      <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-print_usage_info_and_stop"></span> <h3> subroutine <a href='../proc/print_usage_info_and_stop.html'>print_usage_info_and_stop</a>()  
+</h3></div>
+    <div class="card-body">
+          
+  
+
+  <h4>Arguments</h4>
+    <em>None</em>
+
+    </div>
+  </div>
+
+    </section>    
+    
+
+    <section>
+    <h2 id="src">Source Code</h2>
+    <div class="hl codehilite"><pre><span></span><span class="k">program </span><span class="n">scaffold</span>
+<span class="w">  </span><span class="k">use </span><span class="n">julienne_m</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">command_line_t</span><span class="p">,</span><span class="w"> </span><span class="n">file_t</span><span class="p">,</span><span class="w"> </span><span class="n">test_suite_t</span>
+<span class="w">  </span><span class="k">implicit none</span>
+<span class="k">  type</span><span class="p">(</span><span class="n">command_line_t</span><span class="p">)</span><span class="w"> </span><span class="n">command_line</span>
+<span class="w">  </span><span class="kt">integer </span><span class="n">i</span>
+
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">help_requested</span><span class="p">())</span><span class="w"> </span><span class="k">call </span><span class="n">print_usage_info_and_stop</span>
+
+<span class="cp">#if (! __GNUC__) &amp;&amp; (! NAGFOR)</span>
+<span class="w">  </span><span class="k">associate</span><span class="p">(</span><span class="n">subjects_file_name</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">command_line</span><span class="p">%</span><span class="n">flag_value</span><span class="p">(</span><span class="s2">&quot;--json-file&quot;</span><span class="p">))</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">subjects_file_name</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">call </span><span class="n">print_usage_info_and_stop</span>
+<span class="w">    </span><span class="k">print</span><span class="w"> </span><span class="s1">&#39;(*(a))&#39;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Reading test subject information from &quot;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="n">subjects_file_name</span>
+<span class="w">    </span><span class="k">associate</span><span class="p">(</span><span class="n">test_suite</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">test_suite_t</span><span class="p">(</span><span class="n">file_t</span><span class="p">(</span><span class="n">subjects_file_name</span><span class="p">)))</span>
+<span class="w">      </span><span class="k">associate</span><span class="p">(</span><span class="n">path</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">command_line</span><span class="p">%</span><span class="n">flag_value</span><span class="p">(</span><span class="s2">&quot;--suite-path&quot;</span><span class="p">))</span>
+<span class="w">        </span><span class="k">print</span><span class="w"> </span><span class="s1">&#39;(*(a))&#39;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Writing test-suite scaffolding in &quot;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="n">path</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">path</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">call </span><span class="n">print_usage_info_and_stop</span>
+<span class="w">        </span><span class="k">associate</span><span class="p">(</span><span class="n">driver</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">test_suite</span><span class="p">%</span><span class="n">driver_file</span><span class="p">())</span>
+<span class="w">          </span><span class="k">call </span><span class="n">driver</span><span class="p">%</span><span class="n">write_lines</span><span class="p">(</span><span class="n">path</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="s2">&quot;/driver.f90&quot;</span><span class="p">)</span>
+<span class="w">        </span><span class="k">end associate</span>
+<span class="k">        associate</span><span class="p">(</span><span class="n">subjects</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">test_suite</span><span class="p">%</span><span class="n">test_subjects</span><span class="p">(),</span><span class="w"> </span><span class="n">modules</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">test_suite</span><span class="p">%</span><span class="n">test_modules</span><span class="p">())</span>
+<span class="w">          </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="p">(</span><span class="n">subjects</span><span class="p">)</span>
+<span class="w">            </span><span class="k">associate</span><span class="p">(</span><span class="n">stub</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">test_suite</span><span class="p">%</span><span class="n">stub_file</span><span class="p">(</span><span class="n">subjects</span><span class="p">(</span><span class="n">i</span><span class="p">)))</span>
+<span class="w">              </span><span class="k">call </span><span class="n">stub</span><span class="p">%</span><span class="n">write_lines</span><span class="p">(</span><span class="n">path</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="s2">&quot;/&quot;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="n">modules</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="s2">&quot;.f90&quot;</span><span class="p">)</span>
+<span class="w">            </span><span class="k">end associate</span>
+<span class="k">          end do</span>
+<span class="k">        end associate</span>
+<span class="k">      end associate</span>
+<span class="k">    end associate</span>
+<span class="k">  end associate</span>
+<span class="cp">#else</span>
+<span class="w">  </span><span class="k">block</span>
+<span class="k">    </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="p">:),</span><span class="w"> </span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w">  </span><span class="n">path</span><span class="p">,</span><span class="w"> </span><span class="n">subjects_file_name</span>
+<span class="w">    </span><span class="k">type</span><span class="p">(</span><span class="n">file_t</span><span class="p">)</span><span class="w"> </span><span class="n">driver</span>
+<span class="w">    </span><span class="n">subjects_file_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">command_line</span><span class="p">%</span><span class="n">flag_value</span><span class="p">(</span><span class="s2">&quot;--json-file&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">subjects_file_name</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">call </span><span class="n">print_usage_info_and_stop</span>
+<span class="w">    </span><span class="k">print</span><span class="w"> </span><span class="s1">&#39;(*(a))&#39;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Reading test subject information from &quot;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="n">subjects_file_name</span>
+<span class="w">    </span><span class="k">associate</span><span class="p">(</span><span class="n">test_suite</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">test_suite_t</span><span class="p">(</span><span class="n">file_t</span><span class="p">(</span><span class="n">subjects_file_name</span><span class="p">)))</span>
+<span class="w">      </span><span class="n">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">command_line</span><span class="p">%</span><span class="n">flag_value</span><span class="p">(</span><span class="s2">&quot;--suite-path&quot;</span><span class="p">)</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">path</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">call </span><span class="n">print_usage_info_and_stop</span>
+<span class="w">      </span><span class="k">print</span><span class="w"> </span><span class="s1">&#39;(*(a))&#39;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Writing test-suite scaffolding in &quot;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="n">path</span>
+<span class="w">      </span><span class="k">call </span><span class="n">test_suite</span><span class="p">%</span><span class="n">write_driver</span><span class="p">(</span><span class="n">path</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="s2">&quot;/driver.f90&quot;</span><span class="p">)</span>
+<span class="w">      </span><span class="k">associate</span><span class="p">(</span><span class="n">subjects</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">test_suite</span><span class="p">%</span><span class="n">test_subjects</span><span class="p">(),</span><span class="w"> </span><span class="n">modules</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">test_suite</span><span class="p">%</span><span class="n">test_modules</span><span class="p">())</span>
+<span class="w">        </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="p">(</span><span class="n">subjects</span><span class="p">)</span>
+<span class="w">          </span><span class="k">associate</span><span class="p">(</span><span class="n">stub</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">test_suite</span><span class="p">%</span><span class="n">stub_file</span><span class="p">(</span><span class="n">subjects</span><span class="p">(</span><span class="n">i</span><span class="p">)))</span>
+<span class="w">            </span><span class="k">call </span><span class="n">stub</span><span class="p">%</span><span class="n">write_lines</span><span class="p">(</span><span class="n">path</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="s2">&quot;/&quot;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="n">modules</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="s2">&quot;.f90&quot;</span><span class="p">)</span>
+<span class="w">          </span><span class="k">end associate</span>
+<span class="k">        end do</span>
+<span class="k">      end associate</span>
+<span class="k">    end associate</span>
+<span class="k">  end block</span>
+<span class="cp">#endif</span>
+
+<span class="k">contains</span>
+
+<span class="k">    </span><span class="kt">logical </span><span class="k">function </span><span class="n">help_requested</span><span class="p">()</span>
+<span class="w">      </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="p">:),</span><span class="w"> </span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">file_name</span>
+<span class="w">      </span><span class="k">type</span><span class="p">(</span><span class="n">command_line_t</span><span class="p">)</span><span class="w"> </span><span class="n">command_line</span>
+<span class="w">      </span><span class="n">help_requested</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">command_line</span><span class="p">%</span><span class="n">argument_present</span><span class="p">([</span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="s2">&quot;--help&quot;</span><span class="p">))</span><span class="kd">::</span><span class="s2">&quot;--help&quot;</span><span class="p">,</span><span class="s2">&quot;-h&quot;</span><span class="p">])</span>
+<span class="w">    </span><span class="k">end function</span>
+
+<span class="k">    subroutine </span><span class="n">print_usage_info_and_stop</span>
+<span class="w">      </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=*</span><span class="p">),</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">usage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">        </span><span class="nb">new_line</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="nb">new_line</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span><span class="w"> </span><span class="o">//</span><span class="w">      </span><span class="p">&amp;</span>
+<span class="w">        </span><span class="s1">&#39;Usage: fpm run scaffold -- [--json-file &lt;string&gt; --suite-path &lt;string&gt;] | [--help] | -h]&#39;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">        </span><span class="nb">new_line</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="nb">new_line</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span><span class="w"> </span><span class="o">//</span><span class="w">      </span><span class="p">&amp;</span>
+<span class="w">        </span><span class="s1">&#39;where square brackets ([]) denote optional arguments, a pipe (|) separates alternative arguments,&#39;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="nb">new_line</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">        </span><span class="s1">&#39;angular brackets (&lt;&gt;) denote a user-provided value, the --subjects string names a JSON file,&#39;</span><span class="w">      </span><span class="o">//</span><span class="w"> </span><span class="nb">new_line</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">        </span><span class="s1">&#39;and the --path string names a directory for the new test-suite scaffold.&#39;</span><span class="w">                          </span><span class="o">//</span><span class="w"> </span><span class="nb">new_line</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="w">      </span><span class="k">stop </span><span class="n">usage</span>
+<span class="w">    </span><span class="k">end subroutine</span>
+
+<span class="k">end program </span><span class="n">scaffold</span>
+</pre></div>
+
+    </section>
+    
+    </div>
+  </div>
+
+      <hr>
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col">
+            <p>
+              Julienne
+ was developed by Berkeley Lab<br>              &copy; 2025 
+</p>
+          </div>
+          <div class="col">
+            <p class="text-end">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+ on 2025-10-12 20:01 +0000             </p>
+          </div>
+        </div>
+        <br>
+      </div> <!-- /container -->
+    </footer>
+  </body>
+</html>
