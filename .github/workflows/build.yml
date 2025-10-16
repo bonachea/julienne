@@ -26,6 +26,13 @@ jobs:
             version: 15 # no package available
 
         include:
+          - os: ubuntu-24.04
+            compiler: gfortran
+            version: 12
+          - os: ubuntu-22.04
+            compiler: gfortran
+            version: 12
+
           # --- LLVM flang coverage ---
 
           - os: macos-14
