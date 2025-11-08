@@ -11,13 +11,12 @@ module julienne_m
   use julienne_file_m, only : file_t
   use julienne_formats_m, only : separated_values, csv
   use julienne_github_ci_m, only : github_ci
-  use julienne_one_image_prints_m, only : one_image_prints
   use julienne_string_m, only : string_t, array_of_strings &
     ,operator(.cat.) &
     ,operator(.csv.) &
     ,operator(.separatedBy.) & ! same as operator(.sv.)
     ,operator(.sv.)
-  use julienne_test_description_m, only : test_description_t, filter
+  use julienne_test_description_m, only : test_description_t, filter, usher
   use julienne_test_diagnosis_m, only   : test_diagnosis_t, diagnosis_function_i  &
     ,operator(//) &
     ,operator(.all.) &
