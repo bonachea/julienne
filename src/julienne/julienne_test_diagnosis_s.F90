@@ -676,15 +676,19 @@ contains
 
   module procedure construct_from_character
     test_diagnosis%test_passed_ = test_passed
-    if (present(diagnostics_string)) then
-      test_diagnosis%diagnostics_string_ = diagnostics_string
-    else
-      test_diagnosis%diagnostics_string_ = ""
-    end if
+    test_diagnosis%diagnostics_string_ = diagnostics_string
   end procedure
 
-  module procedure copy_construct
-    test_diagnosis = diagnosis
+  module procedure copy_construct_from_string_t
+    test_diagnosis = diagnosis // diagnostics_string
+  end procedure
+
+  module procedure copy_construct_from_character
+    if (present(diagnostics_string)) then
+      test_diagnosis = diagnosis // diagnostics_string
+    else
+      test_diagnosis = diagnosis
+    end if
   end procedure
 
   module procedure test_passed
