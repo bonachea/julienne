@@ -579,7 +579,14 @@ module julienne_test_diagnosis_m
       !! The result is a test_diagnosis_t object with the components defined by the dummy arguments
       implicit none
       logical, intent(in) :: test_passed
-      character(len=*), intent(in) :: diagnostics_string
+      character(len=*), intent(in), optional :: diagnostics_string
+      type(test_diagnosis_t) test_diagnosis
+    end function
+
+    elemental module function copy_construct(diagnosis) result(test_diagnosis)
+      !! The result is a copy of the provided test_diagnosis_t object
+      implicit none
+      type(test_diagnosis_t), intent(in) :: diagnosis
       type(test_diagnosis_t) test_diagnosis
     end function
 
