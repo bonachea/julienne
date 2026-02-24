@@ -94,7 +94,7 @@
 
             <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
               <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
-                 title="<p> 7.6% of total for derived types.</p>Including implementation: 8 statements,  6.2% of total for derived types.">22 statements</a>
+                 title="<p>11.8% of total for derived types.</p>Including implementation: 10 statements,  7.6% of total for derived types.">36 statements</a>
             </li>
 
             <li class="list-inline-item" id="source-file">
@@ -175,8 +175,10 @@
       </a>
       <div id="boundprocs-0" class="collapse">
         <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../type/test_diagnosis_t.html#boundprocedure-assignment%28%3D%29">assignment(=)</a>
             <a class="list-group-item" href="../type/test_diagnosis_t.html#boundprocedure-diagnostics_string">diagnostics_string</a>
             <a class="list-group-item" href="../type/test_diagnosis_t.html#boundprocedure-test_passed~2">test_passed</a>
+            <a class="list-group-item" href="../type/test_diagnosis_t.html#boundprocedure-assign_logical">assign_logical</a>
         </div>
       </div>
     </div>
@@ -465,6 +467,124 @@ large graphs.</div>
     
 
           </li>
+          <li class="list-group-item">
+                <h3>
+    private elemental module function copy_construct_from_character(diagnosis, diagnostics_string) result(test_diagnosis)  
+    <a href="../proc/copy_construct_from_character.html"><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
+
+    </h3>
+  <p>The result is a copy of the provided test_diagnosis_t object, with the optional appended string</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-diagnosis~25"></span>
+              type(<a href='test_diagnosis_t.html'>test_diagnosis_t</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>diagnosis</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-diagnostics_string~5"></span>
+              character(len=*),
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>diagnostics_string</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>type(<a href='test_diagnosis_t.html'>test_diagnosis_t</a>)</small>
+    </h4>
+    
+
+          </li>
+          <li class="list-group-item">
+                <h3>
+    private elemental module function copy_construct_from_string_t(diagnosis, diagnostics_string) result(test_diagnosis)  
+    <a href="../proc/copy_construct_from_string_t.html"><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
+
+    </h3>
+  <p>The result is a copy of the provided test_diagnosis_t object, with the appended string</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-diagnosis~24"></span>
+              type(<a href='test_diagnosis_t.html'>test_diagnosis_t</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>diagnosis</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-diagnostics_string~4"></span>
+              type(<a href='string_t.html'>string_t</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>diagnostics_string</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>type(<a href='test_diagnosis_t.html'>test_diagnosis_t</a>)</small>
+    </h4>
+    
+
+          </li>
     </ul>
   </div>
 
@@ -474,6 +594,33 @@ large graphs.</div>
 
       <section>
         <h2>Type-Bound Procedures</h2>
+          <div class="row">
+              <div class="card mt-3">
+    <div class="card-header codesum">
+      <span class="anchor" id="boundprocedure-assignment%28%3D%29"></span>
+      <h3>
+          generic, public ::
+  <strong>assignment(=)</strong> => <a href='/home/runner/work/julienne/julienne/doc/html/type/test_diagnosis_t.html#boundprocedure-assign_logical'>assign_logical</a>
+        
+      </h3>
+    </div>
+      <ul class="list-group">
+          <li class="list-group-item">
+                    <h3>
+    private  interface <a href='../interface/assign_logical.html'>assign_logical</a>()  
+</h3>
+    
+
+  
+
+  <h4>Arguments</h4>
+    <em>None</em>
+
+          </li>
+      </ul>
+  </div>
+
+          </div>
           <div class="row">
               <div class="card mt-3">
     <div class="card-header codesum">
@@ -594,6 +741,76 @@ large graphs.</div>
   </div>
 
           </div>
+          <div class="row">
+              <div class="card mt-3">
+    <div class="card-header codesum">
+      <span class="anchor" id="boundprocedure-assign_logical"></span>
+      <h3>
+          procedure, private, non_overridable ::
+  <strong>assign_logical</strong>
+        
+      </h3>
+    </div>
+      <ul class="list-group">
+          <li class="list-group-item">
+                <h3>interface </h3>
+                    <h3>
+    private module subroutine assign_logical(lhs, rhs)  
+    <a href="../proc/assign_logical.html"><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
+</h3>
+
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              class(<a href='test_diagnosis_t.html'>test_diagnosis_t</a>),
+            </td>
+<td>intent(out)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>lhs</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              logical,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>rhs</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+          </li>
+      </ul>
+  </div>
+
+          </div>
       </section>
 
     
@@ -608,14 +825,14 @@ large graphs.</div>
           <div class="col">
             <p>
               Julienne
- was developed by Berkeley Lab<br>              &copy; 2025 
+ was developed by Berkeley Lab<br>              &copy; 2026 
 </p>
           </div>
           <div class="col">
             <p class="text-end">
               Documentation generated by
               <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2025-11-08 03:47 +0000             </p>
+ on 2026-02-24 21:39 +0000             </p>
           </div>
         </div>
         <br>

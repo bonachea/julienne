@@ -11,6 +11,16 @@ submodule(julienne_test_diagnosis_m) julienne_test_diagnosis_s
   implicit none
 contains
 
+  module procedure passing_test
+    test_diagnosis%test_passed_ = .true.
+    test_diagnosis%diagnostics_string_ = ""
+  end procedure
+
+  module procedure assign_logical
+    lhs%test_passed_ = rhs
+    lhs%diagnostics_string_ = ""
+  end procedure
+
   module procedure append_string_if_test_failed
     if (lhs%test_passed_) then
       lhs_cat_rhs = lhs
@@ -27,8 +37,16 @@ contains
     end if
   end procedure
 
-  module procedure also
+  module procedure also_DD
      diagnosis = .all. ([lhs,rhs])
+  end procedure 
+
+  module procedure also_LD
+     diagnosis = .all. ([.expect.(lhs),rhs])
+  end procedure 
+
+  module procedure also_DL
+     diagnosis = .all. ([lhs,.expect.(rhs)])
   end procedure 
 
 #ifndef __GFORTRAN__
@@ -85,7 +103,16 @@ contains
       integer i
       allocate(array(size(diagnoses)))
       do i = 1, size(diagnoses)
-        array(i) = string_t(new_line_indent // diagnoses(i)%diagnostics_string_)
+        associate( str => diagnoses(i)%diagnostics_string_ )
+          if (len(str) == 0) then
+            array(i) = str
+          else if (str(1:1) == new_line('')) then
+            ! don't prepend a another newline if the string already begins with one
+            array(i) = str
+          else 
+            array(i) = string_t(new_line_indent // str)
+          end if
+        end associate
       end do
       diagnosis = test_diagnosis_t( &
          test_passed = all(diagnoses%test_passed_) &
@@ -109,7 +136,16 @@ contains
     integer i
     allocate(array(size(diagnoses)))
     do i = 1, size(diagnoses)
-      array(i) = string_t(new_line_indent // diagnoses(i)%diagnostics_string_)
+      associate( str => diagnoses(i)%diagnostics_string_ )
+        if (len(str) == 0) then
+          array(i) = str
+        else if (str(1:1) == new_line('')) then
+          ! don't prepend a another newline if the string already begins with one
+          array(i) = str
+        else 
+          array(i) = string_t(new_line_indent // str)
+        end if
+      end associate
     end do
     diagnosis = test_diagnosis_t( &
        test_passed = all(diagnoses%test_passed_) &
@@ -255,20 +291,34 @@ contains
 
   module procedure equals_expected_c_ptr
 
-    if (c_associated(actual, expected)) then
+    if (c_associated(actual, expected) .or. (.not. c_associated(actual) .and. .not. c_associated(expected))) then
       test_diagnosis = test_diagnosis_t(test_passed=.true., diagnostics_string="")
     else
       block
-        integer(c_intptr_t) actual_c_loc, expected_c_loc
         integer(c_intptr_t), parameter :: mold = 0_c_intptr_t
+        character(len=18) :: str_actual, str_expect
 
-        associate(actual_c_loc => transfer(actual, mold), expected_c_loc => transfer(expected, mold))
+        associate(actual_c_loc => transfer(actual, mold), expect_c_loc => transfer(expected, mold))
+          write(str_actual, '(A2,Z16.16)') '0x',actual_c_loc
+          write(str_expect, '(A2,Z16.16)') '0x',expect_c_loc
           test_diagnosis = test_diagnosis_t( &
              test_passed = .false. &
-            ,diagnostics_string = "expected " // string_t(expected_c_loc) // "; actual value is " // string_t(actual_c_loc) &
+            ,diagnostics_string = "expected " // str_expect // "; actual value is " // str_actual &
           )
         end associate
      end block
+    end if
+
+  end procedure
+
+  module procedure equals_expected_logical
+
+    if (actual .EQV. expected) then
+      test_diagnosis = test_diagnosis_t(test_passed=.true., diagnostics_string="")
+    else
+      test_diagnosis = test_diagnosis_t(test_passed = .false. &
+        ,diagnostics_string = "expected " // string_t(expected) // "; actual value is " // string_t(actual) &
+      )
     end if
 
   end procedure
@@ -285,7 +335,7 @@ contains
 
   end procedure
 
-  module procedure equals_expected_integer_c_size_t
+  module procedure equals_expected_int64
 
     if (actual == expected) then
       test_diagnosis = test_diagnosis_t(test_passed=.true., diagnostics_string="")
@@ -381,7 +431,31 @@ contains
 
   end procedure
 
+  module procedure less_than_int64
+
+    if (actual < expected_ceiling) then
+      test_diagnosis = test_diagnosis_t(test_passed=.true., diagnostics_string="")
+    else
+      test_diagnosis = test_diagnosis_t(test_passed = .false. &
+        ,diagnostics_string = "The value " // string_t(actual) // " was expected to be less than " // string_t(expected_ceiling) &
+      )
+    end if
+
+  end procedure
+
   module procedure less_than_or_equal_to_integer
+
+    if (actual <= expected_max) then
+      test_diagnosis = test_diagnosis_t(test_passed=.true., diagnostics_string="")
+    else
+      test_diagnosis = test_diagnosis_t(test_passed = .false. &
+        ,diagnostics_string = "The value " // string_t(actual) // " was expected to be less than or equal to " // string_t(expected_max) &
+      )
+    end if
+
+  end procedure
+
+  module procedure less_than_or_equal_to_int64
 
     if (actual <= expected_max) then
       test_diagnosis = test_diagnosis_t(test_passed=.true., diagnostics_string="")
@@ -418,6 +492,18 @@ contains
   end procedure
 
   module procedure greater_than_or_equal_to_integer
+
+    if (actual >= expected_min) then
+      test_diagnosis = test_diagnosis_t(test_passed=.true., diagnostics_string="")
+    else
+      test_diagnosis = test_diagnosis_t(test_passed = .false. &
+        ,diagnostics_string = "The value " // string_t(actual) // " was expected to be greater than or equal to " // string_t(expected_min) &
+      )
+    end if
+
+  end procedure
+
+  module procedure greater_than_or_equal_to_int64
 
     if (actual >= expected_min) then
       test_diagnosis = test_diagnosis_t(test_passed=.true., diagnostics_string="")
@@ -478,6 +564,18 @@ contains
   end procedure
 
   module procedure greater_than_integer
+
+    if (actual > expected_floor) then
+      test_diagnosis = test_diagnosis_t(test_passed=.true., diagnostics_string="")
+    else
+      test_diagnosis = test_diagnosis_t(test_passed = .false. &
+        ,diagnostics_string = "The value " // string_t(actual) // " was expected to be greater than " // string_t(expected_floor) &
+      )
+    end if
+
+  end procedure
+
+  module procedure greater_than_int64
 
     if (actual > expected_floor) then
       test_diagnosis = test_diagnosis_t(test_passed=.true., diagnostics_string="")
@@ -587,6 +685,18 @@ contains
   module procedure construct_from_character
     test_diagnosis%test_passed_ = test_passed
     test_diagnosis%diagnostics_string_ = diagnostics_string
+  end procedure
+
+  module procedure copy_construct_from_string_t
+    test_diagnosis = diagnosis // diagnostics_string
+  end procedure
+
+  module procedure copy_construct_from_character
+    if (present(diagnostics_string)) then
+      test_diagnosis = diagnosis // diagnostics_string
+    else
+      test_diagnosis = diagnosis
+    end if
   end procedure
 
   module procedure test_passed

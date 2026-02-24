@@ -26,10 +26,12 @@ contains
 
   module procedure write_to_character_file_name
     integer file_unit, l
+    logical file_open
 
     call_assert(allocated(self%lines_))
 
-    open(newunit=file_unit, file=file_name, form='formatted', status='unknown', action='write')
+    inquire(file=file_name, opened=file_open, number=file_unit)
+    if (.not. file_open) open(newunit=file_unit, file=file_name, form='formatted', status='unknown', action='write')
 
     do l = 1, size(self%lines_)
       write(file_unit, '(a)') self%lines_(l)%string()
@@ -41,7 +43,7 @@ contains
   end procedure
 
   module procedure from_lines
-    file_object%lines_ = lines
+    allocate(file_object%lines_, source=lines)
   end procedure
 
   module procedure from_file_with_character_name

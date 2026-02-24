@@ -94,7 +94,7 @@
 
             <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
               <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
-                 title="<p> 0.4% of total for procedures.</p>Including implementation: 39 statements,  0.4% of total for procedures.">39 statements</a>
+                 title="<p> 0.4% of total for procedures.</p>Including implementation: 44 statements,  0.4% of total for procedures.">44 statements</a>
             </li>
 
             <li class="list-inline-item" id="source-file">
@@ -149,8 +149,9 @@
             <a class="list-group-item" href="../interface/operator(.equalsexpected.).html#proc-equals_expected_c_ptr">equals_expected_c_ptr</a>
             <a class="list-group-item" href="../interface/operator(.equalsexpected.).html#proc-equals_expected_character">equals_expected_character</a>
             <a class="list-group-item" href="../interface/operator(.equalsexpected.).html#proc-equals_expected_character_vs_string">equals_expected_character_vs_string</a>
+            <a class="list-group-item" href="../interface/operator(.equalsexpected.).html#proc-equals_expected_int64">equals_expected_int64</a>
             <a class="list-group-item" href="../interface/operator(.equalsexpected.).html#proc-equals_expected_integer">equals_expected_integer</a>
-            <a class="list-group-item" href="../interface/operator(.equalsexpected.).html#proc-equals_expected_integer_c_size_t">equals_expected_integer_c_size_t</a>
+            <a class="list-group-item" href="../interface/operator(.equalsexpected.).html#proc-equals_expected_logical">equals_expected_logical</a>
             <a class="list-group-item" href="../interface/operator(.equalsexpected.).html#proc-equals_expected_string">equals_expected_string</a>
             <a class="list-group-item" href="../interface/operator(.equalsexpected.).html#proc-equals_expected_string_vs_character">equals_expected_string_vs_character</a>
         </div>
@@ -196,7 +197,7 @@
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-actual~6"></span>
+              <span class="anchor" id="variable-actual~7"></span>
               type(c_ptr),
             </td>
 <td>intent(in)</td>
@@ -211,7 +212,7 @@
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-expected~6"></span>
+              <span class="anchor" id="variable-expected~7"></span>
               type(c_ptr),
             </td>
 <td>intent(in)</td>
@@ -256,7 +257,7 @@
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-actual~9"></span>
+              <span class="anchor" id="variable-actual~10"></span>
               character(len=*),
             </td>
 <td>intent(in)</td>
@@ -271,7 +272,7 @@
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-expected~9"></span>
+              <span class="anchor" id="variable-expected~10"></span>
               character(len=*),
             </td>
 <td>intent(in)</td>
@@ -316,7 +317,7 @@
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-actual~11"></span>
+              <span class="anchor" id="variable-actual~12"></span>
               character(len=*),
             </td>
 <td>intent(in)</td>
@@ -331,8 +332,68 @@
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-expected~11"></span>
+              <span class="anchor" id="variable-expected~12"></span>
               type(<a href='../type/string_t.html'>string_t</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>expected</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>type(<a href='../type/test_diagnosis_t.html'>test_diagnosis_t</a>)</small>
+    </h4>
+    
+
+    </div>
+  </div>
+
+            <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-equals_expected_int64"></span> <h3>private elemental module function equals_expected_int64(actual, expected) result(test_diagnosis)  
+    <a href="../proc/equals_expected_int64.html"><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
+</h3></div>
+    <div class="card-body">
+        
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-actual~9"></span>
+              integer(kind=int64),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>actual</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-expected~9"></span>
+              integer(kind=int64),
             </td>
 <td>intent(in)</td>
               <td></td>            <td>
@@ -376,7 +437,7 @@
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-actual~7"></span>
+              <span class="anchor" id="variable-actual~8"></span>
               integer,
             </td>
 <td>intent(in)</td>
@@ -391,7 +452,7 @@
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-expected~7"></span>
+              <span class="anchor" id="variable-expected~8"></span>
               integer,
             </td>
 <td>intent(in)</td>
@@ -417,8 +478,8 @@
   </div>
 
             <div class="card">
-    <div class="card-header codesum"><span class="anchor" id="proc-equals_expected_integer_c_size_t"></span> <h3>private elemental module function equals_expected_integer_c_size_t(actual, expected) result(test_diagnosis)  
-    <a href="../proc/equals_expected_integer_c_size_t.html"><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
+    <div class="card-header codesum"><span class="anchor" id="proc-equals_expected_logical"></span> <h3>private elemental module function equals_expected_logical(actual, expected) result(test_diagnosis)  
+    <a href="../proc/equals_expected_logical.html"><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
 </h3></div>
     <div class="card-body">
         
@@ -436,8 +497,8 @@
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-actual~8"></span>
-              integer(kind=c_size_t),
+              <span class="anchor" id="variable-actual~6"></span>
+              logical,
             </td>
 <td>intent(in)</td>
               <td></td>            <td>
@@ -451,8 +512,8 @@
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-expected~8"></span>
-              integer(kind=c_size_t),
+              <span class="anchor" id="variable-expected~6"></span>
+              logical,
             </td>
 <td>intent(in)</td>
               <td></td>            <td>
@@ -496,7 +557,7 @@
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-actual~10"></span>
+              <span class="anchor" id="variable-actual~11"></span>
               type(<a href='../type/string_t.html'>string_t</a>),
             </td>
 <td>intent(in)</td>
@@ -511,7 +572,7 @@
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-expected~10"></span>
+              <span class="anchor" id="variable-expected~11"></span>
               type(<a href='../type/string_t.html'>string_t</a>),
             </td>
 <td>intent(in)</td>
@@ -556,7 +617,7 @@
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-actual~12"></span>
+              <span class="anchor" id="variable-actual~13"></span>
               type(<a href='../type/string_t.html'>string_t</a>),
             </td>
 <td>intent(in)</td>
@@ -571,7 +632,7 @@
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-expected~12"></span>
+              <span class="anchor" id="variable-expected~13"></span>
               character(len=*),
             </td>
 <td>intent(in)</td>
@@ -608,14 +669,14 @@
           <div class="col">
             <p>
               Julienne
- was developed by Berkeley Lab<br>              &copy; 2025 
+ was developed by Berkeley Lab<br>              &copy; 2026 
 </p>
           </div>
           <div class="col">
             <p class="text-end">
               Documentation generated by
               <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2025-11-08 03:47 +0000             </p>
+ on 2026-02-24 21:39 +0000             </p>
           </div>
         </div>
         <br>

@@ -51,8 +51,6 @@ contains
 
     module procedure run
 
-      type(test_diagnosis_t) test_diagnosis
-
       call_assert(allocated(self%description_))
 
       if (associated(self%diagnosis_function_)) then
@@ -74,9 +72,9 @@ contains
 
     module procedure equals
       call_assert(allocated(lhs%description_) .and. allocated(rhs%description_))
-      lhs_eq_rhs = (lhs%description_ == rhs%description_)
-      if (associated(lhs%diagnosis_function_) .and. associated(rhs%diagnosis_function_)) &
-        lhs_eq_rhs = lhs_eq_rhs .and. associated(lhs%diagnosis_function_, rhs%diagnosis_function_)
+      lhs_eq_rhs = (lhs%description_ == rhs%description_) .and. &
+         ( associated(lhs%diagnosis_function_, rhs%diagnosis_function_) .or. &
+           ( .not. associated(lhs%diagnosis_function_) .and. .not. associated(rhs%diagnosis_function_) ) )
     end procedure
 
     module procedure filter

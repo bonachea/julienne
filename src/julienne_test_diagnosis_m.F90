@@ -6,12 +6,14 @@
 module julienne_test_diagnosis_m
   !! Define abstractions, defined operations, and procedures for writing correctness checks
   use julienne_string_m, only : string_t
-  use iso_c_binding, only : c_size_t, c_ptr
+  use iso_fortran_env, only : int64
+  use iso_c_binding, only : c_ptr
   implicit none
 
   private
   public :: test_diagnosis_t
   public :: diagnosis_function_i
+  public :: passing_test
   public :: operator(//)
   public :: operator(.all.)
   public :: operator(.also.)
@@ -39,6 +41,8 @@ module julienne_test_diagnosis_m
   contains
     procedure, non_overridable :: test_passed
     procedure, non_overridable ::  diagnostics_string
+    generic :: assignment(=) => assign_logical
+    procedure, non_overridable, private ::  assign_logical
   end type
 
   abstract interface
@@ -197,16 +201,32 @@ module julienne_test_diagnosis_m
 
   interface operator(.also.)
      
-    elemental module function also(lhs, rhs) result(diagnosis)
+    elemental module function also_DD(lhs, rhs) result(diagnosis)
       implicit none
       type(test_diagnosis_t), intent(in) :: lhs, rhs
+      type(test_diagnosis_t) diagnosis
+    end function
+
+    elemental module function also_DL(lhs, rhs) result(diagnosis)
+      implicit none
+      type(test_diagnosis_t), intent(in) :: lhs
+      logical, intent(in) :: rhs
+      type(test_diagnosis_t) diagnosis
+    end function
+
+    elemental module function also_LD(lhs, rhs) result(diagnosis)
+      implicit none
+      logical, intent(in) :: lhs
+      type(test_diagnosis_t), intent(in) :: rhs
       type(test_diagnosis_t) diagnosis
     end function
 
   end interface
 
   interface operator(.and.)
-     module procedure also
+     module procedure also_DD
+     module procedure also_LD
+     module procedure also_DL
   end interface
 
   interface operator(.approximates.)
@@ -241,6 +261,12 @@ module julienne_test_diagnosis_m
 
   interface operator(.equalsExpected.)
 
+    elemental module function equals_expected_logical(actual, expected) result(test_diagnosis)
+      implicit none
+      logical, intent(in) :: actual, expected
+      type(test_diagnosis_t) test_diagnosis
+    end function
+
     elemental module function equals_expected_c_ptr(actual, expected) result(test_diagnosis)
       implicit none
       type(c_ptr), intent(in) :: actual, expected
@@ -253,9 +279,9 @@ module julienne_test_diagnosis_m
       type(test_diagnosis_t) test_diagnosis
     end function
 
-    elemental module function equals_expected_integer_c_size_t(actual, expected) result(test_diagnosis)
+    elemental module function equals_expected_int64(actual, expected) result(test_diagnosis)
       implicit none
-      integer(c_size_t), intent(in) :: actual, expected
+      integer(int64), intent(in) :: actual, expected
       type(test_diagnosis_t) test_diagnosis
     end function
 
@@ -307,6 +333,12 @@ module julienne_test_diagnosis_m
       type(test_diagnosis_t) test_diagnosis
     end function
 
+    elemental module function less_than_int64(actual, expected_ceiling) result(test_diagnosis)
+      implicit none
+      integer(int64), intent(in) :: actual, expected_ceiling
+      type(test_diagnosis_t) test_diagnosis
+    end function
+
   end interface
 
   interface operator(.lessThanOrEqualTo.)
@@ -314,6 +346,12 @@ module julienne_test_diagnosis_m
     elemental module function less_than_or_equal_to_integer(actual, expected_max) result(test_diagnosis)
       implicit none
       integer, intent(in) :: actual, expected_max
+      type(test_diagnosis_t) test_diagnosis
+    end function
+
+    elemental module function less_than_or_equal_to_int64(actual, expected_max) result(test_diagnosis)
+      implicit none
+      integer(int64), intent(in) :: actual, expected_max
       type(test_diagnosis_t) test_diagnosis
     end function
 
@@ -333,12 +371,14 @@ module julienne_test_diagnosis_m
 
   interface operator(.isAtMost.)
     module procedure less_than_or_equal_to_integer
+    module procedure less_than_or_equal_to_int64
     module procedure less_than_or_equal_to_real
     module procedure less_than_or_equal_to_double_precision
   end interface
 
   interface operator(.isAtLeast.)
     module procedure greater_than_or_equal_to_integer
+    module procedure greater_than_or_equal_to_int64
     module procedure greater_than_or_equal_to_real
     module procedure greater_than_or_equal_to_double_precision
   end interface
@@ -411,6 +451,12 @@ module julienne_test_diagnosis_m
       type(test_diagnosis_t) test_diagnosis
     end function
 
+    elemental module function greater_than_or_equal_to_int64(actual, expected_min) result(test_diagnosis)
+      implicit none
+      integer(int64), intent(in) :: actual, expected_min
+      type(test_diagnosis_t) test_diagnosis
+    end function
+
     elemental module function greater_than_or_equal_to_real(actual, expected_min) result(test_diagnosis)
       implicit none
       real, intent(in) :: actual, expected_min
@@ -442,6 +488,12 @@ module julienne_test_diagnosis_m
     elemental module function greater_than_integer(actual, expected_floor) result(test_diagnosis)
       implicit none
       integer, intent(in) :: actual, expected_floor
+      type(test_diagnosis_t) test_diagnosis
+    end function
+
+    elemental module function greater_than_int64(actual, expected_floor) result(test_diagnosis)
+      implicit none
+      integer(int64), intent(in) :: actual, expected_floor
       type(test_diagnosis_t) test_diagnosis
     end function
 
@@ -531,9 +583,37 @@ module julienne_test_diagnosis_m
       type(test_diagnosis_t) test_diagnosis
     end function
 
+    elemental module function copy_construct_from_string_t(diagnosis, diagnostics_string) result(test_diagnosis)
+      !! The result is a copy of the provided test_diagnosis_t object, with the appended string
+      implicit none
+      type(test_diagnosis_t), intent(in) :: diagnosis
+      type(string_t), intent(in) :: diagnostics_string
+      type(test_diagnosis_t) test_diagnosis
+    end function
+
+    elemental module function copy_construct_from_character(diagnosis, diagnostics_string) result(test_diagnosis)
+      !! The result is a copy of the provided test_diagnosis_t object, with the optional appended string
+      implicit none
+      type(test_diagnosis_t), intent(in) :: diagnosis
+      character(len=*), intent(in), optional :: diagnostics_string
+      type(test_diagnosis_t) test_diagnosis
+    end function
+
   end interface
 
   interface
+
+    module subroutine assign_logical(lhs, rhs)
+      implicit none
+      class(test_diagnosis_t), intent(out) :: lhs
+      logical, intent(in) :: rhs
+    end subroutine
+
+    pure module function passing_test() result(test_diagnosis)
+      !! Construct a passing test diagnosis with a zero-length diagnostics string
+      implicit none
+      type(test_diagnosis_t) test_diagnosis
+    end function
 
     elemental module function test_passed(self) result(passed)
       !! The result is .true. if the test passed on the executing image and false otherwise

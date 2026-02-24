@@ -1,8 +1,6 @@
 ! Copyright (c) 2024-2025, The Regents of the University of California and Sourcery Institute
 ! Terms of use are as specified in LICENSE.txt
 
-#include "language-support.F90"
-
 module julienne_m
   !! Global aggregation of all public entities
   use julienne_assert_m, only : call_julienne_assert_, julienne_assert
@@ -17,7 +15,8 @@ module julienne_m
     ,operator(.separatedBy.) & ! same as operator(.sv.)
     ,operator(.sv.)
   use julienne_test_description_m, only : test_description_t, filter, usher
-  use julienne_test_diagnosis_m, only   : test_diagnosis_t, diagnosis_function_i  &
+  use julienne_test_diagnosis_m, only : &
+     diagnosis_function_i &
     ,operator(//) &
     ,operator(.all.) &
     ,operator(.also.) &
@@ -35,12 +34,21 @@ module julienne_m
     ,operator(.greaterThanOrEqualTo.) & ! same as operator(.isAtLeast.)
     ,operator(.within.) &
     ,operator(.withinFraction.) &
-    ,operator(.withinPercentage.)
+    ,operator(.withinPercentage.) &
+    ,passing_test &
+    ,test_diagnosis_t
   use julienne_test_fixture_m, only : test_fixture_t
   use julienne_test_harness_m, only : test_harness_t
   use julienne_test_result_m,  only : test_result_t
   use julienne_test_suite_m,   only : test_suite_t
   use julienne_test_m,         only : test_t
-
+#if JULIENNE_PARALLEL_CALLBACKS
+  use julienne_multi_image_m,  only: &
+     julienne_this_image_interface, julienne_this_image &
+    ,julienne_num_images_interface, julienne_num_images &
+    ,julienne_sync_all_interface, julienne_sync_all &
+    ,julienne_co_sum_integer_interface, julienne_co_sum_integer &
+    ,julienne_error_stop_interface, julienne_error_stop 
+#endif
   implicit none
 end module julienne_m
