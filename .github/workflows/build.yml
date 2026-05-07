@@ -238,7 +238,8 @@ jobs:
         fi
 
     - name: Setup FPM
-      uses: fortran-lang/setup-fpm@main
+      #uses: fortran-lang/setup-fpm@main
+      uses: perazz/setup-fpm@fix/node24-upgrade
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
         fpm-version: latest
