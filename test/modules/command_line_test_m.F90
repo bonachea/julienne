@@ -66,7 +66,7 @@ contains
           // "----> To test locally, append the following flags to the 'fpm test' command: -- --test command_line_t --type" &
           // new_line('')
       end if
-    else if (.not. command_line%argument_present(["--test"])) then ! skip the tests if not explicitly requested
+    else if (.not. command_line%character_argument_present(["--test"])) then ! skip the tests if not explicitly requested
       test_descriptions = [ &
          test_description_t(string_t("flag_value() result is the value passed after a command-line flag")) &
         ,test_description_t(string_t("flag_value() result is an empty string if command-line flag value is missing")) &
@@ -98,31 +98,31 @@ contains
   function check_flag_value() result(test_diagnosis)
     type(test_diagnosis_t) test_diagnosis
     type(command_line_t) command_line
-    test_diagnosis = command_line%flag_value("--test") .equalsExpected. "command_line_t"
+    test_diagnosis = command_line%character_flag_value("--test") .equalsExpected. "command_line_t"
   end function
 
   function check_flag_value_missing() result(test_diagnosis)
     type(test_diagnosis_t) test_diagnosis
     type(command_line_t) command_line
-    test_diagnosis = command_line%flag_value("--type") .equalsExpected. ""
+    test_diagnosis = command_line%character_flag_value("--type") .equalsExpected. ""
   end function
 
   function check_flag_missing() result(test_diagnosis)
     type(test_diagnosis_t) test_diagnosis
     type(command_line_t) command_line
-    test_diagnosis = command_line%flag_value("r@nd0m.Junk-H3R3") .equalsExpected. ""
+    test_diagnosis = command_line%character_flag_value("r@nd0m.Junk-H3R3") .equalsExpected. ""
   end function
 
   function check_argument_missing() result(test_diagnosis)
     type(test_diagnosis_t) test_diagnosis
     type(command_line_t) command_line
-    test_diagnosis = .expect. (.not. command_line%argument_present(["M1ss1ng-argUment"]))
+    test_diagnosis = .expect. (.not. command_line%character_argument_present(["M1ss1ng-argUment"]))
   end function
 
   function check_argument_present() result(test_diagnosis)
     type(test_diagnosis_t) test_diagnosis
     type(command_line_t) command_line
-    test_diagnosis = .expect. command_line%argument_present(["--type"])
+    test_diagnosis = .expect. command_line%character_argument_present(["--type"])
   end function
 
 end module command_line_test_m
