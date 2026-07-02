@@ -3,11 +3,11 @@
 </p>
 
 
-Key Features                                               | Things You Need To Know
------------------------------------------------------------|----------------------------------------------
-[Idioms for unit testing & assertions](#expressive-idioms) | [Getting started](#getting-started)
-[A file abstraction](#A-file-abstraction)                  | [Building and Testing](#building-and-testing)
-[Output in Pure Procedures](#output-in-pure-procedures)    | 
+Key Features                                                | Things You Need To Know
+------------------------------------------------------------|----------------------------------------------
+[Idioms for unit testing & assertions](#expressive-idioms)  | [Getting started](#getting-started)
+[A file abstraction](#A-file-abstraction)                   | [Building and Testing](#building-and-testing)
+[Printing in Pure Procedures](#printing-in-pure-procedures) | 
 
 Julienne: Idiomatic Correctness Checking for Fortran 2023
 =========================================================
@@ -236,23 +236,24 @@ To define the following macros or to override the values defined in Julienne's
 - `TEST_INTENTIONAL_FAILURE`: enables tests of unit-test failure; also enables
   tests of assertion failure if `ASSERTIONS` is non-zero.
 
-Output in pure procedures
--------------------------
-Julienne's `stop_and_print` generic interface facilitates automatic or user-defined
-formatting of various data types and ranks inside `pure` procedures via either of two
-specific subroutines:
+Printing in pure procedures
+--------------------------
+Julienne provides the `pure` `stop_and_print` subroutine to facilite the automatic
+or user-defined formatting and printing of various types and ranks of data as stop
+codes inside `pure` procedures.  The `stop_and_print` subroutine accepts an 
+unlimited-polymorphic, assumed-rank dummy dummy argument and `optional` `character`
+header and footer arguments for printing above and below the contents of `data`,
+respectively.
 
-1. One with a Julienne `string_t` dummy argument and
-2. Another with `character` and unlimited-polymorphic/assumed-rank dummy arguments.
+Julienne automatically formats and prints numeric scalars or arrays up to rank 3.
+Alternatively, users can customize the output format by passing a `data` actual
+argument constructed from one of the following Julienne types:
 
-The first subroutine accepts Julienne `string_t` expressions that, for example, convert
-numeric arrays to comma-separated text with `.csv. string_t([1,2,3])`.  The second
-subroutine prints its `character` argument as a header followed by user-formatted or
-automatically-formatted representrations of its polymorphic argument.  Julienne
-automatically formats and prints numeric scalars or arrays up to rank 3.  Users can
-format information for printing by encapsulating the text in a Julienne `file_t` object
-or passing an object, or object wrapper, that extends Julienne's `writable_t` abstract
-type and defines the so-inherited `write(formatted)` generic binding.
+1. A `string_t` object constructed with the string manipulation functions
+   described in the [Custom Test Diagnostics](#custom-test-diagnostics) section,
+2. A `file_t` object described in [A file abstraction](#a-file-abstraction), or
+3. A `writable_t` child object that defines the `write(formatted)` generic
+   binding inherited from the abstract `writable_t` parent.
 
 An Origin Story
 ---------------
@@ -280,11 +281,11 @@ Known Software Using Julienne
 * [band_distribution](https://github.com/pibion/band_distribution?tab=readme-ov-file): a utility supporting the search for dark matter 
 * [Caffeine](https://go.lbl.gov/caffeine): Coarray Fortran Framework of Efficient Interfaces to Network Environments
 * [Fiats](https://go.lbl.gov/fiats): Functional inference and training for surrogates
+* [Formal](https://go.lbl.gov/formal): Fortran mimetic abstraction language
 * [Matcha](https://go.lbl.gov/matcha): Motility analysis of T-cell histories in activation
 * nQMCC: Quantum Monte Carlo simulation software for nuclear physics
 * [TRACE](https://www.nrc.gov/docs/ML1200/ML120060218.pdf): a two-phase flow solver for nuclear reactors
 
-[`diagnosis_function_i`]: https://github.com/BerkeleyLab/julienne/blob/37bcc959efa8f9e27ae50fecfd37a6bf52ef0a43/src/julienne/julienne_test_description_m.f90#L16
 [documentation]: https:///berkeleylab.github.io/julienne/
 [FORD]: https://github.com/Fortran-FOSS-Programmers/ford
 [Garden]: https://gitlab.com/everythingfunctional/garden
