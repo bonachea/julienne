@@ -2,6 +2,13 @@
   <img width="250" height="250" src="https://github.com/user-attachments/assets/1a1c4f1a-f229-4d6d-bcaa-d5d9826ee639">
 </p>
 
+
+Key Features                                               | Things You Need To Know
+-----------------------------------------------------------|----------------------------------------------
+[Idioms for unit testing & assertions](#expressive-idioms) | [Getting started](#getting-started)
+[A file abstraction](#A-file-abstraction)                  | [Building and Testing](#building-and-testing)
+[Output in Pure Procedures](#output-in-pure-procedures)    | 
+
 Julienne: Idiomatic Correctness Checking for Fortran 2023
 =========================================================
 Overview
@@ -14,7 +21,7 @@ procedures.  Julienne idioms center around expressions built from
 defined operations: a uniquely flexible Fortran capability allowing developers
 to define _new_ operators or to overloading Fortran's intrinsic operators.
 
-Expressive idioms
+Expressive Idioms
 -----------------
 Example expressions                                  | Supported operand types
 -----------------------------------------------------|--------------------------------------
@@ -108,7 +115,7 @@ test_diagnosis = test_diagnosis_t( &
 )
 ```
 
-A file abstraction
+A File Abstraction
 ------------------
 Arrays of `string_t` objects provide a convenient way to store a ragged-length
 array of `character` data.  Julienne's `file_t` derived type has a private
@@ -149,7 +156,7 @@ expressions inspired by natural language.  A program will proceed quietly past
 a correct assertion.  An incorrect assertion produces either automated or custom
 diagnostic messages during error termination.
 
-Getting Started
+Getting started
 ---------------
 ### Writing Unit Tests
 Please see [demo/README.md](./demo/README.md) for a detailed demonstration of
