@@ -268,13 +268,13 @@ jobs:
           ( echo ; set -x ; w=$(which $tool) ; ls -al $w ; ls -alhL $w ; $tool --version )
         done
 
-    - name: Build and Test (Assertions OFF)
-      run: |
-        fpm test ${FPM_FLAGS} --target driver --flag "$FFLAGS" -- --test command_line_t --type
-
     - name: Build and Test (Assertions ON)
       env:
         FPM_FLAGS: ${{ env.FPM_FLAGS }} --flag -DASSERTIONS
+      run: |
+        fpm test ${FPM_FLAGS} --target driver --flag "$FFLAGS" -- --test command_line_t --type
+
+    - name: Build and Test (Assertions OFF)
       run: |
         fpm test ${FPM_FLAGS} --target driver --flag "$FFLAGS" -- --test command_line_t --type
 
@@ -310,6 +310,20 @@ jobs:
         ( set +e
           fpm run --example pure-stop-and-print ${FPM_FLAGS} --flag "$FFLAGS" -- --file fpm.toml 2>&1 | tee output
           test ${PIPESTATUS[0]} > 0 && grep -q "[install]" output
+        )
+
+    - name: Run Demo (Assertions ON)
+      env:
+        FPM_FLAGS: ${{ env.FPM_FLAGS }} --flag -DASSERTIONS
+      run: |
+        cd demo
+        fpm test ${FPM_FLAGS} --flag "$FFLAGS" -- --contains doing
+        ( set +e
+          fpm test ${FPM_FLAGS} --flag "$FFLAGS" -- 2>&1 | tee output
+          test ${PIPESTATUS[0]} > 0 && 
+            grep -q "FAILS  on checking something." output &&
+            grep -q "SKIPS  on skipping something." output &&
+            grep -q "2 of 6 tests passed. 2 tests were skipped" output 
         )
 
     - name: Test w/ Parallel Callbacks
