@@ -3,7 +3,7 @@
 
 module specimen_test_m
   use julienne_m, only : &
-     test_t, test_description_t, test_diagnosis_t, test_result_t &
+     test_t, test_description_t, test_diagnosis_t, test_result_t, usher &
     ,operator(.approximates.), operator(.within.), operator(.all.), operator(//)
   use specimen_m, only : specimen_t
   implicit none
@@ -25,8 +25,8 @@ contains
     type(specimen_test_t) specimen_test
     type(test_result_t), allocatable :: test_results(:)
     test_results = specimen_test%run( & 
-      [test_description_t('doing something', do_something) &
-      ,test_description_t('checking something', check_something) &
+      [test_description_t('doing something', usher(do_something)) &
+      ,test_description_t('checking something', usher(check_something)) &
       ,test_description_t('skipping something') &
     ])
   end function
