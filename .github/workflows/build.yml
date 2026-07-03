@@ -268,13 +268,13 @@ jobs:
           ( echo ; set -x ; w=$(which $tool) ; ls -al $w ; ls -alhL $w ; $tool --version )
         done
 
-    - name: Build and Test (Assertions OFF)
-      run: |
-        fpm test ${FPM_FLAGS} --target driver --flag "$FFLAGS" -- --test command_line_t --type
-
     - name: Build and Test (Assertions ON)
       env:
         FPM_FLAGS: ${{ env.FPM_FLAGS }} --flag -DASSERTIONS
+      run: |
+        fpm test ${FPM_FLAGS} --target driver --flag "$FFLAGS" -- --test command_line_t --type
+
+    - name: Build and Test (Assertions OFF)
       run: |
         fpm test ${FPM_FLAGS} --target driver --flag "$FFLAGS" -- --test command_line_t --type
 
